@@ -72,89 +72,89 @@ export default function FounderPageContent() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden bg-background">
         <div className="container mx-auto px-6 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="relative order-2 lg:order-1"
-            >
-              <div className="aspect-square max-w-md mx-auto relative">
-                <motion.div
-                  animate={{ rotate: [0, 5, 0, -5, 0] }}
-                  transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY }}
-                  className="absolute inset-0 rounded-3xl bg-foreground/10 rotate-6"
-                />
-                <div className="absolute inset-0 rounded-3xl bg-card border border-border -rotate-6" />
-                <div className="relative rounded-3xl overflow-hidden border border-border">
-                  <img
-                    src="/professional-indian-male-developer-portrait.jpg"
-                    alt="Vivek Vora - Founder of Vision Tech"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Floating badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="absolute -bottom-4 -right-4 px-6 py-3 rounded-xl bg-foreground text-background"
-                >
-                  <span className="font-bold">5+ Years</span>
-                  <span className="ml-2 opacity-70">Experience</span>
-                </motion.div>
-              </div>
-            </motion.div>
-
+          <div className="max-w-4xl mx-auto text-center">
             {/* Info */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2"
             >
               <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
                 className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4 block"
               >
                 Founder & CEO
               </motion.span>
-              <h1 className="text-4xl md:text-6xl font-serif mt-4 mb-4 text-foreground">Vivek Vora</h1>
-              <p className="text-xl text-muted-foreground mb-6">Full-Stack Developer & Tech Entrepreneur</p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-4xl md:text-6xl font-serif mt-4 mb-4 text-foreground"
+              >
+                Vivek Vora
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-xl text-muted-foreground mb-6"
+              >
+                Full-Stack Developer & Tech Entrepreneur
+              </motion.p>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto"
+              >
                 Empowering businesses with custom-built apps and high-performance solutions. I help businesses transform
                 their operations by creating custom apps, high-performance systems, and modern technology workflows.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="flex flex-wrap justify-center gap-4 mb-8"
+              >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
                 >
                   <Briefcase className="w-4 h-4 text-foreground" />
                   <span className="text-sm text-foreground">Founder, Vision Tech</span>
                 </motion.div>
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
                 >
                   <Code2 className="w-4 h-4 text-foreground" />
                   <span className="text-sm text-foreground">Full-Stack Expert</span>
                 </motion.div>
-              </div>
+              </motion.div>
 
-              <Link
-                href="mailto:madevisionstudios@gmail.com"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
               >
-                <Mail className="w-4 h-4" />
-                Get in Touch
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                <Link
+                  href="mailto:madevisionstudios@gmail.com"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  Get in Touch
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
         </div>

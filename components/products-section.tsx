@@ -16,29 +16,22 @@ const products = [
     icon: ShoppingCart,
     title: "Retailians POS",
     description:
-      "A modern cloud-based POS and inventory management SaaS with fast billing, stock control, multi-store support, GST reports, and loyalty programs.",
+      "Empowering thousands of retail business owners across India to embrace technology and streamline operations.One platform, infinite possibilities!",
     number: "01",
   },
   {
     icon: Building2,
     title: "911 Wrap ERP",
     description:
-      "A full ERP system for managing operations, inventory, accounts, billing, workflow automation, and secure cloud access.",
+      "9-Eleven Wrap ERP delivers cutting-edge ERP solutions for automobile dealerships and custom wrap studios. From order management to profit analytics - everything you need to dominate the automotive market.",
     number: "02",
   },
   {
-    icon: Wrench,
-    title: "Datar Technologies",
-    description:
-      "Custom-developed IT solutions including websites, automation tools, and business apps with scalable architecture.",
-    number: "03",
-  },
-  {
     icon: Sparkles,
-    title: "AI Chatbot Solutions",
+    title: "DSAT Guru – Smart SAT",
     description:
-      "Intelligent conversational AI systems for customer support, lead generation, and business automation with natural language processing.",
-    number: "04",
+      "An intelligent preparation platform providing tailored study plans, real-time performance analytics, and guided practice to help students achieve their highest potential.",
+    number: "03",
   },
 ]
 

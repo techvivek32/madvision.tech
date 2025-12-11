@@ -233,52 +233,44 @@ export default function Navigation() {
                         <Link
                           href={link.href}
                           onClick={() => setIsSidePanelOpen(false)}
-                          className="group relative block py-3 overflow-hidden"
+                          className="group relative block py-4 overflow-hidden"
                         >
-                          {/* Main text */}
-                          <span
-                            className={cn(
-                              "relative z-10 text-4xl md:text-5xl font-bold tracking-tight transition-all duration-300",
-                              isActive ? "text-background" : "text-background/60 group-hover:text-background",
-                            )}
-                          >
-                            {link.label}
-                          </span>
+                          {/* Background slide */}
+                          <motion.div
+                            className="absolute inset-0 bg-background/5"
+                            initial={{ x: "-100%" }}
+                            whileHover={{ x: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                          />
+                          
+                          <div className="relative flex items-center justify-between px-4">
+                            <motion.span
+                              className={cn(
+                                "text-4xl md:text-5xl font-bold tracking-tight transition-colors duration-300",
+                                isActive ? "text-background" : "text-background/60 group-hover:text-background",
+                              )}
+                              whileHover={{ x: 15 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              {link.label}
+                            </motion.span>
 
-                          {/* Glitch layers on hover */}
-                          <span
-                            className="absolute top-0 left-0 text-4xl md:text-5xl font-bold tracking-tight text-background/30 opacity-0 group-hover:opacity-100 transition-opacity duration-100"
-                            style={{
-                              transform: "translate(-2px, -2px)",
-                              clipPath: "polygon(0 0, 100% 0, 100% 45%, 0 45%)",
-                            }}
-                            aria-hidden="true"
-                          >
-                            {link.label}
-                          </span>
-                          <span
-                            className="absolute top-0 left-0 text-4xl md:text-5xl font-bold tracking-tight text-background/30 opacity-0 group-hover:opacity-100 transition-opacity duration-100"
-                            style={{
-                              transform: "translate(2px, 2px)",
-                              clipPath: "polygon(0 55%, 100% 55%, 100% 100%, 0 100%)",
-                            }}
-                            aria-hidden="true"
-                          >
-                            {link.label}
-                          </span>
-
-                          {/* Animated underline */}
-                          <motion.span
-                            className="absolute bottom-2 left-0 h-0.5 bg-background/40"
+                            <motion.span 
+                              className="text-lg font-mono text-background/20 group-hover:text-background/50 transition-colors duration-300"
+                              initial={{ opacity: 0, x: -20 }}
+                              whileHover={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              0{i + 1}
+                            </motion.span>
+                          </div>
+                          
+                          <motion.div
+                            className="absolute bottom-0 left-0 h-px bg-background/30"
                             initial={{ width: isActive ? "100%" : "0%" }}
                             whileHover={{ width: "100%" }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.4 }}
                           />
-
-                          {/* Number indicator */}
-                          <span className="absolute right-0 top-1/2 -translate-y-1/2 text-sm font-mono text-background/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                            0{i + 1}
-                          </span>
                         </Link>
                       </motion.div>
                     )

@@ -40,7 +40,7 @@ export default function HeroSection() {
         >
           <div className="w-px h-16 bg-foreground/20 mx-auto" />
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/vivek-tech32/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/60 hover:text-foreground transition-colors"
@@ -50,7 +50,7 @@ export default function HeroSection() {
             </svg>
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/techvivek32"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/60 hover:text-foreground transition-colors"
@@ -60,7 +60,7 @@ export default function HeroSection() {
             </svg>
           </a>
           <a
-            href="https://wa.me"
+            href="https://wa.me/919601176051"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/60 hover:text-foreground transition-colors"

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ShoppingCart, Building2, Wrench, CheckCircle2, ArrowRight, Sparkles } from "lucide-react"
+import { ShoppingCart, Building2, Wrench, CheckCircle2, ArrowRight, Sparkles, GraduationCap } from "lucide-react"
 import Link from "next/link"
 import { useRef } from "react"
 import { RunningStrip, LargeTextMarquee } from "./marquee-section"
@@ -12,11 +12,10 @@ const products = [
     name: "Retailians POS",
     tagline: "Modern Point of Sale for Retail",
     description:
-      "A modern cloud-based POS and inventory management SaaS with fast billing, stock control, multi-store support, GST reports, and loyalty programs.",
+      "Empowering thousands of retail business owners across India to embrace technology and streamline operations.Oneplatform, infinite possibilities!",
     features: [
       "Lightning-fast billing system",
       "Real-time inventory tracking",
-      "Multi-store management",
       "GST-compliant reports",
       "Customer loyalty programs",
       "Offline mode support",
@@ -28,7 +27,7 @@ const products = [
     name: "911 Wrap ERP",
     tagline: "Complete Enterprise Resource Planning",
     description:
-      "A full ERP system for managing operations, inventory, accounts, billing, workflow automation, and secure cloud access.",
+      "9-Eleven Wrap ERP delivers cutting-edge ERP solutions for automobile dealerships and custom wrap studios. From order management to profit analytics - everything you need to dominate the automotive market.",
     features: [
       "Operations management",
       "Inventory control",
@@ -40,20 +39,20 @@ const products = [
     image: "/enterprise-erp-software-interface.jpg",
   },
   {
-    icon: Wrench,
-    name: "Custom Solutions",
-    tagline: "Tailored IT Solutions",
+    icon: GraduationCap,
+    name: "DSAT Guru – Smart SAT",
+    tagline: "Intelligent SAT Preparation Platform",
     description:
-      "Custom-developed IT solutions including websites, automation tools, and business apps with scalable architecture.",
+      "An intelligent preparation platform providing tailored study plans, real-time performance analytics, and guided practice to help students achieve their highest potential.",
     features: [
-      "Custom web applications",
-      "Business automation tools",
-      "Scalable architecture",
-      "Modern tech stack",
-      "Ongoing maintenance",
-      "24/7 support",
+      "Tailored study plans",
+      "Real-time analytics",
+      "Guided practice sessions",
+      "Performance tracking",
+      "Adaptive learning",
+      "Progress insights",
     ],
-    image: "/custom-software-development-workspace.jpg",
+    image: "/img/3.jpg",
   },
 ]
 
@@ -175,7 +174,7 @@ export default function ProductsPageContent() {
       </section>
 
       {/* Running Strip */}
-      <RunningStrip text="RETAILIANS POS • 911 WRAP ERP • CUSTOM SOLUTIONS" speed={25} />
+      <RunningStrip text="RETAILIANS POS • 911 WRAP ERP • DSAT GURU" speed={25} />
 
       {/* Products Section */}
       <section className="bg-background">
@@ -213,7 +212,7 @@ export default function ProductsPageContent() {
                 description: "Enterprise-grade reliability",
               },
               {
-                number: "10K+",
+                number: "4.8K",
                 label: "Users",
                 description: "Scalable architecture",
               },

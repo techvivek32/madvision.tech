@@ -13,7 +13,7 @@ const Scroll3DElement = dynamic(() => import("@/components/scroll-3d-element"), 
 const stats = [
   { value: 14, suffix: "+", label: "Team Members" },
   { value: 5, suffix: "+", label: "Years Experience" },
-  { value: 50, suffix: "+", label: "Projects Delivered" },
+  { value: 104, suffix: "+", label: "Projects Delivered" },
   { value: 100, suffix: "%", label: "Client Satisfaction" },
 ]
 

@@ -14,7 +14,7 @@ const footerLinks = {
   products: [
     { label: "Retailians POS", href: "/products" },
     { label: "911 Wrap ERP", href: "/products" },
-    { label: "Custom Solutions", href: "/products" },
+    { label: "DSAT Guru – Smart SAT", href: "/products" },
   ],
 }
 
@@ -168,10 +168,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Vision Tech. All rights reserved.
           </motion.p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-sm text-white/30 hover:text-white transition-colors">
+            <Link href="/privacy" className="text-sm text-white/30 hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-white/30 hover:text-white transition-colors">
+            <Link href="/terms" className="text-sm text-white/30 hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>
