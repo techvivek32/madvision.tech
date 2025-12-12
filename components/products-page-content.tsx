@@ -38,22 +38,7 @@ const products = [
     ],
     image: "/enterprise-erp-software-interface.jpg",
   },
-  {
-    icon: GraduationCap,
-    name: "DSAT Guru – Smart SAT",
-    tagline: "Intelligent SAT Preparation Platform",
-    description:
-      "An intelligent preparation platform providing tailored study plans, real-time performance analytics, and guided practice to help students achieve their highest potential.",
-    features: [
-      "Tailored study plans",
-      "Real-time analytics",
-      "Guided practice sessions",
-      "Performance tracking",
-      "Adaptive learning",
-      "Progress insights",
-    ],
-    image: "/img/3.jpg",
-  },
+
 ]
 
 function ProductCard({ product, index }: { product: (typeof products)[0]; index: number }) {
@@ -174,7 +159,7 @@ export default function ProductsPageContent() {
       </section>
 
       {/* Running Strip */}
-      <RunningStrip text="RETAILIANS POS • 911 WRAP ERP • DSAT GURU" speed={25} />
+      <RunningStrip text="RETAILIANS POS • 911 WRAP ERP • ENTERPRISE SOLUTIONS" speed={25} />
 
       {/* Products Section */}
       <section className="bg-background">

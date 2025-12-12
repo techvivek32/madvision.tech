@@ -20,6 +20,7 @@ export default function Navigation() {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +58,7 @@ export default function Navigation() {
               {/* Logo - top left */}
               <Link href="/" className="relative z-10">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-2">
-                  <span className="text-xl font-bold text-foreground tracking-tight">Vision Tech</span>
+                  <span className={`text-xl font-bold tracking-tight ${isHomePage ? 'text-white' : 'text-black'}`}>Vision Tech</span>
                 </motion.div>
               </Link>
 
@@ -76,14 +77,16 @@ export default function Navigation() {
                       <span
                         className={cn(
                           "transition-colors duration-200",
-                          isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                          isHomePage 
+                            ? (isActive ? "text-white" : "text-white/80 hover:text-white")
+                            : (isActive ? "text-black" : "text-gray-700 hover:text-black"),
                         )}
                       >
                         {link.label}
                       </span>
                       {/* Underline animation */}
                       <motion.span
-                        className="absolute bottom-0 left-0 h-px bg-foreground"
+                        className={`absolute bottom-0 left-0 h-px ${isHomePage ? 'bg-white' : 'bg-black'}`}
                         initial={{ width: isActive ? "100%" : "0%" }}
                         animate={{
                           width: isActive || hoveredLink === link.href ? "100%" : "0%",
@@ -98,9 +101,9 @@ export default function Navigation() {
               {/* Mobile menu button for default state */}
               <button onClick={() => setIsSidePanelOpen(true)} className="md:hidden p-2" aria-label="Open menu">
                 <div className="flex flex-col gap-1.5">
-                  <span className="w-6 h-0.5 bg-foreground" />
-                  <span className="w-6 h-0.5 bg-foreground" />
-                  <span className="w-4 h-0.5 bg-foreground" />
+                  <span className={`w-6 h-0.5 ${isHomePage ? 'bg-white' : 'bg-black'}`} />
+                  <span className={`w-6 h-0.5 ${isHomePage ? 'bg-white' : 'bg-black'}`} />
+                  <span className={`w-4 h-0.5 ${isHomePage ? 'bg-white' : 'bg-black'}`} />
                 </div>
               </button>
             </div>

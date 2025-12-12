@@ -26,13 +26,7 @@ const products = [
       "9-Eleven Wrap ERP delivers cutting-edge ERP solutions for automobile dealerships and custom wrap studios. From order management to profit analytics - everything you need to dominate the automotive market.",
     number: "02",
   },
-  {
-    icon: Sparkles,
-    title: "DSAT Guru – Smart SAT",
-    description:
-      "An intelligent preparation platform providing tailored study plans, real-time performance analytics, and guided practice to help students achieve their highest potential.",
-    number: "03",
-  },
+
 ]
 
 export default function ProductsSection() {

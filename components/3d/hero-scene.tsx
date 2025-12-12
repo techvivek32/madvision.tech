@@ -1,249 +1,258 @@
 "use client"
 
-import { useRef, useMemo, Suspense } from "react"
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { Float, Environment, Sphere, MeshDistortMaterial } from "@react-three/drei"
-import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing"
-import * as THREE from "three"
-
-function TechGrid() {
-  const gridRef = useRef<THREE.Group>(null)
-
-  const lines = useMemo(() => {
-    const arr = []
-    for (let i = -10; i <= 10; i++) {
-      arr.push(
-        <line key={`h-${i}`}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={2}
-              array={new Float32Array([-10, -3, i, 10, -3, i])}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial color="#222" transparent opacity={0.3} />
-        </line>,
-      )
-      arr.push(
-        <line key={`v-${i}`}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={2}
-              array={new Float32Array([i, -3, -10, i, -3, 10])}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial color="#222" transparent opacity={0.3} />
-        </line>,
-      )
-    }
-    return arr
-  }, [])
-
-  useFrame((state) => {
-    if (gridRef.current) {
-      gridRef.current.position.z = (state.clock.elapsedTime * 0.5) % 1
-    }
-  })
-
-  return <group ref={gridRef}>{lines}</group>
-}
-
-function MorphingSphere() {
-  const meshRef = useRef<THREE.Mesh>(null)
-  const { mouse, viewport } = useThree()
-
-  useFrame((state) => {
-    const t = state.clock.elapsedTime
-
-    if (meshRef.current) {
-      meshRef.current.position.x = THREE.MathUtils.lerp(
-        meshRef.current.position.x,
-        (mouse.x * viewport.width) / 10,
-        0.02,
-      )
-      meshRef.current.position.y = THREE.MathUtils.lerp(
-        meshRef.current.position.y,
-        (mouse.y * viewport.height) / 10 + 0.5,
-        0.02,
-      )
-      meshRef.current.rotation.y = t * 0.15
-      meshRef.current.rotation.x = Math.sin(t * 0.2) * 0.1
-    }
-  })
-
-  return (
-    <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.8}>
-      <Sphere ref={meshRef} args={[2, 128, 128]} position={[0, 0.5, 0]}>
-        <MeshDistortMaterial
-          color="#0a0a0a"
-          metalness={0.95}
-          roughness={0.05}
-          envMapIntensity={2}
-          distort={0.3}
-          speed={2}
-        />
-      </Sphere>
-    </Float>
-  )
-}
-
-function OrbitingCubes() {
-  const groupRef = useRef<THREE.Group>(null)
-
-  const cubes = useMemo(() => {
-    return Array.from({ length: 8 }).map((_, i) => ({
-      angle: (i / 8) * Math.PI * 2,
-      radius: 4 + Math.random() * 0.5,
-      speed: 0.2 + Math.random() * 0.3,
-      size: 0.1 + Math.random() * 0.15,
-      yOffset: (Math.random() - 0.5) * 2,
-    }))
-  }, [])
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.children.forEach((child, i) => {
-        const cube = cubes[i]
-        const t = state.clock.elapsedTime * cube.speed + cube.angle
-        child.position.x = Math.cos(t) * cube.radius
-        child.position.z = Math.sin(t) * cube.radius
-        child.position.y = cube.yOffset + Math.sin(t * 2) * 0.3
-        child.rotation.x = t
-        child.rotation.y = t * 0.5
-      })
-    }
-  })
-
-  return (
-    <group ref={groupRef}>
-      {cubes.map((cube, i) => (
-        <mesh key={i}>
-          <boxGeometry args={[cube.size, cube.size, cube.size]} />
-          <meshStandardMaterial color="#1a1a1a" metalness={0.9} roughness={0.1} />
-        </mesh>
-      ))}
-    </group>
-  )
-}
-
-function DataParticles() {
-  const particlesRef = useRef<THREE.Points>(null)
-
-  const { positions, velocities } = useMemo(() => {
-    const count = 200
-    const positions = new Float32Array(count * 3)
-    const velocities = new Float32Array(count * 3)
-
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 25
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15 - 5
-      velocities[i * 3] = (Math.random() - 0.5) * 0.01
-      velocities[i * 3 + 1] = Math.random() * 0.02 + 0.01
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.01
-    }
-
-    return { positions, velocities }
-  }, [])
-
-  useFrame(() => {
-    if (particlesRef.current) {
-      const pos = particlesRef.current.geometry.attributes.position.array as Float32Array
-      for (let i = 0; i < pos.length / 3; i++) {
-        pos[i * 3 + 1] += velocities[i * 3 + 1]
-        if (pos[i * 3 + 1] > 10) pos[i * 3 + 1] = -10
-      }
-      particlesRef.current.geometry.attributes.position.needsUpdate = true
-    }
-  })
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-      </bufferGeometry>
-      <pointsMaterial size={0.04} color="#333333" transparent opacity={0.6} sizeAttenuation />
-    </points>
-  )
-}
-
-function FloatingRings() {
-  const ring1Ref = useRef<THREE.Mesh>(null)
-  const ring2Ref = useRef<THREE.Mesh>(null)
-  const ring3Ref = useRef<THREE.Mesh>(null)
-
-  useFrame((state) => {
-    const t = state.clock.elapsedTime
-    if (ring1Ref.current) {
-      ring1Ref.current.rotation.x = t * 0.2
-      ring1Ref.current.rotation.y = t * 0.1
-    }
-    if (ring2Ref.current) {
-      ring2Ref.current.rotation.x = -t * 0.15
-      ring2Ref.current.rotation.z = t * 0.1
-    }
-    if (ring3Ref.current) {
-      ring3Ref.current.rotation.y = t * 0.25
-      ring3Ref.current.rotation.z = -t * 0.08
-    }
-  })
-
-  return (
-    <>
-      <mesh ref={ring1Ref} position={[0, 0.5, 0]}>
-        <torusGeometry args={[3.2, 0.015, 16, 100]} />
-        <meshStandardMaterial color="#333" metalness={0.9} roughness={0.1} />
-      </mesh>
-      <mesh ref={ring2Ref} position={[0, 0.5, 0]}>
-        <torusGeometry args={[3.8, 0.015, 16, 100]} />
-        <meshStandardMaterial color="#444" metalness={0.9} roughness={0.1} />
-      </mesh>
-      <mesh ref={ring3Ref} position={[0, 0.5, 0]}>
-        <torusGeometry args={[4.4, 0.01, 16, 100]} />
-        <meshStandardMaterial color="#555" metalness={0.9} roughness={0.1} />
-      </mesh>
-    </>
-  )
-}
-
-function Scene() {
-  return (
-    <>
-      <color attach="background" args={["#f8f8f8"]} />
-
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-      <directionalLight position={[-10, 5, -5]} intensity={0.5} color="#ffffff" />
-      <spotLight position={[0, 15, 0]} angle={0.3} penumbra={1} intensity={1} color="#ffffff" />
-      <pointLight position={[0, 0, 5]} intensity={0.5} color="#ffffff" />
-
-      <MorphingSphere />
-      <FloatingRings />
-      <OrbitingCubes />
-      <DataParticles />
-      <TechGrid />
-
-      <Environment preset="city" />
-
-      <EffectComposer>
-        <Bloom intensity={0.15} luminanceThreshold={0.9} luminanceSmoothing={0.9} />
-        <Vignette darkness={0.25} offset={0.5} />
-      </EffectComposer>
-    </>
-  )
-}
+import { useEffect, useRef } from "react"
 
 export default function HeroScene() {
-  return (
-    <div className="absolute inset-0 w-full h-full">
-      <Canvas camera={{ position: [0, 0, 10], fov: 45 }} gl={{ antialias: true, alpha: true }} dpr={[1, 2]}>
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
-      </Canvas>
-    </div>
-  )
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    // Create the HTML structure
+    containerRef.current.innerHTML = `
+      <div id="sketch"></div>
+      <div class="fixed z-50 top-0 left-0 loader-screen w-screen h-screen transition-all duration-300 bg-white">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div class="loading text-3xl tracking-widest whitespace-nowrap">
+            <span style="--i: 0">L</span>
+            <span style="--i: 1">O</span>
+            <span style="--i: 2">A</span>
+            <span style="--i: 3">D</span>
+            <span style="--i: 4">I</span>
+            <span style="--i: 5">N</span>
+            <span style="--i: 6">G</span>
+          </div>
+        </div>
+      </div>
+
+    `
+
+    // Add styles
+    const style = document.createElement('style')
+    style.textContent = `
+      #sketch {
+        width: 100vw;
+        height: 100vh;
+        background: black;
+      }
+      .loading span {
+        animation: blur 1.5s calc(var(--i) / 5 * 1s) alternate infinite;
+      }
+      @keyframes blur {
+        to {
+          filter: blur(5px);
+        }
+      }
+      .hollow {
+        opacity: 0;
+        pointer-events: none;
+      }
+    `
+    document.head.appendChild(style)
+
+    // Load and execute the script
+    const script = document.createElement('script')
+    script.type = 'module'
+    script.textContent = `
+      import * as kokomi from "https://esm.sh/kokomi.js";
+      import * as THREE from "https://esm.sh/three";
+      import gsap from "https://esm.sh/gsap";
+
+      const fragmentShader = \`
+uniform float iTime;
+uniform vec2 iResolution;
+uniform vec2 iMouse;
+uniform sampler2D tDiffuse;
+varying vec2 vUv;
+uniform vec3 uBgColor;
+uniform float uRGBShiftIntensity;
+uniform float uGrainIntensity;
+uniform float uVignetteIntensity;
+uniform float uTransitionProgress;
+
+highp float random(vec2 co) {
+    highp float a=12.9898;
+    highp float b=78.233;
+    highp float c=43758.5453;
+    highp float dt=dot(co.xy,vec2(a,b));
+    highp float sn=mod(dt,3.14);
+    return fract(sin(sn)*c);
+}
+
+vec3 grain(vec2 uv,vec3 col,float amount){
+    float noise=random(uv+iTime);
+    col+=(noise-.5)*amount;
+    return col;
+}
+
+vec4 RGBShift(sampler2D tex,vec2 uv,float amount){
+    vec2 rUv=uv;
+    vec2 gUv=uv;
+    vec2 bUv=uv;
+    float noise=random(uv+iTime)*.5+.5;
+    vec2 offset=amount*vec2(cos(noise),sin(noise));
+    rUv+=offset;
+    gUv+=offset*.5;
+    bUv+=offset*.25;
+    vec4 rTex=texture(tex,rUv);
+    vec4 gTex=texture(tex,gUv);
+    vec4 bTex=texture(tex,bUv);
+    vec4 col=vec4(rTex.r,gTex.g,bTex.b,gTex.a);
+    return col;
+}
+
+vec3 vignette(vec2 uv,vec3 col,vec3 vigColor,float amount){
+    vec2 p=uv;
+    p-=.5;
+    float d=length(p);
+    float mask=smoothstep(.5,.3,d);
+    mask=pow(mask,.6);
+    float mixFactor=(1.-mask)*amount;
+    col=mix(col,vigColor,mixFactor);
+    return col;
+}
+
+float sdCircle(vec2 p,float r) {
+    return length(p)-r;
+}
+
+vec3 transition(vec2 uv,vec3 col,float progress){
+    float ratio=iResolution.x/iResolution.y;
+    vec2 p=uv;
+    p-=.5;
+    p.x*=ratio;
+    float d=sdCircle(p,progress*sqrt(2.2));
+    float c=smoothstep(-.2,0.,d);
+    col=mix(vec3(1.),col,1.-c);
+    return col;
+}
+
+void main(){
+    vec2 uv=vUv;
+    vec4 tex=RGBShift(tDiffuse,uv,uRGBShiftIntensity);
+    vec3 col=tex.xyz;
+    col=grain(uv,col,uGrainIntensity);
+    col=vignette(uv,col,uBgColor,uVignetteIntensity);
+    col=transition(uv,col,uTransitionProgress);
+    gl_FragColor=vec4(col,1.);
+}
+\`;
+
+      class Sketch extends kokomi.Base {
+        create() {
+          const config = { bgColor: "#0c0c0c" };
+          const params = { transitionProgress: 0, enterProgress: 0, rotateSpeed: 15 };
+
+          this.renderer.setClearColor(new THREE.Color(config.bgColor), 1);
+          this.camera.position.set(0, 0, 16);
+
+          const sumFormula = (n) => (n * (n + 1)) / 2;
+          const isOdd = (n) => n % 2 === 1;
+
+          const circleCount = 3;
+          const circleImgCountUnit = 12;
+          const circleImgTotalCount = circleImgCountUnit * sumFormula(circleCount);
+          const resourceList = [...Array(circleImgTotalCount).keys()].map((_, i) => ({
+            name: \`tex\${i + 1}\`,
+            type: "texture",
+            path: \`https://picsum.photos/id/\${i + 1}/320/400\`
+          }));
+          const am = new kokomi.AssetManager(this, resourceList);
+
+          am.on("ready", () => {
+            document.querySelector(".loader-screen")?.classList.add("hollow");
+
+            const material = new THREE.MeshBasicMaterial();
+            const r = 6.4;
+            const scale = 0.8;
+            const rings = [];
+            const lines = [];
+
+            for (let i = 0; i < circleCount; i++) {
+              const c1 = sumFormula(i) * circleImgCountUnit;
+              const c2 = sumFormula(i + 1) * circleImgCountUnit;
+              const textures = Object.values(am.items).slice(c1, c2);
+
+              const ring = new THREE.Group();
+              this.scene.add(ring);
+              rings.push(ring);
+
+              textures.map((tex, j) => {
+                const line = new THREE.Group();
+                ring.add(line);
+                lines.push(line);
+                const imgScale = 0.005 * scale * (i * 0.36 + 1);
+                const width = tex.image.width * imgScale;
+                const height = tex.image.height * imgScale;
+                const geometry = new THREE.PlaneGeometry(width, height);
+                const mat = material.clone();
+                mat.map = tex;
+                mat.needsUpdate = true;
+                const mesh = new THREE.Mesh(geometry, mat);
+                const r2 = r * (i + 1);
+                const ratio = j / (c2 - c1);
+                const angle = ratio * Math.PI * 2;
+                mesh.position.x = r2;
+                mesh.rotation.z = -Math.PI / 2;
+                line.rotation.z = angle;
+                line.add(mesh);
+                return mesh;
+              });
+            }
+
+            const ce = new kokomi.CustomEffect(this, {
+              fragmentShader,
+              uniforms: {
+                uBgColor: { value: new THREE.Color(config.bgColor) },
+                uRGBShiftIntensity: { value: 0.0025 },
+                uGrainIntensity: { value: 0.025 },
+                uVignetteIntensity: { value: 0.8 },
+                uTransitionProgress: { value: 0 }
+              }
+            });
+            ce.addExisting();
+
+            const wheelScroller = new kokomi.WheelScroller();
+            wheelScroller.listenForScroll();
+
+            const dragDetecter = new kokomi.DragDetecter(this);
+            dragDetecter.detectDrag();
+            dragDetecter.on("drag", (delta) => {
+              wheelScroller.scroll.target -= (delta.x || delta.y) * 2;
+            });
+
+            this.update(() => {
+              wheelScroller.syncScroll();
+
+              rings.forEach((ring, i) => {
+                ring.rotation.z += 0.0025 * (isOdd(i) ? -1 : 1) * (1 + wheelScroller.scroll.delta) * params.rotateSpeed;
+              });
+
+              lines.forEach((line) => {
+                line.position.z = -THREE.MathUtils.lerp(0, 100, THREE.MathUtils.mapLinear(wheelScroller.scroll.delta, 0, 1000, 0, 1)) + THREE.MathUtils.lerp(10, 0, params.enterProgress);
+              });
+
+              ce.customPass.material.uniforms.uTransitionProgress.value = params.transitionProgress;
+            });
+
+            const t1 = gsap.timeline();
+            t1.to(params, { transitionProgress: 1, duration: 1, ease: "power1.inOut" })
+              .fromTo(params, { enterProgress: 0, rotateSpeed: 10 }, { enterProgress: 1, rotateSpeed: 1, duration: 1.5, ease: "power1.inOut" }, "-=1")
+;
+          });
+        }
+      }
+
+      const sketch = new Sketch("#sketch");
+      sketch.create();
+    `
+    document.head.appendChild(script)
+
+    return () => {
+      document.head.removeChild(style)
+      document.head.removeChild(script)
+    }
+  }, [])
+
+  return <div ref={containerRef} className="absolute inset-0 w-full h-full" />
 }
