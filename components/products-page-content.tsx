@@ -96,7 +96,9 @@ function ProductCard({ product, index }: { product: (typeof products)[0]; index:
         </ul>
 
         <Link
-          href="/contact"
+          href={product.name === "Retailians POS" ? "https://retailians.com/" : "https://911wraperp.space/"}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-all"
         >
           Request Demo
