@@ -1,14 +1,21 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
-import dynamic from "next/dynamic"
-
-const Scroll3DElement = dynamic(() => import("@/components/scroll-3d-element"), {
-  ssr: false,
-  loading: () => null,
-})
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
+import { useRef, type RefObject } from "react"
+import {
+  ACCENT,
+  ACCENTS,
+  AmbientShape,
+  AnimatedDivider,
+  CountUp,
+  GlowOrb,
+  GradientText,
+  Reveal,
+  SpotlightCard,
+  Stagger,
+  StaggerItem,
+  useParallax,
+} from "@/components/motion"
 
 const stats = [
   { value: 14, suffix: "+", label: "Team Members" },
@@ -17,82 +24,88 @@ const stats = [
   { value: 100, suffix: "%", label: "Client Satisfaction" },
 ]
 
-function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-  const [displayValue, setDisplayValue] = useState(0)
-
-  useEffect(() => {
-    if (isInView) {
-      const duration = 2000
-      const steps = 60
-      const increment = value / steps
-      let current = 0
-      const timer = setInterval(() => {
-        current += increment
-        if (current >= value) {
-          setDisplayValue(value)
-          clearInterval(timer)
-        } else {
-          setDisplayValue(Math.floor(current))
-        }
-      }, duration / steps)
-      return () => clearInterval(timer)
-    }
-  }, [isInView, value])
-
-  return (
-    <motion.span
-      ref={ref}
-      className="text-5xl md:text-8xl font-serif font-normal text-foreground"
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    >
-      {displayValue}
-      {suffix}
-    </motion.span>
-  )
-}
-
 export default function StatsSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const reduce = useReducedMotion()
 
+  // Dependency-safe ambient depth — swaps the r3f-based scroll-3d-element
+  // (flaky on React 18.3.1) for AmbientShape/GlowOrb parallax layers.
+  const parallaxRef = sectionRef as RefObject<HTMLElement>
+  const slowY = useParallax(parallaxRef, { to: -110 })
+  const fastY = useParallax(parallaxRef, { to: -56 })
+
+  // Subtle scroll-scrub zoom on the cluster (transform-only, reduced-motion safe).
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   })
-
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1])
+  const rawScale = useTransform(scrollYProgress, [0, 0.5], [0.92, 1])
+  const scale = reduce ? 1 : rawScale
 
   return (
     <section ref={sectionRef} className="py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
-        <Scroll3DElement shape="sphere" size={600} parallaxStrength={30} color="#222222" />
-      </div>
+      {/* faint architectural grid (light-section variant) */}
+      <div aria-hidden className="grid-texture-dark absolute inset-0 opacity-[0.5] pointer-events-none" />
+
+      {/* ambient depth — lime stays the signature, violet a quiet accent */}
+      <GlowOrb
+        color={ACCENT}
+        size={560}
+        opacity={0.1}
+        parallax={slowY}
+        className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+      <AmbientShape
+        variant="ring"
+        color={ACCENT}
+        size={620}
+        opacity={0.08}
+        parallax={slowY}
+        className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      />
+      <AmbientShape
+        variant="blob"
+        color={ACCENTS[3]}
+        size={240}
+        opacity={0.12}
+        parallax={fastY}
+        className="-bottom-16 -right-20"
+      />
 
       <motion.div className="container mx-auto px-6 relative z-10" style={{ scale }}>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 50, rotateY: 20 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: index * 0.15 }}
-              className="text-center"
-            >
-              <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-              <motion.p
-                className="text-muted-foreground mt-4 text-sm uppercase tracking-wider"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                {stat.label}
-              </motion.p>
-            </motion.div>
-          ))}
+        <div className="mb-16 text-center max-w-2xl mx-auto">
+          <Reveal
+            as="span"
+            y={16}
+            className="block text-sm text-muted-foreground uppercase tracking-widest"
+          >
+            By the Numbers
+          </Reveal>
+          <Reveal as="h2" delay={0.08} className="font-serif text-4xl md:text-6xl font-normal mt-4">
+            Proven <GradientText animate>Impact</GradientText>
+          </Reveal>
+          <AnimatedDivider className="text-foreground mt-8 mx-auto max-w-xs" />
         </div>
+
+        <Stagger className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+          {stats.map((stat) => (
+            <StaggerItem key={stat.label}>
+              <SpotlightCard
+                tone="light"
+                className="h-full px-4 py-10 rounded-3xl bg-secondary/40 text-center flex flex-col items-center justify-center"
+              >
+                <CountUp
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className="relative z-10 block text-5xl md:text-8xl font-serif font-normal text-foreground"
+                />
+                <p className="relative z-10 text-muted-foreground mt-4 text-xs md:text-sm uppercase tracking-wider">
+                  {stat.label}
+                </p>
+              </SpotlightCard>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </motion.div>
     </section>
   )

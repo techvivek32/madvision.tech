@@ -1,7 +1,7 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
+import { motion, useReducedMotion } from "framer-motion"
+import { useRef, type RefObject } from "react"
 import {
   Brain,
   Cloud,
@@ -16,12 +16,20 @@ import {
   Headphones,
   Settings,
 } from "lucide-react"
-import dynamic from "next/dynamic"
-
-const Scroll3DElement = dynamic(() => import("@/components/scroll-3d-element"), {
-  ssr: false,
-  loading: () => null,
-})
+import {
+  ACCENT,
+  ACCENTS,
+  AmbientShape,
+  AnimatedDivider,
+  GlowOrb,
+  GradientText,
+  Reveal,
+  SpotlightCard,
+  Stagger,
+  StaggerItem,
+  SPRING_POP,
+  useParallax,
+} from "@/components/motion"
 
 const services = [
   { icon: Brain, title: "AI Solutions", description: "Intelligent automation and machine learning solutions" },
@@ -40,58 +48,79 @@ const services = [
 
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const reduce = useReducedMotion()
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
-
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, -100])
+  // Layered parallax for the decorative background — dependency-safe,
+  // replaces the vanilla scroll-3d-element shapes with AmbientShape.
+  const parallaxRef = sectionRef as RefObject<HTMLElement>
+  const slowY = useParallax(parallaxRef, { to: -120 })
+  const fastY = useParallax(parallaxRef, { to: -64 })
 
   return (
     <section ref={sectionRef} className="py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-20 -left-20 opacity-20">
-        <Scroll3DElement shape="torus" size={300} parallaxStrength={80} color="#333333" />
-      </div>
-      <div className="absolute bottom-20 -right-20 opacity-20">
-        <Scroll3DElement shape="octahedron" size={250} parallaxStrength={60} color="#444444" />
-      </div>
+      {/* faint architectural grid (light-section variant) */}
+      <div aria-hidden className="grid-texture-dark absolute inset-0 opacity-[0.5] pointer-events-none" />
+
+      {/* ambient depth — lime stays the signature, sky used as a subtle accent */}
+      <GlowOrb
+        color={ACCENT}
+        size={520}
+        opacity={0.1}
+        parallax={slowY}
+        className="-top-40 -left-32"
+      />
+      <AmbientShape
+        variant="ring"
+        color={ACCENT}
+        size={300}
+        opacity={0.18}
+        parallax={slowY}
+        className="top-16 -left-24"
+      />
+      <AmbientShape
+        variant="blob"
+        color={ACCENTS[1]}
+        size={260}
+        opacity={0.14}
+        parallax={fastY}
+        className="bottom-16 -right-24"
+      />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <span className="text-sm text-muted-foreground uppercase tracking-widest">Our Services</span>
-          <h2 className="font-serif text-4xl md:text-6xl font-normal mt-4">End-to-End IT Solutions</h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40, rotateX: 10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group p-6 rounded-2xl bg-secondary/50 hover:bg-secondary transition-all"
-            >
-              <motion.div
-                className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center mb-4"
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                <service.icon className="w-5 h-5 text-background" />
-              </motion.div>
-              <h3 className="text-lg font-medium mb-2 text-foreground">{service.title}</h3>
-              <p className="text-sm text-muted-foreground">{service.description}</p>
-            </motion.div>
-          ))}
+        <div className="mb-16">
+          <Reveal
+            as="span"
+            y={16}
+            className="block text-sm text-muted-foreground uppercase tracking-widest"
+          >
+            Our Services
+          </Reveal>
+          <Reveal as="h2" delay={0.08} className="font-serif text-4xl md:text-6xl font-normal mt-4">
+            End-to-End <GradientText animate>IT Solutions</GradientText>
+          </Reveal>
+          <AnimatedDivider className="text-foreground mt-8 max-w-xs" />
         </div>
+
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {services.map((service) => (
+            <StaggerItem key={service.title}>
+              <SpotlightCard
+                tone="light"
+                className="h-full p-6 rounded-2xl bg-secondary/50"
+              >
+                <motion.div
+                  className="relative z-10 w-12 h-12 rounded-full bg-foreground flex items-center justify-center mb-4"
+                  whileHover={reduce ? undefined : { scale: 1.15, rotate: 5 }}
+                  transition={SPRING_POP}
+                >
+                  <service.icon className="w-5 h-5 text-background" />
+                </motion.div>
+                <h3 className="relative z-10 text-lg font-medium mb-2 text-foreground">{service.title}</h3>
+                <p className="relative z-10 text-sm text-muted-foreground">{service.description}</p>
+              </SpotlightCard>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import Navigation from "@/components/navigation"
-import HeroSection from "@/components/hero-section"
+import BuildJourney from "@/components/build-journey"
 import MarqueeSection from "@/components/marquee-section"
 import ServicesSection from "@/components/services-section"
 import ProductsSection from "@/components/products-section"
@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
+      <BuildJourney />
       <MarqueeSection />
       <ServicesSection />
       <RunningStrip text="VISION TECH • INNOVATION • EXCELLENCE" reverse speed={25} />

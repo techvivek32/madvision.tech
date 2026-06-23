@@ -1,10 +1,27 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ShoppingCart, Building2, Wrench, CheckCircle2, ArrowRight, Sparkles, GraduationCap } from "lucide-react"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
+import { ShoppingCart, Building2, CheckCircle2, ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
-import { useRef } from "react"
+import { useRef, type RefObject } from "react"
 import { RunningStrip, LargeTextMarquee } from "./marquee-section"
+import {
+  ACCENT,
+  DUR,
+  EASE_OUT,
+  CountUp,
+  GlowOrb,
+  GradientText,
+  MagneticButton,
+  Reveal,
+  RevealText,
+  ShineOverlay,
+  SpotlightCard,
+  Stagger,
+  StaggerItem,
+  TiltCard,
+  useParallax,
+} from "@/components/motion"
 
 const products = [
   {
@@ -38,18 +55,26 @@ const products = [
     ],
     image: "/enterprise-erp-software-interface.jpg",
   },
-
 ]
 
 function ProductCard({ product, index }: { product: (typeof products)[0]; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
+  const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "end start"],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  // Parallax drift on the image column; frozen under reduced-motion.
+  const rawY = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const y = reduce ? 0 : rawY
+  // One-way scroll-scrubbed entrance — stays fully visible once revealed
+  // (no fade-out tail, so the CTA/title never disappear on scroll).
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.18], [0, 1])
+  const opacity = reduce ? 1 : rawOpacity
+
+  const accent = ACCENT
+  const Icon = product.icon
 
   return (
     <motion.div
@@ -60,103 +85,121 @@ function ProductCard({ product, index }: { product: (typeof products)[0]; index:
       }`}
     >
       {/* Product Info */}
-      <motion.div
-        initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className={index % 2 === 1 ? "lg:order-2" : ""}
-      >
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-6"
-        >
-          <product.icon className="w-5 h-5 text-foreground" />
-          <span className="text-sm font-medium text-foreground">{product.tagline}</span>
-        </motion.div>
+      <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+        <Reveal y={28} className="inline-block">
+          <motion.div
+            whileHover={reduce ? undefined : { scale: 1.04 }}
+            transition={{ duration: DUR.fast, ease: EASE_OUT }}
+            className="group relative inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/50 border border-border mb-6 overflow-hidden"
+          >
+            <ShineOverlay trigger="hover" tone="light" className="rounded-full" />
+            <Icon className="relative z-10 w-5 h-5 text-foreground" />
+            <span className="relative z-10 text-sm font-medium text-foreground">{product.tagline}</span>
+          </motion.div>
+        </Reveal>
 
-        <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6">{product.name}</h2>
+        <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
+          <RevealText as="span" by="word" text={product.name} className="block" />
+        </h2>
 
-        <p className="text-muted-foreground mb-8 leading-relaxed text-lg">{product.description}</p>
+        <Reveal as="p" y={16} delay={0.1} className="text-muted-foreground mb-8 leading-relaxed text-lg">
+          {product.description}
+        </Reveal>
 
-        <ul className="space-y-3 mb-8">
-          {product.features.slice(0, 4).map((feature, i) => (
-            <motion.li
-              key={feature}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-3"
-            >
+        <Stagger as="ul" className="space-y-3 mb-8">
+          {product.features.slice(0, 4).map((feature) => (
+            <StaggerItem as="li" key={feature} y={16} className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-foreground shrink-0" />
               <span className="text-foreground">{feature}</span>
-            </motion.li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
 
-        <Link
-          href={product.name === "Retailians POS" ? "https://retailians.com/" : "https://911wraperp.space/"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:bg-foreground/90 transition-all"
-        >
-          Request Demo
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
-      </motion.div>
+        <Reveal delay={0.15} className="inline-block">
+          <MagneticButton
+            as={Link}
+            href={product.name === "Retailians POS" ? "https://retailians.com/" : "https://911wraperp.space/"}
+            accent={accent}
+            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium overflow-hidden"
+          >
+            <ShineOverlay trigger="hover" tone="dark" className="rounded-full" />
+            <span className="relative z-10">Request Demo</span>
+            <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </MagneticButton>
+        </Reveal>
+      </div>
 
       {/* Product Image */}
       <motion.div style={{ y }} className={index % 2 === 1 ? "lg:order-1" : ""}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          whileHover={{ scale: 1.02 }}
-          className="relative rounded-2xl overflow-hidden border border-border shadow-2xl"
-        >
-          <div className="aspect-[4/3] bg-secondary">
-            <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-full object-cover" />
-          </div>
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-        </motion.div>
+        <Reveal y={0} duration={DUR.slow}>
+          <TiltCard max={7} scale={1.02} className="rounded-2xl overflow-hidden border border-border shadow-2xl">
+            <div className="relative">
+              <div className="aspect-[4/3] bg-secondary">
+                <img
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+              {/* Lime accent edge glow on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                style={{ boxShadow: `inset 0 0 0 1px ${accent}55, 0 0 40px ${accent}22` }}
+              />
+              {/* Periodic sheen sweep across the showcase */}
+              <ShineOverlay tone="dark" repeatDelay={6} className="rounded-2xl" />
+            </div>
+          </TiltCard>
+        </Reveal>
       </motion.div>
     </motion.div>
   )
 }
 
 export default function ProductsPageContent() {
+  const heroRef = useRef<HTMLElement>(null)
+  const heroOrbY = useParallax(heroRef as RefObject<HTMLElement>, { to: -120 })
+
+  const statsRef = useRef<HTMLElement>(null)
+  const statsOrbY = useParallax(statsRef as RefObject<HTMLElement>, { to: -90 })
+
+  const stats = [
+    { value: 99.9, decimals: 1, suffix: "%", label: "Uptime", description: "Enterprise-grade reliability" },
+    { value: 4.8, decimals: 1, suffix: "K", label: "Users", description: "Scalable architecture" },
+    { display: "24/7", label: "Support", description: "Always available help" },
+  ] as const
+
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 relative overflow-hidden bg-background">
-        <div className="container mx-auto px-6 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4"
-            >
-              <Sparkles className="w-4 h-4" />
-              Our Products
-            </motion.span>
+      <section ref={heroRef} className="pt-32 pb-16 relative overflow-hidden bg-background">
+        {/* decorative layers — behind content, pointer-events-none */}
+        <div aria-hidden className="absolute inset-0 grid-texture-dark opacity-60" />
+        <GlowOrb color={ACCENT} size={520} opacity={0.14} parallax={heroOrbY} className="-top-32 -left-24" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
+            <Reveal y={16} className="inline-flex items-center gap-2 mb-4">
+              <FloatingSparkle />
+              <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Our Products</span>
+            </Reveal>
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-normal mt-4 mb-6 text-foreground">
-              Powerful <span className="italic">SaaS</span>
+              Powerful{" "}
+              <GradientText animate as="span" className="italic">
+                SaaS
+              </GradientText>
               <br />
               Solutions
             </h1>
-            <p className="text-lg text-muted-foreground max-w-xl">
+
+            <Reveal as="p" y={16} delay={0.15} className="text-lg text-muted-foreground max-w-xl">
               Scalable, enterprise-grade products designed to transform your business operations and drive growth.
-            </p>
-          </motion.div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -179,59 +222,41 @@ export default function ProductsPageContent() {
       <LargeTextMarquee text="ENTERPRISE GRADE • SCALABLE • SECURE" speed={35} />
 
       {/* Why Choose Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Why Choose Us</span>
-            <h2 className="text-4xl md:text-5xl font-serif mt-4 text-foreground">Built for Scale</h2>
-          </motion.div>
+      <section ref={statsRef} className="py-24 bg-background relative overflow-hidden">
+        <GlowOrb color={ACCENT} size={460} opacity={0.1} parallax={statsOrbY} className="top-1/3 -right-24" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                number: "99.9%",
-                label: "Uptime",
-                description: "Enterprise-grade reliability",
-              },
-              {
-                number: "4.8K",
-                label: "Users",
-                description: "Scalable architecture",
-              },
-              {
-                number: "24/7",
-                label: "Support",
-                description: "Always available help",
-              },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="text-center p-10 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                  className="text-6xl font-serif text-foreground mb-2"
-                >
-                  {stat.number}
-                </motion.div>
-                <div className="text-lg font-medium text-foreground mb-1">{stat.label}</div>
-                <p className="text-sm text-muted-foreground">{stat.description}</p>
-              </motion.div>
-            ))}
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <Reveal as="span" y={12} className="block text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              Why Choose Us
+            </Reveal>
+            <h2 className="text-4xl md:text-5xl font-serif mt-4 text-foreground">
+              <RevealText as="span" by="word" text="Built for Scale" className="block" />
+            </h2>
           </div>
+
+          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat) => (
+              <StaggerItem key={stat.label} y={30}>
+                <SpotlightCard
+                  tone="light"
+                  accent={ACCENT}
+                  lift={-10}
+                  className="text-center p-10 rounded-2xl bg-card border border-border"
+                >
+                  <div className="relative z-10 text-6xl font-serif text-foreground mb-2">
+                    {"display" in stat ? (
+                      stat.display
+                    ) : (
+                      <CountUp value={stat.value} decimals={stat.decimals} suffix={stat.suffix} />
+                    )}
+                  </div>
+                  <div className="relative z-10 text-lg font-medium text-foreground mb-1">{stat.label}</div>
+                  <p className="relative z-10 text-sm text-muted-foreground">{stat.description}</p>
+                </SpotlightCard>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
@@ -241,40 +266,77 @@ export default function ProductsPageContent() {
       {/* CTA Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-center p-16 rounded-3xl bg-foreground text-background relative overflow-hidden"
-          >
-            {/* Animated background elements */}
+          <Reveal y={0} duration={DUR.slow}>
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 50, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="absolute top-0 right-0 w-96 h-96 border border-white/10 rounded-full -translate-y-1/2 translate-x-1/2"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="absolute bottom-0 left-0 w-64 h-64 border border-white/10 rounded-full translate-y-1/2 -translate-x-1/2"
-            />
+              initial={{ scale: 0.97 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: DUR.slow, ease: EASE_OUT }}
+              className="text-center p-16 rounded-3xl bg-foreground text-background relative overflow-hidden"
+            >
+              {/* Animated background rings */}
+              <RotatingRing className="top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2" duration={50} dir={1} />
+              <RotatingRing
+                className="bottom-0 left-0 w-64 h-64 translate-y-1/2 -translate-x-1/2"
+                duration={40}
+                dir={-1}
+              />
+              {/* Lime depth glow */}
+              <GlowOrb color={ACCENT} size={480} opacity={0.2} className="-bottom-40 left-1/2 -translate-x-1/2" />
+              {/* Periodic sheen across the panel */}
+              <ShineOverlay tone="dark" repeatDelay={5} className="rounded-3xl" />
 
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-serif mb-6">Ready to Transform Your Business?</h2>
-              <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
-                Get a personalized demo and see how our products can streamline your operations.
-              </p>
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-10 py-5 rounded-full bg-background text-foreground font-medium hover:bg-background/90 transition-all text-lg"
-              >
-                Schedule Demo
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </motion.div>
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-5xl font-serif mb-6">
+                  Ready to <GradientText tone="dark" as="span">Transform Your Business</GradientText>?
+                </h2>
+                <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
+                  Get a personalized demo and see how our products can streamline your operations.
+                </p>
+                <MagneticButton
+                  as={Link}
+                  href="/contact"
+                  accent={ACCENT}
+                  className="group relative inline-flex items-center gap-2 px-10 py-5 rounded-full bg-background text-foreground font-medium text-lg overflow-hidden"
+                >
+                  <ShineOverlay trigger="hover" tone="light" className="rounded-full" />
+                  <span className="relative z-10">Schedule Demo</span>
+                  <ArrowRight className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </MagneticButton>
+              </div>
+            </motion.div>
+          </Reveal>
         </div>
       </section>
     </>
+  )
+}
+
+/* Reduced-motion-aware gentle float for the hero Sparkles accent. */
+function FloatingSparkle() {
+  const reduce = useReducedMotion()
+  return (
+    <motion.span
+      aria-hidden
+      animate={reduce ? undefined : { y: [0, -3, 0], rotate: [0, 8, 0] }}
+      transition={reduce ? undefined : { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      className="inline-flex"
+    >
+      <Sparkles className="w-4 h-4 text-foreground" />
+    </motion.span>
+  )
+}
+
+/* Decorative rotating ring — reuses the CTA's original look, but the spin
+   is disabled under reduced-motion for accessibility. */
+function RotatingRing({ className, duration, dir }: { className: string; duration: number; dir: 1 | -1 }) {
+  const reduce = useReducedMotion()
+  return (
+    <motion.div
+      aria-hidden
+      animate={reduce ? undefined : { rotate: 360 * dir }}
+      transition={reduce ? undefined : { duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      className={`pointer-events-none absolute border border-white/10 rounded-full ${className}`}
+    />
   )
 }

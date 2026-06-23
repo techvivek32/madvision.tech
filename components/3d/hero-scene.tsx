@@ -11,20 +11,6 @@ export default function HeroScene() {
     // Create the HTML structure
     containerRef.current.innerHTML = `
       <div id="sketch"></div>
-      <div class="fixed z-50 top-0 left-0 loader-screen w-screen h-screen transition-all duration-300 bg-white">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="loading text-3xl tracking-widest whitespace-nowrap">
-            <span style="--i: 0">L</span>
-            <span style="--i: 1">O</span>
-            <span style="--i: 2">A</span>
-            <span style="--i: 3">D</span>
-            <span style="--i: 4">I</span>
-            <span style="--i: 5">N</span>
-            <span style="--i: 6">G</span>
-          </div>
-        </div>
-      </div>
-
     `
 
     // Add styles
@@ -34,18 +20,6 @@ export default function HeroScene() {
         width: 100vw;
         height: 100vh;
         background: black;
-      }
-      .loading span {
-        animation: blur 1.5s calc(var(--i) / 5 * 1s) alternate infinite;
-      }
-      @keyframes blur {
-        to {
-          filter: blur(5px);
-        }
-      }
-      .hollow {
-        opacity: 0;
-        pointer-events: none;
       }
     `
     document.head.appendChild(style)
@@ -160,8 +134,6 @@ void main(){
           const am = new kokomi.AssetManager(this, resourceList);
 
           am.on("ready", () => {
-            document.querySelector(".loader-screen")?.classList.add("hollow");
-
             const material = new THREE.MeshBasicMaterial();
             const r = 6.4;
             const scale = 0.8;
