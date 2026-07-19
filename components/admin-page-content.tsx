@@ -108,6 +108,7 @@ export default function AdminPageContent() {
         const next = { ...sent, [leadId]: true }
         setSent(next)
         localStorage.setItem("vt-outreach-sent", JSON.stringify(next))
+        load(pass).catch(() => {}) // refresh pipeline state from the store
       } else {
         alert("Send fail thayu: " + ((await res.json()).error || res.status))
       }

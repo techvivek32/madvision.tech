@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server"
 import * as nodemailer from "nodemailer"
-import agencyData from "@/data/agency.json"
+import { readAgency, writeAgency } from "@/lib/agency-store"
 
 type Lead = {
   id: string
   business: string
   email?: string
+  status: string
+  notes?: string
   pitchEmailSubject?: string
   pitchEmailBody?: string
 }
 
-/** Sends ONE approved, personalized pitch email to one lead (human-in-the-loop). */
+/** Sends ONE approved, personalized pitch email to one lead (human-in-the-loop),
+ *  then records the send in the blob store. */
 export async function POST(request: NextRequest) {
   const pass = request.headers.get("x-admin-pass")
   if (!process.env.ADMIN_PASS || pass !== process.env.ADMIN_PASS) {
@@ -18,7 +21,8 @@ export async function POST(request: NextRequest) {
   }
 
   const { leadId } = (await request.json()) as { leadId?: string }
-  const lead = (agencyData.leads as Lead[]).find((l) => l.id === leadId)
+  const data = await readAgency()
+  const lead = (data.leads as Lead[]).find((l) => l.id === leadId)
   if (!lead) return NextResponse.json({ error: "Lead not found" }, { status: 404 })
   if (!lead.email || !lead.pitchEmailSubject || !lead.pitchEmailBody) {
     return NextResponse.json({ error: "Lead has no email pitch drafted" }, { status: 400 })
@@ -43,6 +47,12 @@ export async function POST(request: NextRequest) {
       subject: lead.pitchEmailSubject,
       text: lead.pitchEmailBody,
     })
+
+    // record the send so every device sees the true pipeline state
+    lead.status = "pitched"
+    lead.notes = `${lead.notes ? lead.notes + " · " : ""}Email sent ${new Date().toISOString().slice(0, 10)}`
+    await writeAgency(data)
+
     return NextResponse.json({ success: true, messageId: result.messageId, to: lead.email })
   } catch (error) {
     console.error("Outreach send error:", (error as Error).message)
