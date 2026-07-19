@@ -42,13 +42,13 @@ export default function PrivacyPolicy() {
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">8. Grievance Redressal</h2>
           <p className="text-muted-foreground mb-4">For privacy concerns, contact our Grievance Officer:</p>
-          <p className="text-muted-foreground mb-6">Email: privacy@visiontech.com<br/>Phone: +91 96011 76051<br/>Address: Rajkot, Gujarat, India</p>
+          <p className="text-muted-foreground mb-6">Email: privacy@visiontech.com<br/>Phone: +91 96011 76051<br/>Head Office: R.K. Empire, Rajkot, Gujarat, India<br/>Ahmedabad Branch: E-1106, Titanium City Center Business Park, Ahmedabad, Gujarat 380015</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">9. Jurisdiction</h2>
           <p className="text-muted-foreground mb-6">This Privacy Policy is governed by Indian laws. Any disputes shall be subject to the exclusive jurisdiction of courts in Rajkot, Gujarat, India.</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">10. Contact Information</h2>
-          <p className="text-muted-foreground">Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 96011 76051<br/>Address: Rajkot, Gujarat, India</p>
+          <p className="text-muted-foreground">Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 96011 76051<br/>Head Office: R.K. Empire, Rajkot, Gujarat, India<br/>Ahmedabad Branch: E-1106, Titanium City Center Business Park, Ahmedabad, Gujarat 380015</p>
         </div>
       </div>
     </div>

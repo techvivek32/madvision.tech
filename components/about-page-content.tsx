@@ -319,8 +319,8 @@ export default function AboutPageContent() {
                 >
                   <MapPin className="w-8 h-8 text-background" />
                 </motion.div>
-                <div className="text-2xl font-medium text-foreground mb-2">Rajkot, India</div>
-                <p className="text-muted-foreground text-lg">Headquarters</p>
+                <div className="text-2xl font-medium text-foreground mb-2">Rajkot &middot; Ahmedabad</div>
+                <p className="text-muted-foreground text-lg">Head Office &amp; Branch</p>
               </SpotlightCard>
             </StaggerItem>
           </Stagger>

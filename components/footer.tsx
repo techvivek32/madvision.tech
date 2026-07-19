@@ -138,10 +138,26 @@ export default function Footer() {
                 <motion.div
                   whileHover={{ x: 5 }}
                   transition={{ duration: DUR.fast, ease: EASE_OUT }}
-                  className="group flex items-center gap-3 text-white/50"
+                  className="group flex items-start gap-3 text-white/50"
                 >
-                  <MapPin className="w-5 h-5 transition-colors group-hover:text-[#c8ff00]" />
-                  <span>Rajkot, Gujarat, India</span>
+                  <MapPin className="w-5 h-5 mt-0.5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-white/35">Head Office</span>
+                    R.K. Empire, Rajkot, Gujarat, India
+                  </span>
+                </motion.div>
+              </StaggerItem>
+              <StaggerItem as="div" y={12}>
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: DUR.fast, ease: EASE_OUT }}
+                  className="group flex items-start gap-3 text-white/50"
+                >
+                  <MapPin className="w-5 h-5 mt-0.5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-white/35">Ahmedabad Branch</span>
+                    E-1106, Titanium City Center Business Park, Ahmedabad, Gujarat 380015
+                  </span>
                 </motion.div>
               </StaggerItem>
             </Stagger>

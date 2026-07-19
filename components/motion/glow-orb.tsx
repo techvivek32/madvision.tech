@@ -35,11 +35,7 @@ export function GlowOrb({
   return (
     <motion.div
       aria-hidden
-      className={cn(
-        "pointer-events-none absolute rounded-full blur-[120px]",
-        doPulse && "animate-pulse-glow",
-        className,
-      )}
+      className={cn("pointer-events-none absolute rounded-full blur-[120px]", className)}
       style={{
         width: size,
         height: size,
@@ -49,6 +45,11 @@ export function GlowOrb({
         y: parallax ?? undefined,
         ...style,
       }}
+      // Pulse scaled by the caller's base opacity. The CSS animate-pulse-glow
+      // class can't be used here: its keyframes (0.5 -> 1) override the inline
+      // opacity prop entirely and blow the halo out to near-solid color.
+      animate={doPulse ? { opacity: [opacity * 0.6, opacity, opacity * 0.6] } : undefined}
+      transition={doPulse ? { duration: 3, ease: "easeInOut", repeat: Infinity } : undefined}
     />
   )
 }

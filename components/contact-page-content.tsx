@@ -4,7 +4,7 @@ import type React from "react"
 import type { RefObject } from "react"
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, Users, ArrowRight } from "lucide-react"
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, Users, ArrowRight, type LucideIcon } from "lucide-react"
 import { RunningStrip } from "./marquee-section"
 import {
   ACCENT,
@@ -25,7 +25,15 @@ import {
   useParallax,
 } from "@/components/motion"
 
-const contactInfo = [
+type ContactInfo = {
+  icon: LucideIcon
+  title: string
+  href: string
+  value?: string
+  locations?: { label: string; lines: string[] }[]
+}
+
+const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: "Email Us",
@@ -41,8 +49,14 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    value: "Rajkot, Gujarat, India",
     href: "#",
+    locations: [
+      { label: "Head Office", lines: ["R.K. Empire", "Rajkot, Gujarat"] },
+      {
+        label: "Ahmedabad Branch",
+        lines: ["E-1106, Titanium City Center Business Park", "Ahmedabad, Gujarat 380015"],
+      },
+    ],
   },
 ]
 
@@ -187,7 +201,25 @@ export default function ContactPageContent() {
                     <info.icon className="w-7 h-7 text-background" />
                   </motion.div>
                   <h3 className="relative z-10 font-medium mb-2 text-foreground text-lg">{info.title}</h3>
-                  <p className="relative z-10 text-muted-foreground">{info.value}</p>
+                  {info.locations ? (
+                    <div className="relative z-10 mt-4 space-y-4">
+                      {info.locations.map((loc, i) => (
+                        <div key={loc.label}>
+                          {i > 0 && <div className="mx-auto mb-4 h-px w-10 bg-border" />}
+                          <span className="mb-1 block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
+                            {loc.label}
+                          </span>
+                          {loc.lines.map((line) => (
+                            <p key={line} className="text-sm leading-relaxed text-muted-foreground">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="relative z-10 text-muted-foreground">{info.value}</p>
+                  )}
                 </SpotlightCard>
               </StaggerItem>
             ))}
@@ -426,9 +458,9 @@ export default function ContactPageContent() {
         <div className="container mx-auto px-6 relative z-10">
           <Reveal className="text-center mb-12">
             <h2 className="text-3xl font-serif mb-4 text-foreground">
-              Our <GradientText animate>Location</GradientText>
+              Our <GradientText animate>Locations</GradientText>
             </h2>
-            <p className="text-muted-foreground">Based in Rajkot, serving clients worldwide</p>
+            <p className="text-muted-foreground">Head office in Rajkot, branch in Ahmedabad — serving clients worldwide</p>
           </Reveal>
 
           <Reveal y={32} className="max-w-4xl mx-auto">
@@ -447,6 +479,26 @@ export default function ContactPageContent() {
                 />
               </div>
             </TiltCard>
+          </Reveal>
+
+          {/* office addresses */}
+          <Reveal y={24} delay={0.1} className="max-w-4xl mx-auto mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl bg-card border border-border">
+                <span className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                  Head Office
+                </span>
+                <p className="text-foreground font-medium">R.K. Empire</p>
+                <p className="text-muted-foreground text-sm mt-1">Rajkot, Gujarat, India</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-card border border-border">
+                <span className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                  Ahmedabad Branch
+                </span>
+                <p className="text-foreground font-medium">E-1106, Titanium City Center Business Park</p>
+                <p className="text-muted-foreground text-sm mt-1">Ahmedabad, Gujarat 380015</p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
