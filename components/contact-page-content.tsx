@@ -67,7 +67,7 @@ const offices: Office[] = [
   },
   {
     label: "Ahmedabad Branch",
-    lines: ["E-1106, Titanium City Center Business Park", "Ahmedabad, Gujarat 380015"],
+    lines: ["Titanium City Center Business Park", "Ahmedabad, Gujarat 380015"],
     phoneLabel: "WhatsApp only",
     phoneDisplay: "+91 91069 24543",
     phoneHref: "https://wa.me/919106924543",
@@ -75,11 +75,11 @@ const offices: Office[] = [
   },
   {
     label: "Canada Office",
-    lines: ["1708 Dolphin Ave", "Kelowna, BC V1Y 9J7, Canada"],
+    lines: ["Dolphin Ave", "Kelowna, BC V1Y 9J7, Canada"],
     phoneLabel: "WhatsApp only",
     phoneDisplay: "+1 825 907 0036",
     phoneHref: "https://wa.me/18259070036",
-    mapQuery: "1708 Dolphin Ave, Kelowna, BC V1Y 9J7, Canada",
+    mapQuery: "Dolphin Ave, Kelowna, BC V1Y 9J7, Canada",
   },
 ]
 

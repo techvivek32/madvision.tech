@@ -156,7 +156,28 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 mt-0.5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
                   <span>
                     <span className="block text-xs uppercase tracking-wider text-white/35">Ahmedabad Branch</span>
-                    E-1106, Titanium City Center Business Park, Ahmedabad, Gujarat 380015
+                    Titanium City Center Business Park, Ahmedabad, Gujarat 380015
+                  </span>
+                </motion.div>
+              </StaggerItem>
+              <StaggerItem as="div" y={12}>
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: DUR.fast, ease: EASE_OUT }}
+                  className="group flex items-start gap-3 text-white/50"
+                >
+                  <MapPin className="w-5 h-5 mt-0.5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-white/35">Canada Office</span>
+                    Dolphin Ave, Kelowna, BC V1Y 9J7, Canada
+                    <a
+                      href="https://wa.me/18259070036"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-white/50 hover:text-white transition-colors"
+                    >
+                      +1 825 907 0036 (WhatsApp)
+                    </a>
                   </span>
                 </motion.div>
               </StaggerItem>

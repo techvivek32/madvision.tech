@@ -60,7 +60,7 @@ export default function TermsOfService() {
           <p className="text-muted-foreground mb-6">Name: Grievance Officer<br/>Email: info@madvision.tech<br/>Phone: +91 96011 76051<br/>Response time: 72 hours</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">14. Contact Information</h2>
-          <p className="text-muted-foreground">Vision Tech<br/>Email: info@madvision.tech<br/>Phone: +91 96011 76051<br/>Head Office: R.K. Empire, Rajkot, Gujarat, India<br/>Ahmedabad Branch: E-1106, Titanium City Center Business Park, Ahmedabad, Gujarat 380015<br/>Business Hours: 9 AM - 6 PM IST</p>
+          <p className="text-muted-foreground">Vision Tech<br/>Email: info@madvision.tech<br/>Phone: +91 96011 76051<br/>Head Office: R.K. Empire, Rajkot, Gujarat, India<br/>Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad, Gujarat 380015<br/>Business Hours: 9 AM - 6 PM IST</p>
         </div>
       </div>
     </div>
