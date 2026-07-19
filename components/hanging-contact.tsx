@@ -254,14 +254,7 @@ export default function HangingContact() {
               {/* top brand row + ornamental rule */}
               <div className="relative z-10">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    {/* letterpress monogram block */}
-                    <span
-                      className="flex h-5 w-5 items-center justify-center rounded-[3px] bg-[#241f16] font-serif text-[11px] italic leading-none text-[#f3e9d2]"
-                      style={{ boxShadow: "inset 0 -1px 0 rgba(255,248,225,0.18)" }}
-                    >
-                      V
-                    </span>
+                  <div className="flex items-center">
                     <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#3a3226]">
                       Vision Tech
                     </span>
