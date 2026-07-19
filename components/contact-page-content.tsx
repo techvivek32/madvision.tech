@@ -37,8 +37,8 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: "Email Us",
-    value: "madevisionstudios@gmail.com",
-    href: "mailto:madevisionstudios@gmail.com",
+    value: "info@madvision.tech",
+    href: "mailto:info@madvision.tech",
   },
   {
     icon: Phone,
@@ -437,10 +437,10 @@ export default function ContactPageContent() {
               <SpotlightCard tone="light" className="mt-2 p-6 rounded-2xl bg-card border border-border">
                 <p className="relative z-10 text-sm text-muted-foreground mb-2">Prefer to email directly?</p>
                 <a
-                  href="mailto:madevisionstudios@gmail.com"
+                  href="mailto:info@madvision.tech"
                   className="relative z-10 text-foreground font-medium flex items-center gap-2 hover:gap-3 transition-all"
                 >
-                  madevisionstudios@gmail.com
+                  info@madvision.tech
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </SpotlightCard>

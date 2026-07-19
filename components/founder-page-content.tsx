@@ -173,7 +173,7 @@ export default function FounderPageContent() {
               <Reveal y={16} delay={0.6}>
                 <MagneticButton
                   as={Link}
-                  href="mailto:madevisionstudios@gmail.com"
+                  href="mailto:info@madvision.tech"
                   accent={ACCENT}
                   className="group relative overflow-hidden gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium"
                 >
@@ -397,7 +397,7 @@ export default function FounderPageContent() {
                   </MagneticButton>
                   <MagneticButton
                     as={Link}
-                    href="mailto:madevisionstudios@gmail.com"
+                    href="mailto:info@madvision.tech"
                     glow={false}
                     className="group relative overflow-hidden gap-2 px-10 py-5 rounded-full border border-white/20 text-background text-lg hover:bg-white/10 transition-colors"
                   >

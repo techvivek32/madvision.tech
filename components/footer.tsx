@@ -116,11 +116,11 @@ export default function Footer() {
                 <motion.a
                   whileHover={{ x: 5 }}
                   transition={{ duration: DUR.fast, ease: EASE_OUT }}
-                  href="mailto:madevisionstudios@gmail.com"
+                  href="mailto:info@madvision.tech"
                   className="group flex items-center gap-3 text-white/50 hover:text-white transition-colors"
                 >
                   <Mail className="w-5 h-5 transition-colors group-hover:text-[#c8ff00]" />
-                  <span>madevisionstudios@gmail.com</span>
+                  <span>info@madvision.tech</span>
                 </motion.a>
               </StaggerItem>
               <StaggerItem as="div" y={12}>
