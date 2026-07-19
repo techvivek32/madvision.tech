@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T03:20:00+05:30",
+  "updatedAt": "2026-07-20T04:05:00+05:30",
   "strategy": {
     "primaryMarkets": ["USA", "Canada", "UK", "Australia", "Western Europe"],
     "secondaryMarkets": ["India — existing network / referrals only"],
@@ -15,12 +15,12 @@
   },
   "todayIdea": {
     "date": "2026-07-20",
-    "title": "WhatsApp-first booking micro-site for local service businesses",
-    "pitch": "Salons, dentists, tuition classes and repair shops lose walk-ins because booking means phone calls. We ship a one-page site: services, prices, reviews, and a WhatsApp 'Book Now' that opens a prefilled chat. Live in 24 hours, zero hosting cost for us (Next.js + Vercel), sold at a one-time setup fee.",
-    "priceRangeUSD": "99-199 one-time (INR 8k-15k), optional 19/mo care plan",
-    "buildPlan": "Template already matches our stack: single Next.js page, business config in one JSON, wa.me deep links, Google reviews embed, deployed per-client on Vercel subdomain or their domain.",
-    "targetNiche": "Service businesses in USA, Canada (Kelowna base), UK and Australia — priced $299-499; India only via existing network",
-    "status": "scouting"
+    "title": "One-page booking micro-site for Western local services",
+    "pitch": "Local service businesses (salons, detailers, barbers, mechanics, groomers) in CA/US/UK/AU lose ready-to-buy customers because their sites have no prices, no reviews and no booking. We ship a mobile-perfect one-pager — services + prices, reviews, one-tap Book Now — live in 48 hours.",
+    "priceRangeUSD": "299 one-time; optional 49/mo care plan",
+    "buildPlan": "Single Next.js page per client, config-driven, deployed on Vercel; Book Now opens their preferred channel (existing booking tool, SMS, WhatsApp or phone).",
+    "targetNiche": "Service businesses in USA, Canada (Kelowna base), UK and Australia — priced $299; India only via existing network",
+    "status": "pitching"
   },
   "agents": [
     {
@@ -29,7 +29,7 @@
       "role": "Finds the daily zero-cost idea + researches real leads with public business contact info",
       "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Day-1 idea seeded. Lead research runs on the daily cycle."
+      "note": "Live cycle 1: 8 real leads across CA/US/UK/AU, every website personally verified, 6 with published business emails."
     },
     {
       "id": "builder",
@@ -37,19 +37,137 @@
       "role": "Builds the demo/product for the day's idea so pitches link to something real",
       "status": "idle",
       "lastRun": null,
-      "note": "Waiting for first lead-specific build order."
+      "note": "Next up: live demo booking one-pager to link inside pitches."
     },
     {
       "id": "pitcher",
       "name": "Pitcher",
       "role": "Drafts personalized email + WhatsApp pitches per lead; email sends via admin Approve, WhatsApp opens prefilled for one-click send",
-      "status": "idle",
-      "lastRun": null,
-      "note": "No drafts queued yet."
+      "status": "done",
+      "lastRun": "2026-07-20",
+      "note": "6 personalized pitches drafted (warm, no hard-sell, $299 anchor, opt-out line, CASL-safe for Canada). Awaiting boss approvals."
     }
   ],
-  "leads": [],
+  "leads": [
+    {
+      "id": "L-001",
+      "date": "2026-07-20",
+      "business": "Best Little Hair House",
+      "country": "CA",
+      "email": "bestlittlehairhouse1@gmail.com",
+      "whatsapp": "",
+      "source": "https://bestlittlehairhouse.ca/contact/",
+      "status": "found",
+      "pitchEmailSubject": "A small refresh for the Best Little Hair House?",
+      "pitchEmailBody": "Hi Best Little Hair House team,\n\nI'm Vivek, founder of Vision Tech — we're your neighbours up Highway 97 in Kelowna. I spent a while on your site this week. Any salon with roots back to Sally's Hair Port in 1978 clearly knows how to keep clients for life — but the page still shows the COVID-era mask protocols, your cuts, colour, extensions and piercing have no prices listed, and booking hands people off to a separate Vagaro page.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, your best reviews, mobile-perfect, and one clear Book Now button that opens whatever you prefer — Vagaro, text, or the phone. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech — Kelowna, BC\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek here from Vision Tech in Kelowna. I noticed bestlittlehairhouse.ca still shows COVID mask protocols and no prices for your services — we build one-page booking sites (services, prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time, no monthly fees. If you're curious, just reply and tell me what you'd want on it — no worries at all if not.",
+      "notes": "Salon, Penticton BC. Site shows COVID-era protocols, no prices, booking via external Vagaro. Phone (250) 493-5566 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST (their weekday morning)"
+    },
+    {
+      "id": "L-002",
+      "date": "2026-07-20",
+      "business": "Next Level Detailing",
+      "country": "CA",
+      "email": "nextleveldetailvernon@gmail.com",
+      "whatsapp": "",
+      "source": "https://detailingvernon.com/contact/",
+      "status": "found",
+      "pitchEmailSubject": "A neighbourly idea from Kelowna for Next Level Detailing",
+      "pitchEmailBody": "Hi Next Level team,\n\nI'm Vivek, founder of Vision Tech — we're just down Highway 97 in Kelowna, so your Vernon shop caught my eye. Looking through your site, you clearly do serious work — ceramic coating, undercoating, full interior and exterior details — but there are no prices anywhere, a few of the social links are broken, and booking sends customers out to an external Urable page instead of a clean one-tap flow.\n\nWe build one-page booking micro-sites for local service businesses: your packages with prices, your reviews, mobile-perfect, and one big Book Now button that opens whatever you prefer — Urable, text, WhatsApp or phone. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech — Kelowna, BC\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech in Kelowna here. I noticed detailingvernon.com lists ceramic coating and detailing but no prices, and booking bounces people out to Urable — we build clean one-page booking sites (prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time. If that sounds interesting, just reply with what you'd change and we'll handle the rest — no worries if not.",
+      "notes": "Auto detailing, Vernon BC. No prices, broken socials, booking via external Urable. Phone 250-306-3077 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST"
+    },
+    {
+      "id": "L-003",
+      "date": "2026-07-20",
+      "business": "Boise Detail Inc",
+      "country": "US",
+      "email": "service@boisedetailinc.com",
+      "whatsapp": "",
+      "source": "https://www.boisedetailinc.com/",
+      "status": "found",
+      "pitchEmailSubject": "35 years of Boise Detail — your website should brag a little",
+      "pitchEmailBody": "Hi Boise Detail team,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I came across your site and did a double take — detailing Boise's cars since 1991 is a real achievement, but the homepage slider is still showing placeholder text ('Slide Title' / 'Write your caption here'), there are no prices listed, and the only thing a ready-to-buy customer can do is call for a free estimate.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, three decades of happy-customer reviews front and center, mobile-perfect, and a Book Now button that opens whatever you prefer — a booking form, text, or your phone line. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi, Vivek here from Vision Tech (madvision.tech). I noticed the homepage slider on boisedetailinc.com still shows 'Slide Title' placeholder text, with no pricing or online booking — we build one-page booking sites (services, prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time. If you're curious, just reply and tell me what you'd want on it — no worries if not.",
+      "notes": "Auto detailing since 1991, Boise ID. Homepage slider shows placeholder text, no prices, no booking. Phone 208-343-3025 · TZ America/Boise · Best send: 8:30pm-1:30am IST"
+    },
+    {
+      "id": "L-004",
+      "date": "2026-07-20",
+      "business": "Quality Lawn Care & Landscaping",
+      "country": "US",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://qualitylawn.care/",
+      "status": "found",
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "",
+      "notes": "Lawn care, Chattanooga TN. Early-2000s site, broken images, no pricing, NO PUBLIC EMAIL — phone/form outreach only. Phone 423-475-1731 · TZ America/New_York"
+    },
+    {
+      "id": "L-005",
+      "date": "2026-07-20",
+      "business": "Blades of Norwich",
+      "country": "UK",
+      "email": "bladesofnorwich@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.bladesofnorwich.com/",
+      "status": "found",
+      "pitchEmailSubject": "Your £19 Wet Cut deserves a Book Now button",
+      "pitchEmailBody": "Hi Blades team,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was reading your site and liked how upfront your pricing is — £19 wet cuts, £13 buzz cuts, all clearly listed. But the only way to book is to 'call us on 01603 630736... or just drop in', and the page itself feels like it was built a good decade ago, which doesn't do a busy barbershop justice on a phone screen.\n\nWe build one-page booking micro-sites for local businesses: your full price list, your reviews, mobile-perfect, and a prominent Book Now button that opens whatever suits you — booking form, SMS, WhatsApp or the phone. Live in 48 hours, $299 USD one-time (roughly £220), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love that your prices are upfront on bladesofnorwich.com (£19 wet cut), but booking is still phone-only — we build mobile-perfect one-page booking sites with a proper Book Now button, live in 48 hours for $299 USD one-time (roughly £220). If you're curious, just reply with what you'd change and we'll handle everything — no worries if not.",
+      "notes": "Barbershop, Norwich UK. Prices listed but booking phone-only, dated design. Phone 01603 630736 · TZ Europe/London · Best send: 1:30pm-6:30pm IST"
+    },
+    {
+      "id": "L-006",
+      "date": "2026-07-20",
+      "business": "Drive Automatic",
+      "country": "UK",
+      "email": "lessons@drive-automatic.uk",
+      "whatsapp": "",
+      "source": "https://drive-automatic.uk/",
+      "status": "found",
+      "pitchEmailSubject": "Your £220 intro offer deserves an easier way to book",
+      "pitchEmailBody": "Hi there,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was looking at drive-automatic.uk and your pricing is refreshingly clear — £88 for two hours, and the 6-hours-for-the-price-of-5 intro at £220 is a genuinely good deal. What surprised me is that a learner who's ready to start still has to phone, email or fill in an enquiry form — and there isn't a single student review on the page to reassure nervous first-timers.\n\nWe build one-page booking micro-sites for local businesses: your lesson prices, your pass stories and reviews, mobile-perfect, and one clear Book Now button that opens whatever you prefer — form, SMS, WhatsApp or phone. Live in 48 hours, $299 USD one-time (roughly £220 — same as your intro offer), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Your lesson pricing on drive-automatic.uk is brilliantly clear (£220 intro deal), but learners can't book online and no reviews are shown — we build one-page booking sites with prices, reviews and a one-tap Book Now, live in 48 hours for $299 USD one-time. If that sounds interesting, just reply with what you'd change — no worries if not.",
+      "notes": "Driving instructor, Brighton UK. Clear prices, no online booking, zero reviews shown. Phone 07721 760868 · TZ Europe/London · Best send: 1:30pm-6:30pm IST"
+    },
+    {
+      "id": "L-007",
+      "date": "2026-07-20",
+      "business": "Geelong Mobile Mechanic",
+      "country": "AU",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://www.geelongmobilemechanic.com.au/",
+      "status": "found",
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "",
+      "notes": "Mobile mechanic, Geelong AU. Site's contact email is literally the template placeholder 'info@domain.com.au' — NO REAL PUBLIC EMAIL, phone outreach only. Phone 0426 507 837 · TZ Australia/Melbourne"
+    },
+    {
+      "id": "L-008",
+      "date": "2026-07-20",
+      "business": "Noonies Pet Care",
+      "country": "AU",
+      "email": "darrin@noonies.org",
+      "whatsapp": "",
+      "source": "https://noonies.org/",
+      "status": "found",
+      "pitchEmailSubject": "Filling in that 'Some of Our Reviews' section on noonies.org",
+      "pitchEmailBody": "Hi Darrin,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was on noonies.org this week and a few things jumped out: the 'Some of Our Reviews' section doesn't actually show any reviews yet, grooming is quote-only with no guide price, and the 'Book An Appointment' form is really a callback request — so a pet owner who's ready to book still ends up waiting by the phone.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, your real customer reviews finally on display, mobile-perfect, and a proper Book Now button that opens whatever you prefer — booking form, SMS, WhatsApp or phone. Live in 48 hours, $299 USD one-time (about A$450), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi Darrin, Vivek from Vision Tech here. I noticed the reviews section on noonies.org is empty and the booking form is really a callback request — we build one-page booking sites with prices, real reviews and a proper one-tap Book Now, live in 48 hours for $299 USD one-time (about A$450). If that sounds interesting, just reply with what you'd change — no worries if not.",
+      "notes": "Dog groomer, Newcastle AU. Empty reviews section, quote-only pricing, callback-form booking. Phone 0411398395 · TZ Australia/Sydney · Best send: 4:30am-9:30am IST"
+    }
+  ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "scout+pitcher",
+      "summary": "FIRST LIVE CYCLE COMPLETE (overnight run): 8 real leads researched across Canada (Penticton, Vernon), USA (Boise, Chattanooga), UK (Norwich, Brighton) and Australia (Geelong, Newcastle) — every website personally verified, 6 have published business emails. Personalized pitches drafted for all 6. Boss: open the outreach queue and Approve & Send each pitch during the lead's business hours (send windows are in each lead's notes — UK leads 1:30-6:30pm IST, North America 8:30pm-2:30am IST, Australia 4:30-9:30am IST). Two leads have no public email (phone/form only)."
+    },
     {
       "date": "2026-07-20",
       "agent": "system",

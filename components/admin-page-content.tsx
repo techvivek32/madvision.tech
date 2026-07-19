@@ -483,12 +483,12 @@ function Friday({ data }: { data: Agency }) {
             ? "Still needed from you, Boss: " + pending.map((r) => r.item).join(". ")
             : "Nothing pending from your side right now. All resources received.",
         )
-      } else if (/time|date|tarikh|samay/.test(t)) {
+      } else if (/update|status|briefing|badhu|अपडेट|બધું/.test(t)) {
+        briefing()
+      } else if (/\btime\b|\bdate\b|tarikh|samay/.test(t)) {
         speak(new Date().toLocaleString("en-IN", { dateStyle: "full", timeStyle: "short" }))
       } else if (/thank|dhanyavad|aabhar/.test(t)) {
         speak("Always, Boss. Back to work.")
-      } else if (/update|status|briefing|badhu|報告|अपडेट|બધું/.test(t)) {
-        briefing()
       } else {
         briefing()
       }
