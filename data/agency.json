@@ -51,7 +51,9 @@
   ],
   "resourcesNeeded": [
     { "item": "LinkedIn account access (for lead research + founder-branded outreach)", "status": "pending" },
-    { "item": "Confirmation: Vercel deploys per client project (you said yes — will use existing login)", "status": "pending" },
-    { "item": "Payment link (Stripe/Razorpay/UPI) to attach in pitches", "status": "pending" }
+    { "item": "Vercel access for per-client deploys", "status": "received" },
+    { "item": "India payments — UPI 9601176051@kotakbank (Kotak811)", "status": "received" },
+    { "item": "International payments — Wise link", "status": "promised (boss will share)" },
+    { "item": "WhatsApp routing — Chrome = Canada number (+1 825 907 0036), Brave = India number (+91 96011 76051); Titan mail also logged in Chrome", "status": "noted" }
   ]
 }
