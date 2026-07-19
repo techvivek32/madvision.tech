@@ -91,7 +91,7 @@ export default function ProductsSection() {
           {products.map((product) => (
             <StaggerItem key={product.title}>
               <SpotlightCard
-                href="/products"
+                href="/portfolio"
                 tone="dark"
                 lift={-4}
                 className="group block border-t border-white/10 py-10 px-2 -mx-2 rounded-xl"

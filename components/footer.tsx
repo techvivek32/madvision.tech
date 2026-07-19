@@ -22,13 +22,13 @@ const footerLinks = {
   company: [
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Products", href: "/products" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "Contact", href: "/contact" },
   ],
   products: [
-    { label: "Retailians POS", href: "/products" },
-    { label: "911 Wrap ERP", href: "/products" },
-    { label: "DSAT Guru – Smart SAT", href: "/products" },
+    { label: "Retailians POS", href: "/portfolio" },
+    { label: "911 Wrap ERP", href: "/portfolio" },
+    { label: "DSAT Guru – Smart SAT", href: "/portfolio" },
   ],
 }
 
