@@ -1,0 +1,57 @@
+{
+  "updatedAt": "2026-07-20T01:45:00+05:30",
+  "targets": {
+    "dailyPipelineUSD": 2000,
+    "dailyRevenueGoalUSD": 100,
+    "earnedToDateUSD": 0,
+    "note": "Pitch $2000/day of proposal value so conversions land $100+/day minimum."
+  },
+  "todayIdea": {
+    "date": "2026-07-20",
+    "title": "WhatsApp-first booking micro-site for local service businesses",
+    "pitch": "Salons, dentists, tuition classes and repair shops lose walk-ins because booking means phone calls. We ship a one-page site: services, prices, reviews, and a WhatsApp 'Book Now' that opens a prefilled chat. Live in 24 hours, zero hosting cost for us (Next.js + Vercel), sold at a one-time setup fee.",
+    "priceRangeUSD": "99-199 one-time (INR 8k-15k), optional 19/mo care plan",
+    "buildPlan": "Template already matches our stack: single Next.js page, business config in one JSON, wa.me deep links, Google reviews embed, deployed per-client on Vercel subdomain or their domain.",
+    "targetNiche": "Local service businesses in Rajkot/Ahmedabad (WhatsApp-native) and Kelowna BC (CASL-compliant 1:1 outreach only)",
+    "status": "scouting"
+  },
+  "agents": [
+    {
+      "id": "scout",
+      "name": "Scout",
+      "role": "Finds the daily zero-cost idea + researches real leads with public business contact info",
+      "status": "done",
+      "lastRun": "2026-07-20",
+      "note": "Day-1 idea seeded. Lead research runs on the daily cycle."
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "role": "Builds the demo/product for the day's idea so pitches link to something real",
+      "status": "idle",
+      "lastRun": null,
+      "note": "Waiting for first lead-specific build order."
+    },
+    {
+      "id": "pitcher",
+      "name": "Pitcher",
+      "role": "Drafts personalized email + WhatsApp pitches per lead; email sends via admin Approve, WhatsApp opens prefilled for one-click send",
+      "status": "idle",
+      "lastRun": null,
+      "note": "No drafts queued yet."
+    }
+  ],
+  "leads": [],
+  "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "system",
+      "summary": "Agency initialized. Day-1 idea locked: WhatsApp-first booking micro-sites for local services. Pipeline target set at $2000/day proposal value with $100/day minimum revenue goal. Scout's first live lead-research cycle is scheduled; Builder and Pitcher activate when leads land."
+    }
+  ],
+  "resourcesNeeded": [
+    { "item": "LinkedIn account access (for lead research + founder-branded outreach)", "status": "pending" },
+    { "item": "Confirmation: Vercel deploys per client project (you said yes — will use existing login)", "status": "pending" },
+    { "item": "Payment link (Stripe/Razorpay/UPI) to attach in pitches", "status": "pending" }
+  ]
+}
