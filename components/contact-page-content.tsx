@@ -29,8 +29,7 @@ type ContactInfo = {
   icon: LucideIcon
   title: string
   href: string
-  value?: string
-  locations?: { label: string; lines: string[] }[]
+  value: string
 }
 
 const contactInfo: ContactInfo[] = [
@@ -46,17 +45,41 @@ const contactInfo: ContactInfo[] = [
     value: "+91 96011 76051",
     href: "tel:+919601176051",
   },
+]
+
+type Office = {
+  label: string
+  lines: string[]
+  phoneLabel: string
+  phoneDisplay: string
+  phoneHref: string
+  mapQuery: string
+}
+
+const offices: Office[] = [
   {
-    icon: MapPin,
-    title: "Visit Us",
-    href: "#",
-    locations: [
-      { label: "Head Office", lines: ["R.K. Empire", "Rajkot, Gujarat"] },
-      {
-        label: "Ahmedabad Branch",
-        lines: ["E-1106, Titanium City Center Business Park", "Ahmedabad, Gujarat 380015"],
-      },
-    ],
+    label: "Head Office",
+    lines: ["R.K. Empire", "Rajkot, Gujarat, India"],
+    phoneLabel: "Call / WhatsApp",
+    phoneDisplay: "+91 96011 76051",
+    phoneHref: "https://wa.me/919601176051",
+    mapQuery: "R.K. Empire, Rajkot, Gujarat",
+  },
+  {
+    label: "Ahmedabad Branch",
+    lines: ["E-1106, Titanium City Center Business Park", "Ahmedabad, Gujarat 380015"],
+    phoneLabel: "WhatsApp only",
+    phoneDisplay: "+91 91069 24543",
+    phoneHref: "https://wa.me/919106924543",
+    mapQuery: "Titanium City Center, Ahmedabad, Gujarat",
+  },
+  {
+    label: "Canada Office",
+    lines: ["1708 Dolphin Ave", "Kelowna, BC V1Y 9J7, Canada"],
+    phoneLabel: "WhatsApp only",
+    phoneDisplay: "+1 825 907 0036",
+    phoneHref: "https://wa.me/18259070036",
+    mapQuery: "1708 Dolphin Ave, Kelowna, BC V1Y 9J7, Canada",
   },
 ]
 
@@ -185,7 +208,7 @@ export default function ContactPageContent() {
       {/* Contact Cards */}
       <section className="py-16 relative bg-background">
         <div className="container mx-auto px-6">
-          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {contactInfo.map((info) => (
               <StaggerItem key={info.title}>
                 <SpotlightCard
@@ -201,25 +224,47 @@ export default function ContactPageContent() {
                     <info.icon className="w-7 h-7 text-background" />
                   </motion.div>
                   <h3 className="relative z-10 font-medium mb-2 text-foreground text-lg">{info.title}</h3>
-                  {info.locations ? (
-                    <div className="relative z-10 mt-4 space-y-4">
-                      {info.locations.map((loc, i) => (
-                        <div key={loc.label}>
-                          {i > 0 && <div className="mx-auto mb-4 h-px w-10 bg-border" />}
-                          <span className="mb-1 block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
-                            {loc.label}
-                          </span>
-                          {loc.lines.map((line) => (
-                            <p key={line} className="text-sm leading-relaxed text-muted-foreground">
-                              {line}
-                            </p>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="relative z-10 text-muted-foreground">{info.value}</p>
-                  )}
+                  <p className="relative z-10 text-muted-foreground">{info.value}</p>
+                </SpotlightCard>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          {/* office cards — one per location */}
+          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-6">
+            {offices.map((office) => (
+              <StaggerItem key={office.label}>
+                <SpotlightCard
+                  tone="light"
+                  className="block p-8 rounded-2xl bg-card border border-border text-center h-full"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5, ease: EASE_OUT }}
+                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-4"
+                  >
+                    <MapPin className="w-7 h-7 text-background" />
+                  </motion.div>
+                  <span className="relative z-10 mb-2 block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
+                    {office.label}
+                  </span>
+                  {office.lines.map((line) => (
+                    <p key={line} className="relative z-10 text-sm leading-relaxed text-muted-foreground">
+                      {line}
+                    </p>
+                  ))}
+                  <div className="relative z-10 mx-auto my-4 h-px w-10 bg-border" />
+                  <a
+                    href={office.phoneHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 block text-sm font-medium text-foreground hover:underline"
+                  >
+                    {office.phoneDisplay}
+                  </a>
+                  <span className="relative z-10 mt-1 block text-[10px] uppercase tracking-[0.18em] text-muted-foreground/60">
+                    {office.phoneLabel}
+                  </span>
                 </SpotlightCard>
               </StaggerItem>
             ))}
@@ -460,46 +505,37 @@ export default function ContactPageContent() {
             <h2 className="text-3xl font-serif mb-4 text-foreground">
               Our <GradientText animate>Locations</GradientText>
             </h2>
-            <p className="text-muted-foreground">Head office in Rajkot, branch in Ahmedabad — serving clients worldwide</p>
+            <p className="text-muted-foreground">Rajkot &middot; Ahmedabad &middot; Kelowna — serving clients worldwide</p>
           </Reveal>
 
-          <Reveal y={32} className="max-w-4xl mx-auto">
-            <TiltCard max={6} scale={1.015} className="rounded-3xl overflow-hidden border border-border">
-              <div className="aspect-video bg-card relative">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118147.87289519677!2d70.72946027812503!3d22.273466100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71cdf0f%3A0x76dd15cfbe93ad3a!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1702000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Vision Tech Location"
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-            </TiltCard>
-          </Reveal>
-
-          {/* office addresses */}
-          <Reveal y={24} delay={0.1} className="max-w-4xl mx-auto mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <span className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                  Head Office
-                </span>
-                <p className="text-foreground font-medium">R.K. Empire</p>
-                <p className="text-muted-foreground text-sm mt-1">Rajkot, Gujarat, India</p>
-              </div>
-              <div className="p-6 rounded-2xl bg-card border border-border">
-                <span className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
-                  Ahmedabad Branch
-                </span>
-                <p className="text-foreground font-medium">E-1106, Titanium City Center Business Park</p>
-                <p className="text-muted-foreground text-sm mt-1">Ahmedabad, Gujarat 380015</p>
-              </div>
-            </div>
-          </Reveal>
+          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {offices.map((office) => (
+              <StaggerItem key={office.label}>
+                <TiltCard max={6} scale={1.015} className="rounded-3xl overflow-hidden border border-border bg-card h-full">
+                  <div className="relative h-52 bg-secondary">
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent(office.mapQuery)}&z=14&output=embed`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`Vision Tech — ${office.label}`}
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                  <div className="p-5 text-left">
+                    <span className="block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground/70 mb-1.5">
+                      {office.label}
+                    </span>
+                    <p className="text-sm font-medium text-foreground leading-snug">{office.lines[0]}</p>
+                    <p className="text-sm text-muted-foreground leading-snug">{office.lines[1]}</p>
+                  </div>
+                </TiltCard>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
     </>
