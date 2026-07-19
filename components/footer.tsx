@@ -124,15 +124,36 @@ export default function Footer() {
                 </motion.a>
               </StaggerItem>
               <StaggerItem as="div" y={12}>
-                <motion.a
+                <motion.div
                   whileHover={{ x: 5 }}
                   transition={{ duration: DUR.fast, ease: EASE_OUT }}
-                  href="tel:+919601176051"
-                  className="group flex items-center gap-3 text-white/50 hover:text-white transition-colors"
+                  className="group flex items-center gap-3 text-white/50"
                 >
-                  <Phone className="w-5 h-5 transition-colors group-hover:text-[#c8ff00]" />
-                  <span>+91 96011 76051</span>
-                </motion.a>
+                  <Phone className="w-5 h-5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
+                  <span className="flex flex-wrap items-center gap-x-2">
+                    <a href="tel:+919601176051" className="hover:text-white transition-colors whitespace-nowrap">
+                      +91 96011 76051
+                    </a>
+                    <span className="text-white/25">&middot;</span>
+                    <a
+                      href="https://wa.me/919106924543"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors whitespace-nowrap"
+                    >
+                      +91 91069 24543
+                    </a>
+                    <span className="text-white/25">&middot;</span>
+                    <a
+                      href="https://wa.me/18259070036"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors whitespace-nowrap"
+                    >
+                      +1 825 907 0036
+                    </a>
+                  </span>
+                </motion.div>
               </StaggerItem>
               <StaggerItem as="div" y={12}>
                 <motion.div
@@ -170,14 +191,6 @@ export default function Footer() {
                   <span>
                     <span className="block text-xs uppercase tracking-wider text-white/35">Canada Office</span>
                     Dolphin Ave, Kelowna, BC V1Y 9J7, Canada
-                    <a
-                      href="https://wa.me/18259070036"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-white/50 hover:text-white transition-colors"
-                    >
-                      +1 825 907 0036 (WhatsApp)
-                    </a>
                   </span>
                 </motion.div>
               </StaggerItem>
