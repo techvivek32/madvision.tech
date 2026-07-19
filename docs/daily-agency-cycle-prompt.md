@@ -20,11 +20,12 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    (stack: Next.js + Vercel free tier; think WhatsApp booking micro-sites, QR menu pages, review
    landing pages, lead-capture pages, small dashboards).
 
-2. LEADS: Using web search, find 3-5 REAL local businesses (mix of Rajkot/Ahmedabad India and
-   Kelowna BC Canada) that plausibly need today's idea. Use ONLY publicly listed business contact
+2. LEADS: Read strategy{} in data/agency.json — it governs targeting. Using web search, find 4-6
+   REAL businesses in the PRIMARY markets (USA, Canada, UK, Australia, Western Europe — India only
+   via existing network) that plausibly need today's idea. Use ONLY publicly listed business contact
    info (business email, public business phone). NEVER invent or guess contact details — if
    unverifiable, include the business with its source URL, leave email/whatsapp empty, and note why.
-   No personal/private data.
+   No personal/private data. Note each lead's timezone so the founder pitches in their business hours.
 
 3. PITCH DRAFTS: For each lead with contact info, draft pitchEmailSubject + pitchEmailBody
    (120-180 words, from Vivek Vora, Founder & CEO, Vision Tech, info@madvision.tech; something

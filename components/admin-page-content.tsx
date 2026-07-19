@@ -371,12 +371,18 @@ function Friday({ data }: { data: Agency }) {
   const [lang, setLang] = useState("en-IN")
   const [log, setLog] = useState<{ who: "you" | "friday"; text: string }[]>([])
   const [supported, setSupported] = useState(true)
+  const [input, setInput] = useState("")
   const recRef = useRef<{ stop: () => void } | null>(null)
+  const logEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const w = window as unknown as Record<string, unknown>
     if (!w.SpeechRecognition && !w.webkitSpeechRecognition) setSupported(false)
   }, [])
+
+  useEffect(() => {
+    logEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [log])
 
   const speak = useCallback(
     (text: string) => {
@@ -385,7 +391,15 @@ function Friday({ data }: { data: Agency }) {
         window.speechSynthesis.cancel()
         const u = new SpeechSynthesisUtterance(text)
         u.lang = lang
-        u.rate = 1.02
+        u.rate = 1.04
+        // prefer a natural female voice — FRIDAY vibes
+        const voices = window.speechSynthesis.getVoices()
+        const pick =
+          voices.find((v) => v.lang === lang && /female|zira|natural/i.test(v.name)) ||
+          voices.find((v) => /Google (UK English Female|US English)/i.test(v.name)) ||
+          voices.find((v) => v.lang === lang) ||
+          voices.find((v) => v.lang.startsWith("en"))
+        if (pick) u.voice = pick
         window.speechSynthesis.speak(u)
       } catch {
         /* silent — text stays in the log */
@@ -399,39 +413,119 @@ function Friday({ data }: { data: Agency }) {
       const t = q.toLowerCase()
       const liveLeads = data.leads.filter((l) => l.status !== "lost")
       const won = data.leads.filter((l) => l.status === "won")
+      const pitched = data.leads.filter((l) => l.status === "pitched")
+      const strategy = (data as unknown as Record<string, { primaryMarkets?: string[]; pricingUSD?: string; positioning?: string }>).strategy
 
-      if (/idea|आइडिया|વિચાર/.test(t)) {
-        speak(
-          `Today's idea: ${data.todayIdea.title}. Price range ${data.todayIdea.priceRangeUSD}. Status: ${data.todayIdea.status}. Target niche: ${data.todayIdea.targetNiche}.`,
-        )
-      } else if (/lead|pipeline|लीड|લીડ/.test(t)) {
-        speak(
-          liveLeads.length === 0
-            ? "Pipeline is empty right now. Scout's next research cycle will bring fresh leads."
-            : `${liveLeads.length} leads in pipeline, ${won.length} won. Latest: ${liveLeads[0].business}, status ${liveLeads[0].status}.`,
-        )
-      } else if (/paisa|money|revenue|earning|target|कमाई|પૈસા/.test(t)) {
-        speak(
-          `Daily pipeline target is ${data.targets.dailyPipelineUSD} dollars, minimum revenue goal ${data.targets.dailyRevenueGoalUSD} dollars per day. Earned to date: ${data.targets.earnedToDateUSD} dollars.`,
-        )
-      } else if (/agent|team|टीम|ટીમ/.test(t)) {
-        speak(data.agents.map((a) => `${a.name}: ${a.status}`).join(". ") + ".")
-      } else {
+      const briefing = () => {
         const latest = data.reports[0]
         speak(
-          `Boss, here's the update. ${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${liveLeads.length} leads, ${won.length} won, ${data.targets.earnedToDateUSD} dollars earned so far. Daily target: ${data.targets.dailyPipelineUSD} dollars of pitches.`,
+          `Boss, here's your briefing. ${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${liveLeads.length} leads — ${pitched.length} pitched, ${won.length} won. Earned to date ${data.targets.earnedToDateUSD} dollars against a ${data.targets.dailyPipelineUSD} dollar daily pitch target. ${liveLeads.length === 0 ? "Next research cycle will bring fresh leads." : "The outreach queue is waiting for your approvals."}`,
         )
+      }
+
+      if (/^(hi|hello|hey|namaste|kem cho|good (morning|evening|afternoon)|wake up)/.test(t)) {
+        speak("At your service, Boss. Ask me for updates, leads, today's idea, money status, strategy, or say help.")
+      } else if (/help|su puchu|shu puchi|what can/.test(t)) {
+        speak(
+          "You can ask me: updates or full briefing. Today's idea. Leads — or leads by country, like leads in Canada. Money, targets and earnings. Agents and their status. Strategy and target markets. Contact details. Resources you still owe me. Or report history.",
+        )
+      } else if (/who are you|tu kon|tame kon|kaun ho/.test(t)) {
+        speak(
+          "I am Friday — Vision Tech's operations AI. I watch the agency pipeline, the agents, and the money, and I report only the truth to you, Boss.",
+        )
+      } else if (/idea|आइडिया|વિચાર/.test(t)) {
+        speak(
+          `Today's idea: ${data.todayIdea.title}. ${data.todayIdea.pitch} Price range ${data.todayIdea.priceRangeUSD}. Status: ${data.todayIdea.status}.`,
+        )
+      } else if (/lead|pipeline|लीड|લીડ/.test(t)) {
+        const countries: Record<string, string> = { canada: "CA", india: "IN", usa: "US", america: "US", uk: "UK", australia: "AU" }
+        const found = Object.keys(countries).find((c) => t.includes(c))
+        const pool = found ? liveLeads.filter((l) => (l.country || "").toUpperCase().startsWith(countries[found])) : liveLeads
+        if (pool.length === 0) {
+          speak(
+            found
+              ? `No ${found} leads in the pipeline yet, Boss. The next cycle hunts there.`
+              : "Pipeline is empty right now. The next research cycle will bring fresh leads — check back after the morning run.",
+          )
+        } else {
+          speak(
+            `${pool.length} ${found ? found + " " : ""}leads: ` +
+              pool.slice(0, 4).map((l) => `${l.business}, ${l.status}`).join(". ") +
+              (pool.length > 4 ? `. And ${pool.length - 4} more in the queue.` : "."),
+          )
+        }
+      } else if (/paisa|money|revenue|earning|target|कमाई|પૈસા|kamai|dollar/.test(t)) {
+        speak(
+          `Daily pitch target ${data.targets.dailyPipelineUSD} dollars, minimum revenue goal ${data.targets.dailyRevenueGoalUSD} dollars a day. Earned to date: ${data.targets.earnedToDateUSD} dollars. ${won.length > 0 ? won.length + " deals won so far." : "First win is pending, Boss — approve the pitches in the queue and we hunt."}`,
+        )
+      } else if (/strategy|market|country|targeting|kya country/.test(t)) {
+        speak(
+          strategy?.primaryMarkets
+            ? `Primary markets: ${strategy.primaryMarkets.join(", ")}. Positioning: ${strategy.positioning}. Typical pricing ${strategy.pricingUSD}.`
+            : "Strategy: premium one-day micro-builds pitched to Western markets — USA, Canada, UK, Australia and Europe first; India only through the existing network.",
+        )
+      } else if (/agent|team|टीम|ટીમ|firm/.test(t)) {
+        speak(
+          data.agents.map((a) => `${a.name} — ${a.status}${a.lastRun ? ", last run " + a.lastRun : ""}`).join(". ") + ".",
+        )
+      } else if (/report|history|itihas/.test(t)) {
+        speak(
+          data.reports.slice(0, 3).map((r) => `${r.date}, ${r.agent}: ${r.summary}`).join(" Next. ") || "No reports yet.",
+        )
+      } else if (/contact|email|phone|whatsapp|number/.test(t)) {
+        speak(
+          "Company email info@madvision.tech. India WhatsApp nine six zero one one seven six zero five one — that lives in Brave. Canada WhatsApp plus one eight two five, nine zero seven, zero zero three six — that lives in Chrome, along with Titan mail.",
+        )
+      } else if (/resource|needed|joie|aapvanu/.test(t)) {
+        const pending = (data.resourcesNeeded || []).filter((r) => r.status.includes("pending") || r.status.includes("promised"))
+        speak(
+          pending.length
+            ? "Still needed from you, Boss: " + pending.map((r) => r.item).join(". ")
+            : "Nothing pending from your side right now. All resources received.",
+        )
+      } else if (/time|date|tarikh|samay/.test(t)) {
+        speak(new Date().toLocaleString("en-IN", { dateStyle: "full", timeStyle: "short" }))
+      } else if (/thank|dhanyavad|aabhar/.test(t)) {
+        speak("Always, Boss. Back to work.")
+      } else if (/update|status|briefing|badhu|報告|अपडेट|બધું/.test(t)) {
+        briefing()
+      } else {
+        briefing()
       }
     },
     [data, speak],
   )
 
-  const listen = () => {
+  const ask = useCallback(
+    (text: string) => {
+      const clean = text.trim()
+      if (!clean) return
+      setLog((l) => [...l, { who: "you", text: clean }])
+      answer(clean)
+    },
+    [answer],
+  )
+
+  const listen = async () => {
     const w = window as unknown as Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
     const SR = w.SpeechRecognition || w.webkitSpeechRecognition
-    if (!SR) return
+    if (!SR) {
+      setLog((l) => [...l, { who: "friday", text: "Aa browser voice input support nathi kartu — niche type kari ne pucho, hu boli ne javab aapis." }])
+      return
+    }
     if (listening) {
       recRef.current?.stop()
+      return
+    }
+    // force the mic permission prompt explicitly before recognition starts
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      stream.getTracks().forEach((tr) => tr.stop())
+    } catch {
+      setLog((l) => [
+        ...l,
+        { who: "friday", text: "Mic permission block che, Boss. Address bar ma lock icon → Microphone → Allow karo, pachi fari try karo. Tya sudhi type kari ne pucho." },
+      ])
       return
     }
     const rec = new SR()
@@ -441,11 +535,17 @@ function Friday({ data }: { data: Agency }) {
     rec.maxAlternatives = 1
     rec.onstart = () => setListening(true)
     rec.onend = () => setListening(false)
-    rec.onerror = () => setListening(false)
+    rec.onerror = (e: { error?: string }) => {
+      setListening(false)
+      if (e?.error === "network" || e?.error === "service-not-allowed") {
+        setLog((l) => [
+          ...l,
+          { who: "friday", text: "Aa browser (Brave?) voice recognition block kare che — Chrome ma kholo athva niche type karo. Bolvanu to hu ahi pan karis." },
+        ])
+      }
+    }
     rec.onresult = (e: { results: { [i: number]: { [j: number]: { transcript: string } } } }) => {
-      const text = e.results[0][0].transcript
-      setLog((l) => [...l, { who: "you", text }])
-      answer(text)
+      ask(e.results[0][0].transcript)
     }
     rec.start()
   }
@@ -481,9 +581,9 @@ function Friday({ data }: { data: Agency }) {
             </div>
             {log.length === 0 && (
               <p className="text-sm text-background/70 leading-relaxed">
-                Mic dabao ane bolo — &quot;Friday, tell me updates&quot;, &quot;idea su che?&quot;,
-                &quot;leads kya che?&quot;, &quot;paisaketla thaya?&quot;
-                {!supported && " (Aa browser voice support nathi karto — Chrome vaparo.)"}
+                Boli ne athva type kari ne pucho — &quot;tell me updates&quot;, &quot;leads in Canada?&quot;,
+                &quot;paisa ketla thaya?&quot;, &quot;strategy su che?&quot;, &quot;help&quot;.
+                {!supported && " (Aa browser voice input support nathi kartu — type karo, javab hu boli ne aapis.)"}
               </p>
             )}
             <div className="space-y-2">
@@ -498,7 +598,30 @@ function Friday({ data }: { data: Agency }) {
                   {m.text}
                 </p>
               ))}
+              <div ref={logEndRef} />
             </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                ask(input)
+                setInput("")
+              }}
+              className="mt-3 flex gap-2"
+            >
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Type to Friday…"
+                className="flex-1 rounded-full bg-background/10 border border-background/20 px-4 py-2 text-sm text-background placeholder:text-background/40 outline-none focus:border-background/50"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 rounded-full text-xs font-medium text-black"
+                style={{ backgroundColor: ACCENT }}
+              >
+                Ask
+              </button>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>

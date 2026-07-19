@@ -1,5 +1,12 @@
 {
-  "updatedAt": "2026-07-20T01:45:00+05:30",
+  "updatedAt": "2026-07-20T03:20:00+05:30",
+  "strategy": {
+    "primaryMarkets": ["USA", "Canada", "UK", "Australia", "Western Europe"],
+    "secondaryMarkets": ["India — existing network / referrals only"],
+    "positioning": "Premium one-day micro-builds for Western small businesses: India-grade cost, MNC-grade delivery.",
+    "pricingUSD": "299-499 one-time typical; 49/mo care plan upsell",
+    "note": "Boss directive 2026-07-20: pitch paying markets abroad first — Western clients close faster and pay in USD/CAD/GBP. Time-zone aware outreach (their business hours), CAN-SPAM/CASL/GDPR-compliant 1:1 pitches only."
+  },
   "targets": {
     "dailyPipelineUSD": 2000,
     "dailyRevenueGoalUSD": 100,
@@ -12,7 +19,7 @@
     "pitch": "Salons, dentists, tuition classes and repair shops lose walk-ins because booking means phone calls. We ship a one-page site: services, prices, reviews, and a WhatsApp 'Book Now' that opens a prefilled chat. Live in 24 hours, zero hosting cost for us (Next.js + Vercel), sold at a one-time setup fee.",
     "priceRangeUSD": "99-199 one-time (INR 8k-15k), optional 19/mo care plan",
     "buildPlan": "Template already matches our stack: single Next.js page, business config in one JSON, wa.me deep links, Google reviews embed, deployed per-client on Vercel subdomain or their domain.",
-    "targetNiche": "Local service businesses in Rajkot/Ahmedabad (WhatsApp-native) and Kelowna BC (CASL-compliant 1:1 outreach only)",
+    "targetNiche": "Service businesses in USA, Canada (Kelowna base), UK and Australia — priced $299-499; India only via existing network",
     "status": "scouting"
   },
   "agents": [
@@ -43,6 +50,11 @@
   ],
   "leads": [],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "system",
+      "summary": "STRATEGY PIVOT (boss directive): primary targets are now USA, Canada, UK, Australia and Western Europe — they close faster and pay in hard currency. India moves to existing-network-only. Pricing raised to $299-499 one-time for Western markets. All future Scout cycles must weight leads accordingly and respect target-country business hours and outreach laws (CAN-SPAM/CASL/GDPR)."
+    },
     {
       "date": "2026-07-20",
       "agent": "system",
