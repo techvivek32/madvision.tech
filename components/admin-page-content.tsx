@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   Activity,
   BarChart3,
+  Bell,
   Bot,
   BrainCircuit,
   DollarSign,
@@ -140,6 +141,49 @@ export default function AdminPageContent() {
     return () => clearInterval(id)
   }, [authed])
 
+  /* Reply watch: best-effort IMAP auto-detect + desktop alert. Fails soft;
+     the per-lead "Mark replied" button is the guaranteed fallback. */
+  const notifiedRef = useRef<Set<string>>(new Set())
+  useEffect(() => {
+    if (!authed || !pass) return
+    if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission().catch(() => {})
+    }
+    let fails = 0
+    let stopped = false
+    const check = async () => {
+      if (stopped) return
+      try {
+        const res = await fetch("/api/agency/replies", { headers: { "x-admin-pass": pass } })
+        const j = await res.json()
+        if (j?.ok) {
+          fails = 0
+          if (Array.isArray(j.replies) && j.replies.length) {
+            for (const r of j.replies as { leadId: string; business: string; subject?: string }[]) {
+              if (!notifiedRef.current.has(r.leadId)) {
+                notifiedRef.current.add(r.leadId)
+                if ("Notification" in window && Notification.permission === "granted") {
+                  new Notification(`Reply from ${r.business}`, { body: r.subject || "New reply to your pitch — open Mission Control." })
+                }
+              }
+            }
+            load(pass).catch(() => {})
+          }
+        } else if (fails++ >= 3) {
+          stopped = true // IMAP not reachable here — rely on manual "Mark replied"
+        }
+      } catch {
+        if (fails++ >= 3) stopped = true
+      }
+    }
+    check()
+    const id = setInterval(check, 90_000)
+    return () => {
+      stopped = true
+      clearInterval(id)
+    }
+  }, [authed, pass, load])
+
   const login = async () => {
     setError("")
     try {
@@ -169,6 +213,19 @@ export default function AdminPageContent() {
       }
     } finally {
       setSending(null)
+    }
+  }
+
+  const markReplied = async (leadId: string) => {
+    try {
+      await fetch("/api/agency/replies", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-pass": pass },
+        body: JSON.stringify({ leadId }),
+      })
+      load(pass).catch(() => {})
+    } catch {
+      /* ignore */
     }
   }
 
@@ -207,6 +264,7 @@ export default function AdminPageContent() {
 
   const pipelineToday = data.leads.filter((l) => l.status !== "lost").length
   const won = data.leads.filter((l) => l.status === "won").length
+  const repliedLeads = data.leads.filter((l) => l.status === "replied")
 
   const stats = [
     { icon: Target, label: "Pipeline target / day", value: `$${data.targets.dailyPipelineUSD}` },
@@ -234,6 +292,21 @@ export default function AdminPageContent() {
       </header>
 
       <main className="container mx-auto px-6 py-10 space-y-10 pb-40">
+        {/* reply alert — the moment a lead writes back */}
+        {repliedLeads.length > 0 && (
+          <div className="p-5 rounded-2xl border-2 flex items-start gap-3" style={{ borderColor: ACCENT, backgroundColor: "rgba(200,255,0,0.06)" }}>
+            <Bell className="w-5 h-5 mt-0.5 animate-pulse-glow" style={{ color: ACCENT }} />
+            <div>
+              <p className="font-serif text-lg text-foreground">
+                {repliedLeads.length} lead{repliedLeads.length > 1 ? "s" : ""} replied — go win {repliedLeads.length > 1 ? "them" : "it"}, Boss.
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {repliedLeads.map((l) => l.business).join(", ")} — open your info@madvision.tech inbox and reply personally.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* stat tiles */}
         <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((s) => (
@@ -394,6 +467,26 @@ export default function AdminPageContent() {
                           <MessageCircle className="w-4 h-4" />
                           Open WhatsApp
                         </a>
+                      )}
+                      {lead.status === "replied" ? (
+                        <span
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-black"
+                          style={{ backgroundColor: ACCENT }}
+                        >
+                          <Bell className="w-4 h-4" />
+                          Replied — go win it
+                        </span>
+                      ) : (
+                        (sent[lead.id] || lead.status === "pitched") &&
+                        lead.email && (
+                          <button
+                            onClick={() => markReplied(lead.id)}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium text-foreground hover:bg-secondary"
+                          >
+                            <Bell className="w-4 h-4" />
+                            Mark replied
+                          </button>
+                        )
                       )}
                     </div>
                   </div>
@@ -747,9 +840,10 @@ function Friday({ data }: { data: Agency }) {
   const briefing = useCallback(() => {
     const m = liveMetrics(data)
     const won = data.leads.filter((l) => l.status === "won")
+    const replied = data.leads.filter((l) => l.status === "replied")
     const latest = data.reports[0]
     speak(
-      `Boss, here's your briefing. ${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${m.reachable} reachable leads, ${m.sitesBuilt} real-data sites built, ${m.pitchesDrafted} pitches drafted, ${won.length} won, roughly ${m.pipelineUSD} dollars of pipeline. ${data.brain?.focus ? "Right now I'm focused on: " + data.brain.focus : "The outreach queue is waiting for your approvals."}`,
+      `Boss, here's your briefing. ${replied.length ? `Alert first — ${replied.length} lead${replied.length > 1 ? "s have" : " has"} replied: ${replied.map((l) => l.business).join(", ")}. Go answer them. ` : ""}${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${m.reachable} reachable leads, ${m.sitesBuilt} real-data sites built, ${m.pitchesDrafted} pitches drafted, ${won.length} won, roughly ${m.pipelineUSD} dollars of pipeline. ${data.brain?.focus ? "Right now I'm focused on: " + data.brain.focus : ""}`,
     )
   }, [data, speak])
 
@@ -844,6 +938,13 @@ function Friday({ data }: { data: Agency }) {
           pending.length
             ? "Still needed from you, Boss: " + pending.map((r) => r.item).join(". ")
             : "Nothing pending from your side right now. All resources received.",
+        )
+      } else if (/repl(y|ies)|jawab|javab|responded|wrote back/.test(t)) {
+        const replied = data.leads.filter((l) => l.status === "replied")
+        speak(
+          replied.length
+            ? `${replied.length} lead${replied.length > 1 ? "s have" : " has"} replied, Boss: ${replied.map((l) => l.business).join(", ")}. Open your inbox and answer them personally — that's where deals are won.`
+            : "No replies yet, Boss. The moment one comes in, I'll alert you and light up Mission Control.",
         )
       } else if (/learn|seekh|shikh|brain|dimag|focus|playbook|improve|sudhar/.test(t)) {
         const b = data.brain
