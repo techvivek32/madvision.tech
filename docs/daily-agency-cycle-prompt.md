@@ -15,7 +15,11 @@ You are running the daily agency cycle for Vision Tech (madvision.tech), an IT s
 Rajkot and Ahmedabad, India and Kelowna BC, Canada. data/agency.json in this repo drives the /admin
 Mission Control dashboard (the site auto-syncs it into live storage after each deploy). Execute today's cycle:
 
-1. SCOUT: Read data/agency.json first — its reports[] history — so you never repeat a recent idea.
+0. THINK (self-aware): Read data/agency.json's `brain` object FIRST — brain.identity, brain.playbook
+   (the rules you MUST follow), brain.learnings (what past cycles discovered), and brain.focus (current
+   priority). Everything you do this cycle must obey the playbook and build on the learnings.
+
+1. SCOUT: Read data/agency.json — its reports[] history — so you never repeat a recent idea.
    Research ONE zero-cost, buildable-in-a-day IT service idea Vision Tech can sell immediately
    (stack: Next.js + Vercel free tier; think WhatsApp booking micro-sites, QR menu pages, review
    landing pages, lead-capture pages, small dashboards).
@@ -48,6 +52,12 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    dated report object to reports[] (2-4 sentences), set updatedAt to the current ISO timestamp
    with +05:30 offset. Leave targets and all existing leads untouched — only append and update
    statuses.
+
+   SELF-LEARNING: also update the `brain` object. Append ONE new brain.learnings entry
+   {date, insight, evidence} capturing something this cycle taught you (what converted, what didn't,
+   a pattern in which industries/regions/pitches land). If a lesson is now a permanent rule, add it to
+   brain.playbook. Refresh brain.focus to the next highest-leverage priority and set
+   brain.lastReflection to now (+05:30). Over time this is how the agency gets smarter on its own.
 
 5. NEVER send any email, WhatsApp, or outreach of any kind yourself. Drafts only — the founder
    reviews and sends from /admin.

@@ -5,7 +5,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   Activity,
   Bot,
+  BrainCircuit,
   DollarSign,
+  GraduationCap,
   Lightbulb,
   Lock,
   Mail,
@@ -55,6 +57,13 @@ type Agency = {
   }[]
   reports: { date: string; agent: string; summary: string }[]
   resourcesNeeded?: { item: string; status: string }[]
+  brain?: {
+    identity: string
+    lastReflection?: string
+    focus?: string
+    playbook?: string[]
+    learnings?: { date: string; insight: string; evidence?: string }[]
+  }
 }
 
 const AGENT_ICONS: Record<string, typeof Radar> = { scout: Radar, builder: Wrench, pitcher: Send }
@@ -85,6 +94,16 @@ export default function AdminPageContent() {
     }
     setSent(JSON.parse(localStorage.getItem("vt-outreach-sent") || "{}"))
   }, [load])
+
+  /* 24/7 live feel: once authed, quietly re-pull the store so Mission Control
+     (and Friday, which reads this data) always reflects the latest cycle. */
+  useEffect(() => {
+    if (!authed || !pass) return
+    const id = setInterval(() => {
+      load(pass).catch(() => {})
+    }, 60_000)
+    return () => clearInterval(id)
+  }, [authed, pass, load])
 
   const login = async () => {
     setError("")
@@ -190,6 +209,9 @@ export default function AdminPageContent() {
             </div>
           ))}
         </section>
+
+        {/* the brain — self-aware + self-learning */}
+        {data.brain && <BrainPanel data={data} />}
 
         {/* today's idea */}
         <section className="p-6 md:p-8 rounded-2xl bg-card border border-border">
@@ -369,6 +391,112 @@ export default function AdminPageContent() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  THE BRAIN — the agency's self-awareness + self-learning surface.   */
+/*  Metrics are derived LIVE from the data so awareness always reflects */
+/*  reality; playbook + learnings are the accumulated intelligence.    */
+/* ------------------------------------------------------------------ */
+
+export function liveMetrics(data: Agency) {
+  const leads = data.leads
+  const reachable = leads.filter((l) => (l.email && l.email.trim()) || (l.whatsapp && l.whatsapp.trim()))
+  const drafted = leads.filter((l) => l.pitchEmailBody || l.pitchWhatsApp)
+  const withSite = leads.filter((l) => l.demoUrl)
+  const won = leads.filter((l) => l.status === "won")
+  const deprioritized = leads.filter((l) => l.status === "deprioritized")
+  return {
+    leadsTotal: leads.length,
+    reachable: reachable.length,
+    deprioritized: deprioritized.length,
+    sitesBuilt: withSite.length,
+    pitchesDrafted: drafted.length,
+    won: won.length,
+    pipelineUSD: reachable.length * 299,
+  }
+}
+
+function BrainPanel({ data }: { data: Agency }) {
+  const b = data.brain!
+  const m = liveMetrics(data)
+  const tiles = [
+    { label: "Reachable leads", value: `${m.reachable}/${m.leadsTotal}` },
+    { label: "Real-data sites", value: `${m.sitesBuilt}` },
+    { label: "Pitches drafted", value: `${m.pitchesDrafted}` },
+    { label: "Deals won", value: `${m.won}` },
+  ]
+  return (
+    <section className="p-6 md:p-8 rounded-2xl bg-card border border-border">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div className="flex items-center gap-2">
+          <BrainCircuit className="w-4 h-4" style={{ color: ACCENT }} />
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+            The Brain · self-aware &amp; self-learning
+          </span>
+        </div>
+        {b.lastReflection && (
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            Reflected {new Date(b.lastReflection).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
+          </span>
+        )}
+      </div>
+
+      <p className="text-muted-foreground leading-relaxed mb-5 max-w-3xl">{b.identity}</p>
+
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+        {tiles.map((t) => (
+          <div key={t.label} className="p-4 rounded-xl bg-secondary/60">
+            <p className="font-serif text-2xl text-foreground leading-none">{t.value}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground mt-1.5">{t.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {b.focus && (
+        <div className="mb-6 p-4 rounded-xl border border-dashed border-border">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-1">Current focus</p>
+          <p className="text-sm text-foreground leading-relaxed">{b.focus}</p>
+        </div>
+      )}
+
+      <div className="grid md:grid-cols-2 gap-6">
+        {b.playbook && b.playbook.length > 0 && (
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-3">
+              Playbook · rules I follow
+            </p>
+            <ul className="space-y-2">
+              {b.playbook.map((p, i) => (
+                <li key={i} className="flex gap-2.5 text-sm text-foreground leading-relaxed">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: ACCENT }} />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {b.learnings && b.learnings.length > 0 && (
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-1.5">
+              <GraduationCap className="w-3.5 h-3.5" /> What I&apos;ve learned
+            </p>
+            <div className="space-y-3">
+              {b.learnings.slice(0, 6).map((l, i) => (
+                <div key={i} className="p-3 rounded-xl bg-secondary/40">
+                  <p className="text-sm text-foreground leading-relaxed">{l.insight}</p>
+                  <p className="font-mono text-[10px] text-muted-foreground mt-1.5">
+                    {l.date}
+                    {l.evidence ? ` — ${l.evidence}` : ""}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+/* ------------------------------------------------------------------ */
 /*  FRIDAY — click-to-talk voice assistant. Web Speech API only.       */
 /* ------------------------------------------------------------------ */
 
@@ -387,6 +515,7 @@ function Friday({ data }: { data: Agency }) {
   const [input, setInput] = useState("")
   const recRef = useRef<{ stop: () => void } | null>(null)
   const logEndRef = useRef<HTMLDivElement>(null)
+  const greeted = useRef(false)
 
   useEffect(() => {
     const w = window as unknown as Record<string, unknown>
@@ -421,26 +550,35 @@ function Friday({ data }: { data: Agency }) {
     [lang],
   )
 
+  const briefing = useCallback(() => {
+    const m = liveMetrics(data)
+    const won = data.leads.filter((l) => l.status === "won")
+    const latest = data.reports[0]
+    speak(
+      `Boss, here's your briefing. ${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${m.reachable} reachable leads, ${m.sitesBuilt} real-data sites built, ${m.pitchesDrafted} pitches drafted, ${won.length} won, roughly ${m.pipelineUSD} dollars of pipeline. ${data.brain?.focus ? "Right now I'm focused on: " + data.brain.focus : "The outreach queue is waiting for your approvals."}`,
+    )
+  }, [data, speak])
+
+  /* Proactive: the first time Friday is opened, she briefs you unprompted. */
+  useEffect(() => {
+    if (open && !greeted.current) {
+      greeted.current = true
+      briefing()
+    }
+  }, [open, briefing])
+
   const answer = useCallback(
     (q: string) => {
       const t = q.toLowerCase()
-      const liveLeads = data.leads.filter((l) => l.status !== "lost")
+      const liveLeads = data.leads.filter((l) => l.status !== "lost" && l.status !== "deprioritized")
       const won = data.leads.filter((l) => l.status === "won")
-      const pitched = data.leads.filter((l) => l.status === "pitched")
       const strategy = (data as unknown as Record<string, { primaryMarkets?: string[]; pricingUSD?: string; positioning?: string }>).strategy
-
-      const briefing = () => {
-        const latest = data.reports[0]
-        speak(
-          `Boss, here's your briefing. ${latest ? latest.summary + " " : ""}Idea of the day: ${data.todayIdea.title}. Pipeline: ${liveLeads.length} leads — ${pitched.length} pitched, ${won.length} won. Earned to date ${data.targets.earnedToDateUSD} dollars against a ${data.targets.dailyPipelineUSD} dollar daily pitch target. ${liveLeads.length === 0 ? "Next research cycle will bring fresh leads." : "The outreach queue is waiting for your approvals."}`,
-        )
-      }
 
       if (/^(hi|hello|hey|namaste|kem cho|good (morning|evening|afternoon)|wake up)/.test(t)) {
         speak("At your service, Boss. Ask me for updates, leads, today's idea, money status, strategy, or say help.")
       } else if (/help|su puchu|shu puchi|what can/.test(t)) {
         speak(
-          "You can ask me: updates or full briefing. Today's idea. Leads — or leads by country, like leads in Canada. Money, targets and earnings. Agents and their status. Strategy and target markets. Contact details. Resources you still owe me. Or report history.",
+          "You can ask me: updates or full briefing. Today's idea. Leads — or leads by country, like leads in Canada. Money, targets and earnings. What I've learned and my current focus. Agents and their status. Strategy and target markets. Contact details. Resources you still owe me. Or report history.",
         )
       } else if (/who are you|tu kon|tame kon|kaun ho/.test(t)) {
         speak(
@@ -496,6 +634,17 @@ function Friday({ data }: { data: Agency }) {
             ? "Still needed from you, Boss: " + pending.map((r) => r.item).join(". ")
             : "Nothing pending from your side right now. All resources received.",
         )
+      } else if (/learn|seekh|shikh|brain|dimag|focus|playbook|improve|sudhar/.test(t)) {
+        const b = data.brain
+        if (b?.learnings?.length) {
+          speak(
+            "Here's what I've learned so far, Boss. " +
+              b.learnings.slice(0, 3).map((l) => l.insight).join(" ") +
+              (b.focus ? ` Right now I'm focused on: ${b.focus}` : ""),
+          )
+        } else {
+          speak("I'm still gathering learnings, Boss — every cycle I record what's working and what isn't.")
+        }
       } else if (/update|status|briefing|badhu|अपडेट|બધું/.test(t)) {
         briefing()
       } else if (/\btime\b|\bdate\b|tarikh|samay/.test(t)) {
@@ -506,7 +655,7 @@ function Friday({ data }: { data: Agency }) {
         briefing()
       }
     },
-    [data, speak],
+    [data, speak, briefing],
   )
 
   const ask = useCallback(
@@ -595,7 +744,7 @@ function Friday({ data }: { data: Agency }) {
             {log.length === 0 && (
               <p className="text-sm text-background/70 leading-relaxed">
                 Boli ne athva type kari ne pucho — &quot;tell me updates&quot;, &quot;leads in Canada?&quot;,
-                &quot;paisa ketla thaya?&quot;, &quot;strategy su che?&quot;, &quot;help&quot;.
+                &quot;paisa ketla thaya?&quot;, &quot;what have you learned?&quot;, &quot;strategy su che?&quot;, &quot;help&quot;.
                 {!supported && " (Aa browser voice input support nathi kartu — type karo, javab hu boli ne aapis.)"}
               </p>
             )}

@@ -35,6 +35,36 @@
     "earnedToDateUSD": 0,
     "note": "Pitch $2000/day of proposal value so conversions land $100+/day minimum."
   },
+  "brain": {
+    "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
+    "lastReflection": "2026-07-20T15:05:00+05:30",
+    "focus": "Scale to ~50 reachable leads/day, build every one as a real-data engine site, draft pitches ready for one-click approval. Building next: harvester (URL -> SiteProfile), Friday commands, domain-attach close flow.",
+    "playbook": [
+      "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
+      "DEMO = a full, finished, real-data website (SiteTemplate engine or bespoke route) — never a thin placeholder skeleton, never invented prices or reviews.",
+      "Clean light theme for most local services; dark/bold for barbers and night trades.",
+      "NO auto-send: pitches are drafted; email goes out only via the admin Approve & Send click (safety layer + CASL/CAN-SPAM/GDPR).",
+      "Western markets first (USD/CAD/GBP/AUD); India only via existing network.",
+      "Time-zone aware: pitch each lead inside their local business hours."
+    ],
+    "learnings": [
+      {
+        "date": "2026-07-20",
+        "insight": "Thin config-template demos read as flimsy and won't convert; a full real-data site is the standard now.",
+        "evidence": "Boss feedback + 3 flagship rebuilds (Blades of Norwich, Drive Automatic, Best Little Hair House)."
+      },
+      {
+        "date": "2026-07-20",
+        "insight": "Phone-only leads waste build effort — qualify the reachable channel BEFORE building anything.",
+        "evidence": "L-004 and L-007 were phone-only; deprioritized after building demos we can't deliver."
+      },
+      {
+        "date": "2026-07-20",
+        "insight": "A reusable SiteProfile + SiteTemplate turns one data object into a full site — the key to ~50/day scale.",
+        "evidence": "Best Little Hair House rebuilt to flagship quality from data alone (commit c19ad87)."
+      }
+    ]
+  },
   "todayIdea": {
     "date": "2026-07-20",
     "title": "One-page booking micro-site for Western local services",
