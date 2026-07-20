@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:52:31+05:30",
+  "updatedAt": "2026-07-20T20:55:50+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -36,7 +36,7 @@
       "EU": "€249",
       "note": "One-time, no monthly fees, live in 48h. Localized per market for a better conversion ratio; boss can override per deal."
     },
-    "targetingPriority": "Boss directive 2026-07-20: NO-WEBSITE FIRST. #1 target = businesses with NO website at all (only a Google Business / Facebook / Instagram / directory listing) — biggest need, highest buy-intent, they actually pay. #2 = weak/outdated existing sites. Still CHANNEL-FIRST: the lead must be reachable by a verified public email, WhatsApp/textable mobile, or Facebook DM. Harvest no-website leads public data from their Google/FB/IG listing. Industry weighting (Manager 2026-07-20): barbershops, pet groomers, cafes and small mobile trades are the richest no-website veins — weight the Finder there."
+    "targetingPriority": "Boss directive 2026-07-20: NO-WEBSITE FIRST. #1 target = businesses with NO website at all (only a Google Business / Facebook / Instagram / directory listing) — biggest need, highest buy-intent, they actually pay. #2 = weak/outdated existing sites. Still CHANNEL-FIRST: the lead must be reachable by a verified public email, WhatsApp/textable mobile, or Facebook DM. Harvest no-website leads public data from their Google/FB/IG listing. Industry weighting (Manager 2026-07-20): barbershops, pet groomers, cafes and small mobile trades are the richest no-website veins — weight the Finder there. Channel preference (Manager 2026-07-20): email > WhatsApp > Facebook-DM; cap FB-only leads so the auto-send pipeline keeps flowing."
   },
   "targets": {
     "dailyPipelineUSD": 2000,
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T20:26:26+05:30",
-    "focus": "24 leads (20 reachable). New batch built. Boss: Approve the email/WhatsApp leads in-window + DM the FB-only ones. Sends still the bottleneck.",
+    "lastReflection": "2026-07-20T20:55:50+05:30",
+    "focus": "Finder: prefer EMAIL/WhatsApp-reachable leads (auto-sendable); cap FB-only to ~1/batch. Sends are still the bottleneck (2 sent, 0 replies of 24) — the win is getting pitches Approved, not more leads. Build the Closer next.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -56,9 +56,15 @@
       "NO auto-send: pitches are drafted; email goes out only via the admin Approve & Send click (safety layer + CASL/CAN-SPAM/GDPR).",
       "Western markets first (USD/CAD/GBP/AUD); India only via existing network.",
       "Time-zone aware: pitch each lead inside their local business hours.",
-      "Weight the Finder toward barbershops, pet groomers, cafes and small mobile trades — the richest no-website veins. Quality over volume: do not out-run the send queue."
+      "Weight the Finder toward barbershops, pet groomers, cafes and small mobile trades — the richest no-website veins. Quality over volume: do not out-run the send queue.",
+      "Channel preference order for the Finder: verified EMAIL first, then WhatsApp/textable mobile, then Facebook-DM as a last resort. FB-only leads need manual DMs, so keep them to at most 1 per batch — do not let them dominate."
     ],
     "learnings": [
+      {
+        "date": "2026-07-20",
+        "insight": "Facebook-DM-only leads are piling up (4 of 24: L-019/020/022/023) — they have NO auto-send path and need manual boss DMs, which deepens the send bottleneck. Auto-sendable leads (email/WhatsApp) move through the pipeline; FB-only stall.",
+        "evidence": "17 email-reachable, 5 WhatsApp, but 4 FB-only with 0 way to send systematically."
+      },
       {
         "date": "2026-07-20",
         "insight": "The bottleneck is SEND-THROUGHPUT, not lead supply: 18 reachable leads but only 2 pitched, 0 replies. The org builds far faster than pitches get approved and sent. More leads won’t help until sends go out.",
