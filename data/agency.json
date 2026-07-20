@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T21:05:54+05:30",
+  "updatedAt": "2026-07-20T21:35:52+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -670,13 +670,12 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T21:05:54+05:30",
-    "headline": "Steady at 24 leads / 24 sites, health green. Manager tightened the Finder to prefer auto-sendable (email/WhatsApp) leads.",
+    "updatedAt": "2026-07-20T21:35:52+05:30",
+    "headline": "No change since last check — 24 leads / 24 sites, health green, 2 sent / 0 replies.",
     "items": [
-      "Manager rule: channel preference email > WhatsApp > Facebook-DM; cap FB-only leads (4 of 24 have no auto-send path).",
-      "Monitor: green — newest batch + rotated demos all 200.",
-      "No new leads or replies this half-hour; still 2 sent, 0 replies.",
-      "Open lever: build the Closer agent + Approve in-window pitches."
+      "Builder ran: nothing queued (latest batch already built).",
+      "No new leads, sends or replies this half-hour.",
+      "Next Finder batch will prefer email/WhatsApp leads per the Manager rule."
     ]
   },
   "health": {
