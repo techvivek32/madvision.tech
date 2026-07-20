@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T15:24:44+05:30",
+  "updatedAt": "2026-07-20T15:34:01+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -37,7 +37,7 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T15:24:44+05:30",
+    "lastReflection": "2026-07-20T15:34:01+05:30",
     "focus": "12 reachable leads now have real-data sites + drafted pitches — boss to Approve & Send in each time window. Building next: harvester (URL->SiteProfile auto-fill) and the domain-attach close flow.",
     "playbook": [
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -119,7 +119,10 @@
       "pitchEmailSubject": "A small refresh for the Best Little Hair House?",
       "pitchEmailBody": "Hi Best Little Hair House team,\n\nI'm Vivek, founder of Vision Tech — we're your neighbours up Highway 97 in Kelowna. I spent a while on your site this week. Any salon with roots back to Sally's Hair Port in 1978 clearly knows how to keep clients for life — but the page still shows the COVID-era mask protocols, your cuts, colour, extensions and piercing have no prices listed, and booking hands people off to a separate Vagaro page.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, your best reviews, mobile-perfect, and one clear Book Now button that opens whatever you prefer — Vagaro, text, or the phone. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech — Kelowna, BC\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/best-little-hair-house — tap around, that's your name on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek here from Vision Tech in Kelowna. I noticed bestlittlehairhouse.ca still shows COVID mask protocols and no prices for your services — we build one-page booking sites (services, prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time, no monthly fees. If you're curious, just reply and tell me what you'd want on it — no worries at all if not.",
-      "notes": "Salon, Penticton BC. Site shows COVID-era protocols, no prices, booking via external Vagaro. Phone (250) 493-5566 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST (their weekday morning)"
+      "notes": "Salon, Penticton BC. Site shows COVID-era protocols, no prices, booking via external Vagaro. Phone (250) 493-5566 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST (their weekday morning)",
+      "tz": "America/Vancouver",
+      "sendFrom": 9,
+      "sendTo": 17
     },
     {
       "id": "L-002",
@@ -134,7 +137,10 @@
       "pitchEmailSubject": "A neighbourly idea from Kelowna for Next Level Detailing",
       "pitchEmailBody": "Hi Next Level team,\n\nI'm Vivek, founder of Vision Tech — we're just down Highway 97 in Kelowna, so your Vernon shop caught my eye. Looking through your site, you clearly do serious work — ceramic coating, undercoating, full interior and exterior details — but there are no prices anywhere, a few of the social links are broken, and booking sends customers out to an external Urable page instead of a clean one-tap flow.\n\nWe build one-page booking micro-sites for local service businesses: your packages with prices, your reviews, mobile-perfect, and one big Book Now button that opens whatever you prefer — Urable, text, WhatsApp or phone. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech — Kelowna, BC\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/next-level-detailing — tap around, that's your name on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech in Kelowna here. I noticed detailingvernon.com lists ceramic coating and detailing but no prices, and booking bounces people out to Urable — we build clean one-page booking sites (prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time. If that sounds interesting, just reply with what you'd change and we'll handle the rest — no worries if not.",
-      "notes": "Auto detailing, Vernon BC. No prices, broken socials, booking via external Urable. Phone 250-306-3077 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST"
+      "notes": "Auto detailing, Vernon BC. No prices, broken socials, booking via external Urable. Phone 250-306-3077 · TZ America/Vancouver · Best send: 9:30pm-2:30am IST",
+      "tz": "America/Vancouver",
+      "sendFrom": 9,
+      "sendTo": 17
     },
     {
       "id": "L-003",
@@ -149,7 +155,10 @@
       "pitchEmailSubject": "35 years of Boise Detail — your website should brag a little",
       "pitchEmailBody": "Hi Boise Detail team,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I came across your site and did a double take — detailing Boise's cars since 1991 is a real achievement, but the homepage slider is still showing placeholder text ('Slide Title' / 'Write your caption here'), there are no prices listed, and the only thing a ready-to-buy customer can do is call for a free estimate.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, three decades of happy-customer reviews front and center, mobile-perfect, and a Book Now button that opens whatever you prefer — a booking form, text, or your phone line. Live in 48 hours, $299 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/boise-detail — tap around, that's your name on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi, Vivek here from Vision Tech (madvision.tech). I noticed the homepage slider on boisedetailinc.com still shows 'Slide Title' placeholder text, with no pricing or online booking — we build one-page booking sites (services, prices, reviews, one-tap Book Now) live in 48 hours for $299 one-time. If you're curious, just reply and tell me what you'd want on it — no worries if not.",
-      "notes": "Auto detailing since 1991, Boise ID. Homepage slider shows placeholder text, no prices, no booking. Phone 208-343-3025 · TZ America/Boise · Best send: 8:30pm-1:30am IST"
+      "notes": "Auto detailing since 1991, Boise ID. Homepage slider shows placeholder text, no prices, no booking. Phone 208-343-3025 · TZ America/Boise · Best send: 8:30pm-1:30am IST",
+      "tz": "America/Boise",
+      "sendFrom": 8,
+      "sendTo": 17
     },
     {
       "id": "L-004",
@@ -179,7 +188,10 @@
       "pitchEmailSubject": "Your £19 Wet Cut deserves a Book Now button",
       "pitchEmailBody": "Hi Blades team,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was reading your site and liked how upfront your pricing is — £19 wet cuts, £13 buzz cuts, all clearly listed. But the only way to book is to 'call us on 01603 630736... or just drop in', and the page itself feels like it was built a good decade ago, which doesn't do a busy barbershop justice on a phone screen.\n\nWe build one-page booking micro-sites for local businesses: your full price list, your reviews, mobile-perfect, and a prominent Book Now button that opens whatever suits you — booking form, SMS, WhatsApp or the phone. Live in 48 hours, $299 USD one-time (roughly £220), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/blades-of-norwich — tap around, that's your name on it (your real £19 wet cut is on there).\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love that your prices are upfront on bladesofnorwich.com (£19 wet cut), but booking is still phone-only — we build mobile-perfect one-page booking sites with a proper Book Now button, live in 48 hours for $299 USD one-time (roughly £220). If you're curious, just reply with what you'd change and we'll handle everything — no worries if not.",
-      "notes": "Barbershop, Norwich UK. Prices listed but booking phone-only, dated design. Phone 01603 630736 · TZ Europe/London · Best send: 1:30pm-6:30pm IST"
+      "notes": "Barbershop, Norwich UK. Prices listed but booking phone-only, dated design. Phone 01603 630736 · TZ Europe/London · Best send: 1:30pm-6:30pm IST",
+      "tz": "Europe/London",
+      "sendFrom": 9,
+      "sendTo": 18
     },
     {
       "id": "L-006",
@@ -194,7 +206,10 @@
       "pitchEmailSubject": "Your £220 intro offer deserves an easier way to book",
       "pitchEmailBody": "Hi there,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was looking at drive-automatic.uk and your pricing is refreshingly clear — £88 for two hours, and the 6-hours-for-the-price-of-5 intro at £220 is a genuinely good deal. What surprised me is that a learner who's ready to start still has to phone, email or fill in an enquiry form — and there isn't a single student review on the page to reassure nervous first-timers.\n\nWe build one-page booking micro-sites for local businesses: your lesson prices, your pass stories and reviews, mobile-perfect, and one clear Book Now button that opens whatever you prefer — form, SMS, WhatsApp or phone. Live in 48 hours, $299 USD one-time (roughly £220 — same as your intro offer), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/drive-automatic — tap around, your £220 intro offer is already on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Your lesson pricing on drive-automatic.uk is brilliantly clear (£220 intro deal), but learners can't book online and no reviews are shown — we build one-page booking sites with prices, reviews and a one-tap Book Now, live in 48 hours for $299 USD one-time. If that sounds interesting, just reply with what you'd change — no worries if not.",
-      "notes": "Driving instructor, Brighton UK. Clear prices, no online booking, zero reviews shown. Phone 07721 760868 · TZ Europe/London · Best send: 1:30pm-6:30pm IST"
+      "notes": "Driving instructor, Brighton UK. Clear prices, no online booking, zero reviews shown. Phone 07721 760868 · TZ Europe/London · Best send: 1:30pm-6:30pm IST",
+      "tz": "Europe/London",
+      "sendFrom": 9,
+      "sendTo": 18
     },
     {
       "id": "L-007",
@@ -224,7 +239,10 @@
       "pitchEmailSubject": "Filling in that 'Some of Our Reviews' section on noonies.org",
       "pitchEmailBody": "Hi Darrin,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was on noonies.org this week and a few things jumped out: the 'Some of Our Reviews' section doesn't actually show any reviews yet, grooming is quote-only with no guide price, and the 'Book An Appointment' form is really a callback request — so a pet owner who's ready to book still ends up waiting by the phone.\n\nWe build one-page booking micro-sites for local businesses: your services with prices, your real customer reviews finally on display, mobile-perfect, and a proper Book Now button that opens whatever you prefer — booking form, SMS, WhatsApp or phone. Live in 48 hours, $299 USD one-time (about A$450), no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/noonies-pet-care — tap around, that's Noonies' name on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi Darrin, Vivek from Vision Tech here. I noticed the reviews section on noonies.org is empty and the booking form is really a callback request — we build one-page booking sites with prices, real reviews and a proper one-tap Book Now, live in 48 hours for $299 USD one-time (about A$450). If that sounds interesting, just reply with what you'd change — no worries if not.",
-      "notes": "Dog groomer, Newcastle AU. Empty reviews section, quote-only pricing, callback-form booking. Phone 0411398395 · TZ Australia/Sydney · Best send: 4:30am-9:30am IST"
+      "notes": "Dog groomer, Newcastle AU. Empty reviews section, quote-only pricing, callback-form booking. Phone 0411398395 · TZ Australia/Sydney · Best send: 4:30am-9:30am IST",
+      "tz": "Australia/Sydney",
+      "sendFrom": 9,
+      "sendTo": 17
     },
     {
       "id": "L-009",
@@ -239,7 +257,10 @@
       "pitchEmailSubject": "A faster way to book Nice One Nail?",
       "pitchEmailBody": "Hi Nice One Nail team,\n\nI'm Vivek, founder of Vision Tech, a small web studio (our Canadian office is on Dolphin Ave, Kelowna, BC). I spent time on niceonenail.ca — you clearly offer a lot (nails, facials, waxing, tinting, open seven days), but the site is quite static, there's no gallery or socials, and booking bounces customers out to a separate Fresha page instead of one clean flow.\n\nWe build one-page micro-sites for local beauty studios: your services and price ranges, your best photos, mobile-perfect, and one clear Book Now button that opens whatever you prefer — Fresha, phone or text. Live in 48 hours, $299 CAD one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/nice-one-nail (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "",
-      "notes": "Nail & beauty salon, Oakville ON. Static site, booking bounces to Fresha, no gallery/socials. Real price ranges + hours published. Phone (905) 847-2501 · TZ America/Toronto · Best send ~18:30-03:30 IST (their business hours). CASL: sender + Kelowna office + opt-out included."
+      "notes": "Nail & beauty salon, Oakville ON. Static site, booking bounces to Fresha, no gallery/socials. Real price ranges + hours published. Phone (905) 847-2501 · TZ America/Toronto · Best send ~18:30-03:30 IST (their business hours). CASL: sender + Kelowna office + opt-out included.",
+      "tz": "America/Toronto",
+      "sendFrom": 10,
+      "sendTo": 19
     },
     {
       "id": "L-010",
@@ -254,7 +275,10 @@
       "pitchEmailSubject": "No prices on your site, Studio 51?",
       "pitchEmailBody": "Hi Studio 51 team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I was on studio51-ink.co.uk — the custom work looks great and Noel, Steve and Lucy clearly know their craft, but there's no pricing or 'what to expect' anywhere, Lucy's portfolio link is broken, and the FAQ is empty. For someone deciding where to get inked, that friction costs you bookings.\n\nWe build sharp one-page sites for studios: your artists, your styles, a clean consultation-booking flow, and your Instagram work front and centre. Live in 48 hours, £220 one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/studio-51-ink (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love the custom work on Studio 51 Ink — but your site has no pricing/expectations and a couple of broken links. I built you a quick preview: https://madvision.tech/demo/studio-51-ink — clean one-pager with your artists + a consultation booking flow, live in 48h for £220 one-time. Worth a look? No worries if not.",
-      "notes": "Tattoo & piercing studio, Leytonstone London. Est. 2023. No prices, broken portfolio + empty FAQ. Artists Noel/Steve/Lucy. Phone/WhatsApp 07943 471235 · TZ Europe/London · Best send ~13:30-22:30 IST."
+      "notes": "Tattoo & piercing studio, Leytonstone London. Est. 2023. No prices, broken portfolio + empty FAQ. Artists Noel/Steve/Lucy. Phone/WhatsApp 07943 471235 · TZ Europe/London · Best send ~13:30-22:30 IST.",
+      "tz": "Europe/London",
+      "sendFrom": 11,
+      "sendTo": 19
     },
     {
       "id": "L-011",
@@ -269,7 +293,10 @@
       "pitchEmailSubject": "7 packages, zero prices — let's fix that",
       "pitchEmailBody": "Hi C&P team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I was on cpmobiledetailing.com.au — you list seven detailing packages, which is great, but not one of them shows a price or a starting-from figure, there are no hours, and no reviews. Customers comparing detailers usually skip the one that makes them ask.\n\nWe build clean one-page sites for mobile detailers: your packages with clear 'from' pricing, your service area, a one-tap quote/booking button, and room for before-and-afters. Live in 48 hours, $299 one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/cp-mobile-detailing (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Saw C&P Mobile Detailing — 7 packages listed but no prices anywhere, which makes people hesitate. I built you a preview: https://madvision.tech/demo/cp-mobile-detailing — clean one-pager with your packages + a one-tap quote button, live in 48h for $299 one-time. Worth a look? All good if not.",
-      "notes": "Mobile car detailing, Bendigo VIC. 7 packages listed, zero pricing, no hours/reviews. Phone/WhatsApp 0492 881 509 · TZ Australia/Melbourne · Best send ~04:30-13:30 IST."
+      "notes": "Mobile car detailing, Bendigo VIC. 7 packages listed, zero pricing, no hours/reviews. Phone/WhatsApp 0492 881 509 · TZ Australia/Melbourne · Best send ~04:30-13:30 IST.",
+      "tz": "Australia/Melbourne",
+      "sendFrom": 9,
+      "sendTo": 17
     },
     {
       "id": "L-012",
@@ -284,7 +311,10 @@
       "pitchEmailSubject": "Alan — your detailing deserves a proper page",
       "pitchEmailBody": "Hi Alan,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I went through lookslikenewmobilecardetailing.com — seven years in and you've got real, clear size-based pricing, which most detailers hide. But there's no online booking (phone/email only), the ceramic and add-on pricing reads as vague, and the phone number format looks broken, which quietly costs trust.\n\nWe build clean one-page sites for mobile detailers: your tiered pricing laid out properly, a one-tap booking/quote button, your ceramic work highlighted, and your Facebook reviews shown off. Live in 48 hours, $299 one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/looks-like-new-detailing (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi Alan! Vivek from Vision Tech here. Seven years detailing Toowoomba is impressive — but your site has no online booking and the phone number looks broken. I built you a preview: https://madvision.tech/demo/looks-like-new-detailing — your size-based pricing done properly + a one-tap booking button, live in 48h for $299 one-time. Worth a look? No worries if not.",
-      "notes": "Mobile car detailing, Toowoomba QLD. 7 yrs. Real size-based prices, but no online booking, vague ceramic pricing, broken number format. Owner Alan Jones. Phone/WhatsApp 0478 896 369 · TZ Australia/Brisbane · Best send ~04:30-13:30 IST."
+      "notes": "Mobile car detailing, Toowoomba QLD. 7 yrs. Real size-based prices, but no online booking, vague ceramic pricing, broken number format. Owner Alan Jones. Phone/WhatsApp 0478 896 369 · TZ Australia/Brisbane · Best send ~04:30-13:30 IST.",
+      "tz": "Australia/Brisbane",
+      "sendFrom": 8,
+      "sendTo": 16
     },
     {
       "id": "L-013",
@@ -299,7 +329,10 @@
       "pitchEmailSubject": "Your site still says © 2020, Savannah's",
       "pitchEmailBody": "Hi Savannah's team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I was on savannahtraditionalbarbers.com — the cuts and hot-towel shaves look the part, and your prices are clear ($30 cut, $45 shave), but the footer still reads 2020, booking pushes people out to Square, and there are no barber names or reviews. On a phone it looks a lot older than your work is.\n\nWe build sharp one-page sites for barbershops: your prices, your hours, your best photos, and one clean Book a Chair button. Live in 48 hours, $299 one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/savannahs-barbershop (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "",
-      "notes": "Barbershop, Savannah GA. Stale site (© 2020), booking to external Square, real prices ($30/$20/$45), no bios/reviews. Phone 912-358-0758 · TZ America/New_York · Best send ~18:30-03:30 IST."
+      "notes": "Barbershop, Savannah GA. Stale site (© 2020), booking to external Square, real prices ($30/$20/$45), no bios/reviews. Phone 912-358-0758 · TZ America/New_York · Best send ~18:30-03:30 IST.",
+      "tz": "America/New_York",
+      "sendFrom": 9,
+      "sendTo": 18
     },
     {
       "id": "L-014",
@@ -314,7 +347,10 @@
       "pitchEmailSubject": "No prices or hours on your grooming site?",
       "pitchEmailBody": "Hi Wag-A-Long team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I was on wagalongmobilegrooming.com — grooming pets at home since 2016 across a big chunk of central Oklahoma is a great story, but the homepage has no pricing, no hours, and the 'Our Team' link has no team on it. Pet owners usually book the groomer who answers those questions first.\n\nWe build friendly one-page sites for mobile groomers: your services with 'from' pricing, your service area mapped, and a one-tap book/quote button. Live in 48 hours, $299 one-time, no monthly fees.\n\nP.S. I already built yours from your own public info — take a look: https://madvision.tech/demo/wag-a-long-grooming (it's a private preview, that's your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "",
-      "notes": "Mobile pet grooming, central Oklahoma (Guthrie/Edmond/OKC). Since 2016. No pricing/hours, empty team page. Phone (405) 888-1254 · TZ America/Chicago · Best send ~19:30-04:30 IST."
+      "notes": "Mobile pet grooming, central Oklahoma (Guthrie/Edmond/OKC). Since 2016. No pricing/hours, empty team page. Phone (405) 888-1254 · TZ America/Chicago · Best send ~19:30-04:30 IST.",
+      "tz": "America/Chicago",
+      "sendFrom": 9,
+      "sendTo": 17
     }
   ],
   "reports": [

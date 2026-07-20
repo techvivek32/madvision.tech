@@ -54,6 +54,9 @@ type Agency = {
     pitchEmailBody?: string
     pitchWhatsApp?: string
     notes?: string
+    tz?: string
+    sendFrom?: number
+    sendTo?: number
   }[]
   reports: { date: string; agent: string; summary: string }[]
   resourcesNeeded?: { item: string; status: string }[]
@@ -68,6 +71,27 @@ type Agency = {
 
 const AGENT_ICONS: Record<string, typeof Radar> = { scout: Radar, builder: Wrench, pitcher: Send }
 
+/* A lead's outreach window: we only enable "Approve & send" during the
+   business's OWN local hours, so every pitch lands in their business hours. */
+type LeadWin = { hasWindow: boolean; open: boolean; localTime?: string; from?: number; to?: number }
+function fmtHour(h: number) {
+  const am = h < 12
+  const hh = h % 12 === 0 ? 12 : h % 12
+  return `${hh}${am ? "am" : "pm"}`
+}
+function sendWindow(lead: { tz?: string; sendFrom?: number; sendTo?: number }): LeadWin {
+  if (!lead.tz || lead.sendFrom == null || lead.sendTo == null) return { hasWindow: false, open: true }
+  try {
+    const now = new Date()
+    const h = parseInt(new Intl.DateTimeFormat("en-US", { timeZone: lead.tz, hour: "numeric", hour12: false }).format(now), 10) % 24
+    const clock = new Intl.DateTimeFormat("en-US", { timeZone: lead.tz, hour: "numeric", minute: "2-digit" }).format(now)
+    const city = lead.tz.split("/").pop()?.replace(/_/g, " ")
+    return { hasWindow: true, open: h >= lead.sendFrom && h < lead.sendTo, localTime: `${clock} in ${city}`, from: lead.sendFrom, to: lead.sendTo }
+  } catch {
+    return { hasWindow: false, open: true }
+  }
+}
+
 export default function AdminPageContent() {
   const [pass, setPass] = useState("")
   const [authed, setAuthed] = useState(false)
@@ -75,6 +99,7 @@ export default function AdminPageContent() {
   const [data, setData] = useState<Agency | null>(null)
   const [sending, setSending] = useState<string | null>(null)
   const [sent, setSent] = useState<Record<string, boolean>>({})
+  const [, setTick] = useState(0) // ticks so per-lead send windows re-evaluate live
 
   const load = useCallback(async (p: string) => {
     const res = await fetch("/api/agency", { headers: { "x-admin-pass": p } })
@@ -104,6 +129,13 @@ export default function AdminPageContent() {
     }, 60_000)
     return () => clearInterval(id)
   }, [authed, pass, load])
+
+  /* Re-render every 30s so per-lead send-window buttons enable/disable on time. */
+  useEffect(() => {
+    if (!authed) return
+    const id = setInterval(() => setTick((t) => t + 1), 30_000)
+    return () => clearInterval(id)
+  }, [authed])
 
   const login = async () => {
     setError("")
@@ -288,7 +320,9 @@ export default function AdminPageContent() {
             </div>
           ) : (
             <div className="space-y-4">
-              {data.leads.map((lead) => (
+              {data.leads.map((lead) => {
+                const win = sendWindow(lead)
+                return (
                 <div key={lead.id} className="p-5 rounded-2xl bg-card border border-border">
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
                     <div>
@@ -296,6 +330,17 @@ export default function AdminPageContent() {
                         {lead.id} · {lead.country ?? ""} · {lead.status}
                       </span>
                       <p className="font-serif text-xl text-foreground">{lead.business}</p>
+                      {win.hasWindow && lead.email && lead.pitchEmailBody && (
+                        <p className="font-mono text-[10px] mt-1" style={{ color: win.open ? ACCENT : undefined }}>
+                          <span className={win.open ? "" : "text-muted-foreground"}>
+                            {win.localTime}
+                            {" · "}
+                            {win.open
+                              ? `in window — sends until ${fmtHour(win.to!)}`
+                              : `window ${fmtHour(win.from!)}–${fmtHour(win.to!)} their time`}
+                          </span>
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {lead.demoUrl && (
@@ -313,13 +358,24 @@ export default function AdminPageContent() {
                       {lead.email && lead.pitchEmailBody && (
                         <button
                           onClick={() => approveSend(lead.id)}
-                          disabled={sending === lead.id || sent[lead.id]}
+                          disabled={sending === lead.id || sent[lead.id] || (win.hasWindow && !win.open)}
+                          title={win.hasWindow && !win.open ? `Opens at ${fmtHour(win.from!)} the lead's local time` : undefined}
                           className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
-                            sent[lead.id] ? "bg-secondary text-muted-foreground" : "btn-lime"
+                            sent[lead.id]
+                              ? "bg-secondary text-muted-foreground"
+                              : win.hasWindow && !win.open
+                                ? "border border-border text-muted-foreground cursor-not-allowed"
+                                : "btn-lime"
                           }`}
                         >
                           <Mail className="w-4 h-4" />
-                          {sent[lead.id] ? "Email sent" : sending === lead.id ? "Sending…" : "Approve & send email"}
+                          {sent[lead.id]
+                            ? "Email sent"
+                            : sending === lead.id
+                              ? "Sending…"
+                              : win.hasWindow && !win.open
+                                ? `Opens ${fmtHour(win.from!)} their time`
+                                : "Approve & send email"}
                         </button>
                       )}
                       {lead.whatsapp && lead.pitchWhatsApp && (
@@ -342,7 +398,8 @@ export default function AdminPageContent() {
                   )}
                   {lead.notes && <p className="font-mono text-[11px] text-muted-foreground mt-2">{lead.notes}</p>}
                 </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </section>
