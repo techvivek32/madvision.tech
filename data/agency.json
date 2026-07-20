@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T18:52:35+05:30",
+  "updatedAt": "2026-07-20T18:56:13+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -36,7 +36,7 @@
       "EU": "€249",
       "note": "One-time, no monthly fees, live in 48h. Localized per market for a better conversion ratio; boss can override per deal."
     },
-    "targetingPriority": "Boss directive 2026-07-20: NO-WEBSITE FIRST. #1 target = businesses with NO website at all (only a Google Business / Facebook / Instagram / directory listing) — biggest need, highest buy-intent, they actually pay. #2 = weak/outdated existing sites. Still CHANNEL-FIRST: the lead must be reachable by a verified public email, WhatsApp/textable mobile, or Facebook DM. Harvest no-website leads public data from their Google/FB/IG listing."
+    "targetingPriority": "Boss directive 2026-07-20: NO-WEBSITE FIRST. #1 target = businesses with NO website at all (only a Google Business / Facebook / Instagram / directory listing) — biggest need, highest buy-intent, they actually pay. #2 = weak/outdated existing sites. Still CHANNEL-FIRST: the lead must be reachable by a verified public email, WhatsApp/textable mobile, or Facebook DM. Harvest no-website leads public data from their Google/FB/IG listing. Industry weighting (Manager 2026-07-20): barbershops, pet groomers, cafes and small mobile trades are the richest no-website veins — weight the Finder there."
   },
   "targets": {
     "dailyPipelineUSD": 2000,
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T18:17:15+05:30",
-    "focus": "No-website leads are live (L-015..L-020) with first-ever sites + pitches. Boss to Approve & Send the 4 email ones and DM the 2 Facebook-only. Keep hunting no-website businesses every cycle.",
+    "lastReflection": "2026-07-20T18:56:13+05:30",
+    "focus": "SENDS are the bottleneck (18 reachable, only 2 sent, 0 replies). Priority: get pitches Approved in each local window + handle the 2 Facebook-DM leads (L-019/L-020) manually. Finder should ease volume until the send queue clears and we have real conversion data. Hold pricing (no conversion signal yet).",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -55,9 +55,20 @@
       "Clean light theme for most local services; dark/bold for barbers and night trades.",
       "NO auto-send: pitches are drafted; email goes out only via the admin Approve & Send click (safety layer + CASL/CAN-SPAM/GDPR).",
       "Western markets first (USD/CAD/GBP/AUD); India only via existing network.",
-      "Time-zone aware: pitch each lead inside their local business hours."
+      "Time-zone aware: pitch each lead inside their local business hours.",
+      "Weight the Finder toward barbershops, pet groomers, cafes and small mobile trades — the richest no-website veins. Quality over volume: do not out-run the send queue."
     ],
     "learnings": [
+      {
+        "date": "2026-07-20",
+        "insight": "The bottleneck is SEND-THROUGHPUT, not lead supply: 18 reachable leads but only 2 pitched, 0 replies. The org builds far faster than pitches get approved and sent. More leads won’t help until sends go out.",
+        "evidence": "20 leads / 20 sites live; only L-005 & L-006 (both UK) actually sent."
+      },
+      {
+        "date": "2026-07-20",
+        "insight": "Barbershops and pet groomers over-index heavily in the no-website segment — the richest veins for the Finder. Cafes and small mobile trades are next.",
+        "evidence": "Most no-website finds are barbers (Blades, Village, Grooming Lounge, Olde Tyme, Savannah’s) or groomers (Lakeside, Michelle’s, Wag-A-Long, Noonies)."
+      },
       {
         "date": "2026-07-20",
         "insight": "The hottest buyer is a business with NO website, not one with a weak site. No web presence = highest need + buy-intent. Build their first site from their Google/Facebook listing.",
@@ -97,7 +108,21 @@
     "boss": {
       "name": "Vivek Vora",
       "role": "Founder & CEO"
-    }
+    },
+    "proposedAgents": [
+      {
+        "name": "Closer",
+        "why": "When a lead replies or says yes, no agent drafts the reply/follow-up or runs the domain-attach close (spin up their Vercel project + attach their domain). The current five stop at ‘sent’.",
+        "trigger": "lead.status becomes replied / interested / won",
+        "priority": "high"
+      },
+      {
+        "name": "Follow-up",
+        "why": "Sent leads with no reply after 2-3 days get no gentle, polite follow-up draft — a proven conversion lever. Drafts only, boss approves.",
+        "trigger": "status pitched + N days with no reply",
+        "priority": "medium"
+      }
+    ]
   },
   "todayIdea": {
     "date": "2026-07-20",
