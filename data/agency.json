@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T12:35:00+05:30",
+  "updatedAt": "2026-07-20T15:05:00+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -195,6 +195,11 @@
   "reports": [
     {
       "date": "2026-07-20",
+      "agent": "ops",
+      "summary": "MIDDAY CONSOLIDATED CYCLE (14:59 IST): Morning+midday crons merged into one decision — NO new leads added this round. Reason: 6 contactable leads already meet the daily quota and ZERO pitches have been sent yet; stacking inventory before the shop opens is waste. Send-first discipline. BOSS ACTION NOW: UK send window is OPEN until 18:30 IST — Approve & Send L-005 (Blades of Norwich) and L-006 (Drive Automatic); both have flagship demo pages ready to impress. Tonight 20:30+ IST: send L-001/L-002/L-003 (North America). Payments fully operational (Wise international link + India UPI). Next scout round runs after today's sends go out."
+    },
+    {
+      "date": "2026-07-20",
       "agent": "scout+pitcher",
       "summary": "FIRST LIVE CYCLE COMPLETE (overnight run): 8 real leads researched across Canada (Penticton, Vernon), USA (Boise, Chattanooga), UK (Norwich, Brighton) and Australia (Geelong, Newcastle) — every website personally verified, 6 have published business emails. Personalized pitches drafted for all 6. Boss: open the outreach queue and Approve & Send each pitch during the lead's business hours (send windows are in each lead's notes — UK leads 1:30-6:30pm IST, North America 8:30pm-2:30am IST, Australia 4:30-9:30am IST). Two leads have no public email (phone/form only)."
     },
@@ -223,8 +228,8 @@
       "status": "received"
     },
     {
-      "item": "International payments — Wise link",
-      "status": "promised (boss will share)"
+      "item": "International payments — Wise link (wise.com/pay/business/voravivekhemantbhai1)",
+      "status": "received"
     },
     {
       "item": "WhatsApp routing — Chrome = Canada number (+1 825 907 0036), Brave = India number (+91 96011 76051); Titan mail also logged in Chrome",
