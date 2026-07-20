@@ -3,8 +3,12 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { DEMOS, demoBySlug } from "@/data/demos"
 
+/* Slugs that have their own bespoke, hand-built route (app/demo/<slug>/page.tsx).
+   Those win at request time; exclude them here so the build doesn't see a path conflict. */
+const BESPOKE_SLUGS = new Set(["blades-of-norwich"])
+
 export function generateStaticParams() {
-  return DEMOS.map((d) => ({ slug: d.slug }))
+  return DEMOS.filter((d) => !BESPOKE_SLUGS.has(d.slug)).map((d) => ({ slug: d.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
