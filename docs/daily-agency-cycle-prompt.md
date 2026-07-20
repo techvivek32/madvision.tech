@@ -24,9 +24,15 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    (stack: Next.js + Vercel free tier; think WhatsApp booking micro-sites, QR menu pages, review
    landing pages, lead-capture pages, small dashboards).
 
-2. LEADS — CHANNEL FIRST, ALWAYS: Read strategy{} in data/agency.json — it governs targeting.
-   Using web search, find REAL businesses in the PRIMARY markets (USA, Canada, UK, Australia,
-   Western Europe — India only via existing network) that plausibly need today's idea.
+2. LEADS — CHANNEL FIRST, and NO-WEBSITE FIRST: Read strategy{} in data/agency.json — it governs targeting.
+   TARGETING PRIORITY (biggest need = hottest buyer): #1 businesses with NO website at all — only a
+   Google Business Profile, Facebook page, Instagram or directory listing. They have nothing online and
+   the highest buy-intent ("you have no website — here's a full one"). #2 businesses with a weak/outdated
+   site. Do NOT waste the day only on businesses that already have decent sites.
+   Using web search / maps / directories, find REAL businesses in the PRIMARY markets (USA, Canada, UK,
+   Australia, Western Europe — India only via existing network) that plausibly need today's idea.
+   For no-website leads, harvest their public data from their Google/Facebook/Instagram listing (name,
+   services, hours, address, reviews) — that's enough to build the demo.
    HARD QUALIFYING RULE: a business is only a usable LEAD if it has a DIRECTLY REACHABLE public
    channel we can actually deliver a pitch through — a verified public business EMAIL, or a
    WhatsApp/textable business mobile. Phone-number-only businesses (no email, no WhatsApp, only a

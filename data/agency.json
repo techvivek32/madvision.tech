@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T17:14:02+05:30",
+  "updatedAt": "2026-07-20T17:30:08+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -35,7 +35,8 @@
       "AU": "A$349",
       "EU": "€249",
       "note": "One-time, no monthly fees, live in 48h. Localized per market for a better conversion ratio; boss can override per deal."
-    }
+    },
+    "targetingPriority": "Boss directive 2026-07-20: NO-WEBSITE FIRST. #1 target = businesses with NO website at all (only a Google Business / Facebook / Instagram / directory listing) — biggest need, highest buy-intent, they actually pay. #2 = weak/outdated existing sites. Still CHANNEL-FIRST: the lead must be reachable by a verified public email, WhatsApp/textable mobile, or Facebook DM. Harvest no-website leads public data from their Google/FB/IG listing."
   },
   "targets": {
     "dailyPipelineUSD": 2000,
@@ -45,9 +46,10 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T17:14:02+05:30",
-    "focus": "All 12 reachable leads have engine sites + per-country priced pitches. Boss to Approve & Send per time-window. Building next: harvester (URL->site) + domain-attach close flow.",
+    "lastReflection": "2026-07-20T17:30:08+05:30",
+    "focus": "Shift lead-hunting to NO-WEBSITE businesses (reachable via email/WhatsApp/FB). Build their first site from public listings, pitch, and keep the 24/7 cycles running.",
     "playbook": [
+      "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
       "DEMO = a full, finished, real-data website (SiteTemplate engine or bespoke route) — never a thin placeholder skeleton, never invented prices or reviews.",
       "Clean light theme for most local services; dark/bold for barbers and night trades.",
@@ -56,6 +58,11 @@
       "Time-zone aware: pitch each lead inside their local business hours."
     ],
     "learnings": [
+      {
+        "date": "2026-07-20",
+        "insight": "The hottest buyer is a business with NO website, not one with a weak site. No web presence = highest need + buy-intent. Build their first site from their Google/Facebook listing.",
+        "evidence": "Boss directive: focus on who will actually pay."
+      },
       {
         "date": "2026-07-20",
         "insight": "Every reachable lead should be on the engine template, not the old thin config — consistency of quality matters as much as the pitch.",
