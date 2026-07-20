@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T23:05:52+05:30",
+  "updatedAt": "2026-07-20T23:36:05+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -758,13 +758,12 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T23:05:52+05:30",
-    "headline": "Manager flagged OVER-BUILDING — 26 sites built but only 2 sent. Recommends pausing the Finder until sends catch up. Health green.",
+    "updatedAt": "2026-07-20T23:36:05+05:30",
+    "headline": "No change — 28 leads / 28 sites, health green, 2 sent / 0 replies. Waiting on boss decision (pause Finder vs max) + approvals.",
     "items": [
-      "Build-to-send ratio 26:2 and widening — more sites now have negative value; the only money lever is SENDS (boss-manual Approve & Send).",
-      "Manager added a backlog-cap rule and recommends the Finder pause/slow.",
-      "Decision open for boss: pause Finder + focus on approvals, OR keep max-leads.",
-      "28 leads / 28 sites live, 24 reachable, 0 replies; Monitor green."
+      "Builder ran: nothing to build (latest batch done).",
+      "No new leads, sends or replies.",
+      "Manager over-building flag still stands: 26 built / 2 sent."
     ]
   },
   "health": {
