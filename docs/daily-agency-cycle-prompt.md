@@ -20,18 +20,27 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    (stack: Next.js + Vercel free tier; think WhatsApp booking micro-sites, QR menu pages, review
    landing pages, lead-capture pages, small dashboards).
 
-2. LEADS: Read strategy{} in data/agency.json — it governs targeting. Using web search, find 4-6
-   REAL businesses in the PRIMARY markets (USA, Canada, UK, Australia, Western Europe — India only
-   via existing network) that plausibly need today's idea. Use ONLY publicly listed business contact
-   info (business email, public business phone). NEVER invent or guess contact details — if
-   unverifiable, include the business with its source URL, leave email/whatsapp empty, and note why.
-   No personal/private data. Note each lead's timezone so the founder pitches in their business hours.
+2. LEADS — CHANNEL FIRST, ALWAYS: Read strategy{} in data/agency.json — it governs targeting.
+   Using web search, find REAL businesses in the PRIMARY markets (USA, Canada, UK, Australia,
+   Western Europe — India only via existing network) that plausibly need today's idea.
+   HARD QUALIFYING RULE: a business is only a usable LEAD if it has a DIRECTLY REACHABLE public
+   channel we can actually deliver a pitch through — a verified public business EMAIL, or a
+   WhatsApp/textable business mobile. Phone-number-only businesses (no email, no WhatsApp, only a
+   voice line or a placeholder like info@domain.com.au) DO NOT QUALIFY — do not add them, do not
+   spend effort on them. Keep searching until you have 4-6 businesses that each pass this rule.
+   Use ONLY publicly listed business contact info. NEVER invent or guess an email/number — if you
+   can't verify a reachable channel, the business is not a lead, skip it. No personal/private data.
+   Note each lead's timezone so the founder pitches in their business hours.
 
-3. PITCH DRAFTS: For each lead with contact info, draft pitchEmailSubject + pitchEmailBody
+3. PITCH DRAFTS: Every lead by definition now has a reachable channel. Draft pitchEmailSubject + pitchEmailBody
    (120-180 words, from Vivek Vora, Founder & CEO, Vision Tech, info@madvision.tech; something
    specific about their business; one clear offer with price; one CTA; polite opt-out line) and
    pitchWhatsApp (2-3 sentences). Canada leads: CASL-compliant tone — identify sender, mention the
    Kelowna BC office (Dolphin Ave, Kelowna, BC V1Y 9J7), easy opt-out.
+
+   DEMO RULE: only build a /demo/<slug> preview page for a lead AFTER it has passed the channel
+   rule in step 2. A demo is worthless if we can't deliver its link to the business — never build
+   a demo for a phone-only / unreachable business. Channel qualifies the lead; the demo comes last.
 
 4. UPDATE data/agency.json preserving the EXACT existing schema and key names: todayIdea (date =
    today, status "pitching"), append to leads[] continuing the L-00N id numbering with status

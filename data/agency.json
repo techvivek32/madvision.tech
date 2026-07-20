@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T12:20:00+05:30",
+  "updatedAt": "2026-07-20T12:35:00+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -14,11 +14,20 @@
     }
   },
   "strategy": {
-    "primaryMarkets": ["USA", "Canada", "UK", "Australia", "Western Europe"],
-    "secondaryMarkets": ["India — existing network / referrals only"],
+    "primaryMarkets": [
+      "USA",
+      "Canada",
+      "UK",
+      "Australia",
+      "Western Europe"
+    ],
+    "secondaryMarkets": [
+      "India — existing network / referrals only"
+    ],
     "positioning": "Premium one-day micro-builds for Western small businesses: India-grade cost, MNC-grade delivery.",
     "pricingUSD": "299-499 one-time typical; 49/mo care plan upsell",
-    "note": "Boss directive 2026-07-20: pitch paying markets abroad first — Western clients close faster and pay in USD/CAD/GBP. Time-zone aware outreach (their business hours), CAN-SPAM/CASL/GDPR-compliant 1:1 pitches only."
+    "note": "Boss directive 2026-07-20: pitch paying markets abroad first — Western clients close faster and pay in USD/CAD/GBP. Time-zone aware outreach (their business hours), CAN-SPAM/CASL/GDPR-compliant 1:1 pitches only.",
+    "channelFirstRule": "Boss directive 2026-07-20: CHANNEL BEFORE DEMO. A business only counts as a lead if it has a directly reachable public channel (verified email OR WhatsApp/textable mobile). Phone-only / placeholder-email businesses do NOT qualify — never build a demo or spend effort on a lead we can't deliver a pitch to. L-004 and L-007 were phone-only mistakes and are deprioritized."
   },
   "targets": {
     "dailyPipelineUSD": 2000,
@@ -116,11 +125,11 @@
       "whatsapp": "",
       "source": "https://qualitylawn.care/",
       "demoUrl": "https://madvision.tech/demo/quality-lawn-care",
-      "status": "found",
+      "status": "deprioritized",
       "pitchEmailSubject": "",
       "pitchEmailBody": "",
       "pitchWhatsApp": "",
-      "notes": "Lawn care, Chattanooga TN. Early-2000s site, broken images, no pricing, NO PUBLIC EMAIL — phone/form outreach only. Phone 423-475-1731 · TZ America/New_York"
+      "notes": "DEPRIORITIZED (phone-only, no reachable email/WhatsApp — channel-first rule, see strategy.channelFirstRule). Lawn care, Chattanooga TN. Early-2000s site, broken images, no pricing, NO PUBLIC EMAIL — phone/form outreach only. Phone 423-475-1731 · TZ America/New_York"
     },
     {
       "id": "L-005",
@@ -161,11 +170,11 @@
       "whatsapp": "",
       "source": "https://www.geelongmobilemechanic.com.au/",
       "demoUrl": "https://madvision.tech/demo/geelong-mobile-mechanic",
-      "status": "found",
+      "status": "deprioritized",
       "pitchEmailSubject": "",
       "pitchEmailBody": "",
       "pitchWhatsApp": "",
-      "notes": "Mobile mechanic, Geelong AU. Site's contact email is literally the template placeholder 'info@domain.com.au' — NO REAL PUBLIC EMAIL, phone outreach only. Phone 0426 507 837 · TZ Australia/Melbourne"
+      "notes": "DEPRIORITIZED (phone-only, no reachable email/WhatsApp — channel-first rule, see strategy.channelFirstRule). Mobile mechanic, Geelong AU. Site's contact email is literally the template placeholder 'info@domain.com.au' — NO REAL PUBLIC EMAIL, phone outreach only. Phone 0426 507 837 · TZ Australia/Melbourne"
     },
     {
       "id": "L-008",
@@ -201,10 +210,25 @@
     }
   ],
   "resourcesNeeded": [
-    { "item": "LinkedIn account access (for lead research + founder-branded outreach)", "status": "pending" },
-    { "item": "Vercel access for per-client deploys", "status": "received" },
-    { "item": "India payments — UPI 9601176051@kotakbank (Kotak811)", "status": "received" },
-    { "item": "International payments — Wise link", "status": "promised (boss will share)" },
-    { "item": "WhatsApp routing — Chrome = Canada number (+1 825 907 0036), Brave = India number (+91 96011 76051); Titan mail also logged in Chrome", "status": "noted" }
+    {
+      "item": "LinkedIn account access (for lead research + founder-branded outreach)",
+      "status": "pending"
+    },
+    {
+      "item": "Vercel access for per-client deploys",
+      "status": "received"
+    },
+    {
+      "item": "India payments — UPI 9601176051@kotakbank (Kotak811)",
+      "status": "received"
+    },
+    {
+      "item": "International payments — Wise link",
+      "status": "promised (boss will share)"
+    },
+    {
+      "item": "WhatsApp routing — Chrome = Canada number (+1 825 907 0036), Brave = India number (+91 96011 76051); Titan mail also logged in Chrome",
+      "status": "noted"
+    }
   ]
 }
