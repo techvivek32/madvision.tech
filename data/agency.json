@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T19:52:34+05:30",
+  "updatedAt": "2026-07-20T20:05:53+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -587,14 +587,12 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T19:36:00+05:30",
-    "headline": "Pipeline steady at 20 leads / 20 sites, health green. Finder has not produced its first fresh batch yet — it runs when the session is idle enough for its ~15-min research.",
+    "updatedAt": "2026-07-20T20:05:53+05:30",
+    "headline": "No change since last check — 20 leads / 20 sites, health green, 2 sent / 0 replies. Finder still awaiting an idle window for its first batch.",
     "items": [
-      "Builder ran: nothing queued to build (no harvest leads yet); all 20 sites already live.",
-      "Finder pending — its heavy research slot got deferred while lighter agents ran; fires next idle window.",
-      "Still 18 reachable, 2 sent (Blades, Drive Automatic), 0 replies.",
-      "Health green; Reporter/Monitor/Manager cycling normally.",
-      "Standing decision for boss: green-light the Closer agent + Approve the Ready-now leads."
+      "Monitor re-confirmed green (10 rotated demos 200, API/SMTP/blob OK).",
+      "No new leads, sites, sends or replies this half-hour.",
+      "Awaiting: Finder first batch + boss Approve/green-light Closer."
     ]
   },
   "health": {
