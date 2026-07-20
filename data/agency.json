@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T19:10:56+05:30",
+  "updatedAt": "2026-07-20T19:36:00+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -587,14 +587,14 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T19:06:04+05:30",
-    "headline": "Manager found the real bottleneck — SENDS, not leads — and proposed a Closer agent. Pipeline steady, health green.",
+    "updatedAt": "2026-07-20T19:36:00+05:30",
+    "headline": "Pipeline steady at 20 leads / 20 sites, health green. Finder has not produced its first fresh batch yet — it runs when the session is idle enough for its ~15-min research.",
     "items": [
-      "Manager insight: 18 reachable leads but only 2 sent, 0 replies — the org builds faster than pitches get approved. More leads won’t help until sends go out.",
-      "Manager proposed 2 new agents: Closer (on reply → follow-up + domain-attach close) and Follow-up (day-2/3 nudge). Boss to green-light.",
-      "Finder now weighted to barbershops & pet groomers — they over-index in the no-website segment.",
-      "Monitor: health green — all demo links 200, API/SMTP/blob OK.",
-      "No new leads or replies since last check."
+      "Builder ran: nothing queued to build (no harvest leads yet); all 20 sites already live.",
+      "Finder pending — its heavy research slot got deferred while lighter agents ran; fires next idle window.",
+      "Still 18 reachable, 2 sent (Blades, Drive Automatic), 0 replies.",
+      "Health green; Reporter/Monitor/Manager cycling normally.",
+      "Standing decision for boss: green-light the Closer agent + Approve the Ready-now leads."
     ]
   },
   "health": {
