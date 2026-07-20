@@ -5,7 +5,7 @@ import { DEMOS, demoBySlug } from "@/data/demos"
 
 /* Slugs that have their own bespoke, hand-built route (app/demo/<slug>/page.tsx).
    Those win at request time; exclude them here so the build doesn't see a path conflict. */
-const BESPOKE_SLUGS = new Set(["blades-of-norwich"])
+const BESPOKE_SLUGS = new Set(["blades-of-norwich", "drive-automatic"])
 
 export function generateStaticParams() {
   return DEMOS.filter((d) => !BESPOKE_SLUGS.has(d.slug)).map((d) => ({ slug: d.slug }))
