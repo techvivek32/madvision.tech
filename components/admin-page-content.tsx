@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Activity,
+  BarChart3,
   Bot,
   BrainCircuit,
   DollarSign,
@@ -244,6 +245,9 @@ export default function AdminPageContent() {
           ))}
         </section>
 
+        {/* analytics — live pipeline read */}
+        <AnalyticsPanel data={data} />
+
         {/* the brain — self-aware + self-learning */}
         {data.brain && <BrainPanel data={data} />}
 
@@ -446,6 +450,137 @@ export default function AdminPageContent() {
 
       <Friday data={data} />
     </div>
+  )
+}
+
+/* ------------------------------------------------------------------ */
+/*  ANALYTICS — a live, honest read of the whole pipeline.             */
+/* ------------------------------------------------------------------ */
+
+const FX: Record<string, number> = { US: 1, CA: 0.73, UK: 1.27, AU: 0.66, EU: 1.08 }
+const COUNTRY_COLOR: Record<string, string> = {
+  US: "#3b82f6",
+  CA: "#ef4444",
+  UK: "#8b5cf6",
+  AU: "#22c55e",
+  EU: "#f59e0b",
+}
+function priceNum(s?: string) {
+  const n = s ? parseInt(s.replace(/[^\d]/g, ""), 10) : NaN
+  return Number.isFinite(n) ? n : 0
+}
+
+function computeAnalytics(data: Agency) {
+  const leads = data.leads
+  const reachable = leads.filter((l) => ((l.email && l.email.trim()) || (l.whatsapp && l.whatsapp.trim())) && l.status !== "deprioritized")
+  const pricing = data.strategy?.pricingByCountry || {}
+
+  const funnel = [
+    { label: "Leads found", count: leads.length },
+    { label: "Reachable", count: reachable.length },
+    { label: "Sites built", count: reachable.filter((l) => l.demoUrl).length },
+    { label: "Pitch drafted", count: reachable.filter((l) => l.pitchEmailBody || l.pitchWhatsApp).length },
+    { label: "Sent", count: leads.filter((l) => l.status === "pitched" || l.status === "replied" || l.status === "won").length },
+    { label: "Replied", count: leads.filter((l) => l.status === "replied" || l.status === "won").length },
+    { label: "Won", count: leads.filter((l) => l.status === "won").length },
+  ]
+
+  const byCountryMap: Record<string, { count: number; usd: number }> = {}
+  let pipelineUSD = 0
+  for (const l of reachable) {
+    const c = (l.country || "US").toUpperCase()
+    const usd = priceNum(pricing[c]) * (FX[c] ?? 1)
+    byCountryMap[c] = byCountryMap[c] || { count: 0, usd: 0 }
+    byCountryMap[c].count++
+    byCountryMap[c].usd += usd
+    pipelineUSD += usd
+  }
+  const byCountry = Object.entries(byCountryMap)
+    .map(([code, v]) => ({ code, ...v, price: pricing[code] || "$299" }))
+    .sort((a, b) => b.count - a.count)
+
+  const inWindowNow = reachable.filter((l) => l.email && l.pitchEmailBody && sendWindow(l).open).length
+  const replied = leads.filter((l) => l.status === "replied")
+
+  return { funnel, byCountry, pipelineUSD, inWindowNow, reachable: reachable.length, replied }
+}
+
+function Bar({ pct, color }: { pct: number; color: string }) {
+  return (
+    <div className="h-2.5 rounded-full bg-secondary overflow-hidden">
+      <div className="h-full rounded-full transition-all" style={{ width: `${Math.max(pct, 3)}%`, backgroundColor: color }} />
+    </div>
+  )
+}
+
+function AnalyticsPanel({ data }: { data: Agency }) {
+  const a = computeAnalytics(data)
+  const maxFunnel = Math.max(...a.funnel.map((f) => f.count), 1)
+  const pipeK = a.pipelineUSD >= 1000 ? `$${(a.pipelineUSD / 1000).toFixed(1)}k` : `$${Math.round(a.pipelineUSD)}`
+
+  return (
+    <section className="p-6 md:p-8 rounded-2xl bg-card border border-border">
+      <div className="flex items-center gap-2 mb-6">
+        <BarChart3 className="w-4 h-4" style={{ color: ACCENT }} />
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Analytics · live pipeline</span>
+      </div>
+
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+        {[
+          { label: "Reachable leads", value: `${a.reachable}` },
+          { label: "Pipeline (USD-eq)", value: pipeK },
+          { label: "Ready to send now", value: `${a.inWindowNow}`, hot: a.inWindowNow > 0 },
+          { label: "Replies", value: `${a.replied.length}`, hot: a.replied.length > 0 },
+        ].map((t) => (
+          <div key={t.label} className="p-4 rounded-xl bg-secondary/60">
+            <p className="font-serif text-2xl leading-none" style={t.hot ? { color: ACCENT } : undefined}>
+              {t.value}
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground mt-1.5">{t.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* funnel */}
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Pipeline funnel</p>
+          <div className="space-y-3">
+            {a.funnel.map((f) => (
+              <div key={f.label}>
+                <div className="flex justify-between text-sm mb-1">
+                  <span className="text-foreground">{f.label}</span>
+                  <span className="font-mono text-muted-foreground">{f.count}</span>
+                </div>
+                <Bar pct={(f.count / maxFunnel) * 100} color={ACCENT} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* by country */}
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Reachable by market</p>
+          <div className="space-y-3">
+            {a.byCountry.map((c) => (
+              <div key={c.code}>
+                <div className="flex justify-between text-sm mb-1">
+                  <span className="text-foreground flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COUNTRY_COLOR[c.code] || "#64748b" }} />
+                    {c.code} · {c.price}
+                  </span>
+                  <span className="font-mono text-muted-foreground">{c.count}</span>
+                </div>
+                <Bar pct={(c.count / a.reachable) * 100} color={COUNTRY_COLOR[c.code] || "#64748b"} />
+              </div>
+            ))}
+          </div>
+          <p className="font-mono text-[10px] text-muted-foreground mt-4">
+            Pipeline value blends each market&apos;s local price into USD (rough FX).
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }
 
