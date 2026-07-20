@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:05:53+05:30",
+  "updatedAt": "2026-07-20T20:17:28+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -140,7 +140,7 @@
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
       "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Only high-intent businesses with no website + a reachable email/WhatsApp/FB. Varies city each pass."
+      "note": "Researching a fresh no-website batch in new cities (barbers/groomers/cafes weighted). Leads land when research returns."
     },
     {
       "id": "monitor",
