@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T22:05:50+05:30",
+  "updatedAt": "2026-07-20T22:17:10+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -144,9 +144,9 @@
       "id": "finder",
       "name": "Finder",
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
-      "status": "idle",
+      "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Day closed: 16 leads found today, 24 total. Resumes on the morning cycle."
+      "note": "Researching batch 2 — email/WhatsApp-reachable no-website businesses (per Manager channel rule), fresh cities."
     },
     {
       "id": "monitor",
