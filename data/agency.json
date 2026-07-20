@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:36:03+05:30",
+  "updatedAt": "2026-07-20T20:52:31+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -674,8 +674,8 @@
     ]
   },
   "health": {
-    "updatedAt": "2026-07-20T19:52:34+05:30",
+    "updatedAt": "2026-07-20T20:52:31+05:30",
     "status": "green",
-    "notes": "Hourly check: 10 rotated demo links all 200, /api/agency/health OK (admin+SMTP+blob set), 0 leads missing a site. All clear."
+    "notes": "Hourly check: newest batch (L-021..L-024) + rotated demos all 200, /api/agency/health OK, 24 leads all have live sites. All clear."
   }
 }
