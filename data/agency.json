@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T17:49:13+05:30",
+  "updatedAt": "2026-07-20T18:17:15+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,7 +46,7 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T17:49:13+05:30",
+    "lastReflection": "2026-07-20T18:17:15+05:30",
     "focus": "No-website leads are live (L-015..L-020) with first-ever sites + pitches. Boss to Approve & Send the 4 email ones and DM the 2 Facebook-only. Keep hunting no-website businesses every cycle.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
@@ -110,28 +110,44 @@
   },
   "agents": [
     {
-      "id": "scout",
-      "name": "Scout",
-      "role": "Finds the daily zero-cost idea + researches real leads with public business contact info",
-      "status": "done",
+      "id": "finder",
+      "name": "Finder",
+      "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
+      "status": "running",
       "lastRun": "2026-07-20",
-      "note": "NO-WEBSITE cycle: found 6 businesses with no website (Google/FB only) — 4 email-reachable + 2 FB-DM. New hottest segment."
+      "note": "Only high-intent businesses with no website + a reachable email/WhatsApp/FB. Varies city each pass."
+    },
+    {
+      "id": "monitor",
+      "name": "Monitor",
+      "role": "Watches site health, demo links, API and pipeline 24/7",
+      "status": "running",
+      "lastRun": "2026-07-20",
+      "note": "Health + all demo 200s + pipeline flags. Alerts the Manager on any break."
     },
     {
       "id": "builder",
       "name": "Builder",
-      "role": "Builds the demo/product for the day's idea so pitches link to something real",
-      "status": "done",
+      "role": "Turns fresh lead data into a full real-data website continuously",
+      "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Built 6 first-ever websites for no-website businesses from their public listings (L-015..L-020)."
+      "note": "Builds an engine SiteProfile for every lead missing a demo, per-country priced."
     },
     {
-      "id": "pitcher",
-      "name": "Pitcher",
-      "role": "Drafts personalized email + WhatsApp pitches per lead; email sends via admin Approve, WhatsApp opens prefilled for one-click send",
-      "status": "done",
+      "id": "manager",
+      "name": "Manager",
+      "role": "The brain — takes all data, learns, changes the playbook, spins up new agents when needed",
+      "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Drafted no-website-angle pitches: 4 email + 2 Facebook-DM. Awaiting boss approve/DM."
+      "note": "If a market/price/pitch is not converting, it rewrites the strategy and can create new specialist agents."
+    },
+    {
+      "id": "reporter",
+      "name": "Reporter",
+      "role": "Tells the boss what is new every 30 minutes",
+      "status": "running",
+      "lastRun": "2026-07-20",
+      "note": "Rolling digest of new leads, sites, sends, replies and Manager changes."
     }
   ],
   "leads": [
@@ -544,5 +560,19 @@
       "item": "WhatsApp routing — Chrome = Canada number (+1 825 907 0036), Brave = India number (+91 96011 76051); Titan mail also logged in Chrome",
       "status": "noted"
     }
-  ]
+  ],
+  "digest": {
+    "updatedAt": "2026-07-20T17:55:00+05:30",
+    "headline": "Autonomous agency org is live — Finder, Monitor, Builder, Manager, Reporter all running.",
+    "items": [
+      "20 leads in pipeline (16 reachable), 18 real-data sites live.",
+      "NO-WEBSITE-FIRST targeting active; 6 no-website leads added this cycle.",
+      "Reply auto-detect + desktop alerts on; sends await your Approve & Send."
+    ]
+  },
+  "health": {
+    "updatedAt": "2026-07-20T17:55:00+05:30",
+    "status": "green",
+    "notes": "All demo links 200, API + blob + SMTP configured, reply IMAP verified on Vercel."
+  }
 }

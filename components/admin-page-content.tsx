@@ -71,9 +71,19 @@ type Agency = {
     learnings?: { date: string; insight: string; evidence?: string }[]
   }
   strategy?: { pricingByCountry?: Record<string, string> }
+  digest?: { updatedAt?: string; headline?: string; items?: string[] }
+  health?: { updatedAt?: string; status?: string; notes?: string }
 }
 
-const AGENT_ICONS: Record<string, typeof Radar> = { scout: Radar, builder: Wrench, pitcher: Send }
+const AGENT_ICONS: Record<string, typeof Radar> = {
+  scout: Radar,
+  finder: Radar,
+  monitor: Activity,
+  builder: Wrench,
+  pitcher: Send,
+  manager: BrainCircuit,
+  reporter: Bell,
+}
 
 /* A lead's outreach window: we only enable "Approve & send" during the
    business's OWN local hours, so every pitch lands in their business hours. */
@@ -317,6 +327,47 @@ export default function AdminPageContent() {
             </div>
           ))}
         </section>
+
+        {/* what's new — the Reporter's rolling digest */}
+        {data.digest && (
+          <section className="p-6 md:p-8 rounded-2xl bg-card border border-border">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-2">
+                <Activity className="w-4 h-4" style={{ color: ACCENT }} />
+                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+                  What&apos;s new · updated every 30 min
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                {data.health?.status && (
+                  <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: data.health.status === "green" ? "#22c55e" : data.health.status === "red" ? "#ef4444" : "#f59e0b" }}
+                    />
+                    {data.health.status}
+                  </span>
+                )}
+                {data.digest.updatedAt && (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    {new Date(data.digest.updatedAt).toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" })}
+                  </span>
+                )}
+              </div>
+            </div>
+            {data.digest.headline && <p className="font-serif text-xl text-foreground mb-4">{data.digest.headline}</p>}
+            {data.digest.items && data.digest.items.length > 0 && (
+              <ul className="space-y-2">
+                {data.digest.items.map((it, i) => (
+                  <li key={i} className="flex gap-2.5 text-sm text-foreground leading-relaxed">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: ACCENT }} />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
 
         {/* analytics — live pipeline read */}
         <AnalyticsPanel data={data} />
@@ -939,6 +990,13 @@ function Friday({ data }: { data: Agency }) {
           pending.length
             ? "Still needed from you, Boss: " + pending.map((r) => r.item).join(". ")
             : "Nothing pending from your side right now. All resources received.",
+        )
+      } else if (/what.?s new|whats new|su navu|navu su|latest|digest|new updates/.test(t)) {
+        const dg = data.digest
+        speak(
+          dg?.items?.length
+            ? `${dg.headline ? dg.headline + " " : ""}${dg.items.slice(0, 4).join(" ")}`
+            : "Nothing new since the last report, Boss. The team is running — I'll flag anything the moment it lands.",
         )
       } else if (/repl(y|ies)|jawab|javab|responded|wrote back/.test(t)) {
         const replied = data.leads.filter((l) => l.status === "replied")
