@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T01:05:51+05:30",
+  "updatedAt": "2026-07-21T01:36:01+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,12 +763,11 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T01:05:51+05:30",
-    "headline": "No change — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies. Waiting on boss approvals.",
+    "updatedAt": "2026-07-21T01:36:01+05:30",
+    "headline": "Still no change — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies. Org watching, waiting on approvals.",
     "items": [
-      "Manager reviewed: no new conversion data, no strategy change.",
-      "No new leads, sends or replies.",
-      "Monitor + Reporter watching; Finder resumes once sends catch up."
+      "No new leads, sends or replies since last check.",
+      "Finder auto-resumes once the send queue clears."
     ]
   },
   "health": {
