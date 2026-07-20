@@ -46,6 +46,7 @@ type Agency = {
     email?: string
     whatsapp?: string
     source?: string
+    demoUrl?: string
     status: string
     pitchEmailSubject?: string
     pitchEmailBody?: string
@@ -274,7 +275,19 @@ export default function AdminPageContent() {
                       </span>
                       <p className="font-serif text-xl text-foreground">{lead.business}</p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
+                      {lead.demoUrl && (
+                        <a
+                          href={lead.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium text-foreground hover:bg-secondary"
+                          style={{ borderColor: ACCENT }}
+                        >
+                          <Lightbulb className="w-4 h-4" style={{ color: ACCENT }} />
+                          View demo
+                        </a>
+                      )}
                       {lead.email && lead.pitchEmailBody && (
                         <button
                           onClick={() => approveSend(lead.id)}
