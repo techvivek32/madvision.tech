@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T21:35:52+05:30",
+  "updatedAt": "2026-07-20T21:45:00+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -144,41 +144,41 @@
       "id": "finder",
       "name": "Finder",
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
-      "status": "done",
+      "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "Found + built 4 fresh no-website leads (Ballarat barber, Kamloops groomer, Dubuque barber, Sunderland groomer). 1 email, 1 WhatsApp, 2 FB-DM."
+      "note": "Day closed: 16 leads found today, 24 total. Resumes on the morning cycle."
     },
     {
       "id": "monitor",
       "name": "Monitor",
       "role": "Watches site health, demo links, API and pipeline 24/7",
-      "status": "running",
+      "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "Health + all demo 200s + pipeline flags. Alerts the Manager on any break."
+      "note": "Day closed: 0 replies detected yet on the 2 UK sends. Reply-watch resumes with the admin session."
     },
     {
       "id": "builder",
       "name": "Builder",
       "role": "Turns fresh lead data into a full real-data website continuously",
-      "status": "running",
+      "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "Built 4 new sites from the Finder batch (L-021..L-024). All live."
+      "note": "Day closed: demo coverage complete for the lead book. Next build order comes from new leads."
     },
     {
       "id": "manager",
       "name": "Manager",
       "role": "The brain — takes all data, learns, changes the playbook, spins up new agents when needed",
-      "status": "running",
+      "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "If a market/price/pitch is not converting, it rewrites the strategy and can create new specialist agents."
+      "note": "Day closed: send-first discipline holds — 20 drafted pitches await boss approvals in tomorrow's windows."
     },
     {
       "id": "reporter",
       "name": "Reporter",
       "role": "Tells the boss what is new every 30 minutes",
-      "status": "running",
+      "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "Rolling digest of new leads, sites, sends, replies and Manager changes."
+      "note": "Night report filed. Next digest on the morning cycle."
     }
   ],
   "leads": [
@@ -606,6 +606,11 @@
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "reporter",
+      "summary": "END OF DAY 1 (honest numbers): 24 leads on the books (16 found today by Finder, 20 ready-to-pitch, 2 deprioritized as phone-only). SENT: 2 pitches — Blades of Norwich and Drive Automatic, both delivered inside their UK business-hours window with flagship demo links. Replies 0 (sent only hours ago — normal), won 0, earned USD 0. Pitched value today USD 598 vs the USD 2000/day pitch target — leads are NOT the bottleneck, sends are: USD 5,980 of drafted, demo-backed pitches sit ready in the queue. TOMORROW MORNING, BOSS: (1) AU window 4:30-9:30 IST — approve Noonies + the AU batch first thing; (2) UK window 1:30-6:30pm — approve the UK batch; (3) NA window 8:30pm+ — approve CA/US batch; (4) watch for replies to the 2 UK pitches — first reply is the day-2 headline we want. Every send is one click in the queue; windows auto-enable the buttons."
+    },
     {
       "date": "2026-07-20",
       "agent": "finder",
