@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T22:17:10+05:30",
+  "updatedAt": "2026-07-20T22:24:25+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T20:55:50+05:30",
-    "focus": "Finder: prefer EMAIL/WhatsApp-reachable leads (auto-sendable); cap FB-only to ~1/batch. Sends are still the bottleneck (2 sent, 0 replies of 24) — the win is getting pitches Approved, not more leads. Build the Closer next.",
+    "lastReflection": "2026-07-20T22:24:25+05:30",
+    "focus": "28 leads (24 reachable, most email/WhatsApp auto-sendable). Sends remain the bottleneck (2 sent, 0 replies) — Approve in-window pitches. Build Closer next.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -144,9 +144,9 @@
       "id": "finder",
       "name": "Finder",
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
-      "status": "running",
+      "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Researching batch 2 — email/WhatsApp-reachable no-website businesses (per Manager channel rule), fresh cities."
+      "note": "Batch 2: 4 no-website leads, ALL email-reachable (0 FB-only — followed Manager channel rule). Tucson barber, Halifax + Plymouth nail salons, Adelaide groomer."
     },
     {
       "id": "monitor",
@@ -162,7 +162,7 @@
       "role": "Turns fresh lead data into a full real-data website continuously",
       "status": "idle",
       "lastRun": "2026-07-20",
-      "note": "Day closed: demo coverage complete for the lead book. Next build order comes from new leads."
+      "note": "Built 4 new sites from Finder batch 2 (L-025..L-028). All live."
     },
     {
       "id": "manager",
@@ -603,9 +603,86 @@
       "pitchEmailBody": "Hi Lady & The Tramp team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. You're 100% recommended by your clients in Cleadon — City & Guilds Level 3 grooming for dogs and cats — but you don't have a website, only Facebook. When someone in Sunderland googles 'dog groomer near me', a groomer with a real site wins that booking, and right now that's not you.\n\nWe build a lovely one-page website — your services, hours, photos and a Book button — so you own those searches. Live in 48 hours, £199 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/lady-and-the-tramp-groomers-sunderland (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. You're 100% recommended in Cleadon but have no website — Sunderland pet owners googling 'dog groomer' can't find you. I built you a preview: https://madvision.tech/demo/lady-and-the-tramp-groomers-sunderland — services + booking, live in 48h for £199 one-time. Worth a look? No worries if not.",
       "notes": "NO-WEBSITE lead, EMAIL + WhatsApp reachable. Dog & cat grooming, Cleadon/Sunderland UK. FB https://www.facebook.com/ladyandtrampgroomers/ · Phone/WA 07736 219714 · TZ Europe/London."
+    },
+    {
+      "id": "L-025",
+      "date": "2026-07-20",
+      "business": "La Familia Barbershop",
+      "country": "US",
+      "email": "Lafamiliabarbershop520@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/la.familia.barbershop.tucson/",
+      "demoUrl": "https://madvision.tech/demo/la-familia-barbershop-tucson",
+      "status": "found",
+      "tz": "America/Phoenix",
+      "sendFrom": 10,
+      "sendTo": 18,
+      "pitchEmailSubject": "220+ five-star reviews, but no website?",
+      "pitchEmailBody": "Hi La Familia team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. 5.0 stars across 220+ reviews in downtown Tucson is seriously impressive — but you don't have a website, just Facebook and Booksy. When someone googles 'barber downtown Tucson', a shop with a real site wins that customer, and that reputation of yours deserves to be the one they find.\n\nWe build a sharp one-page website — your cuts, hours, reviews and one-tap Booksy booking — so you own those searches. Live in 48 hours, $299 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/la-familia-barbershop-tucson (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead, EMAIL-reachable. Barbershop, downtown Tucson AZ, 5.0★/220+ reviews, Booksy booking. FB + Booksy only. Phone 520-203-8268 · TZ America/Phoenix."
+    },
+    {
+      "id": "L-026",
+      "date": "2026-07-20",
+      "business": "Princess Nails Clayton Park",
+      "country": "CA",
+      "email": "princessnailsclaytonpark@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/princessnailsclaytonpark",
+      "demoUrl": "https://madvision.tech/demo/princess-nails-clayton-park-halifax",
+      "status": "found",
+      "tz": "America/Halifax",
+      "sendFrom": 9,
+      "sendTo": 19,
+      "pitchEmailSubject": "Clayton Park finds you on Facebook, not Google",
+      "pitchEmailBody": "Hi Princess Nails team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. You're busy seven days a week at Clayton Park — gel, acrylic, spa pedicures — but you don't have a website, only Facebook and a booking app. When someone in Halifax googles 'nail salon near me', a salon with a real site shows up first, and right now that's not you.\n\nWe build a beautiful one-page website — your services, prices, photos and a Book button — so you own those searches. Live in 48 hours, CA$349 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/princess-nails-clayton-park-halifax (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead, EMAIL-reachable. Nail salon, Clayton Park Halifax NS. FB + DashBooking only. Phone 902-443-9992 · TZ America/Halifax."
+    },
+    {
+      "id": "L-027",
+      "date": "2026-07-20",
+      "business": "Nails For You",
+      "country": "UK",
+      "email": "NailsForYouPlymouth@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/NailsForYouPlymouth/",
+      "demoUrl": "https://madvision.tech/demo/nails-for-you-plymouth",
+      "status": "found",
+      "tz": "Europe/London",
+      "sendFrom": 9,
+      "sendTo": 18,
+      "pitchEmailSubject": "Plymouth searches for nails — and misses you",
+      "pitchEmailBody": "Hi Nails For You team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. Your spot on Market Avenue clearly does lovely work — manicures, pedicures, custom art — but you don't have a website, only Facebook and Fresha. When someone in Plymouth city centre googles 'nail salon near me', a salon with a real site wins the booking, and that should be you.\n\nWe build a bright one-page website — your services, that student discount, photos and one-tap Fresha booking — so you own those searches. Live in 48 hours, £199 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/nails-for-you-plymouth (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead, EMAIL-reachable. Nail salon, Plymouth city centre UK, Fresha booking, 10% student discount. FB/IG + Fresha only. Phone 01752 250260 · TZ Europe/London."
+    },
+    {
+      "id": "L-028",
+      "date": "2026-07-20",
+      "business": "Pawfect Couture Dog Grooming",
+      "country": "AU",
+      "email": "pawfectcouturedgps@gmail.com",
+      "whatsapp": "+61468948379",
+      "source": "https://www.facebook.com/pawfectcouture/",
+      "demoUrl": "https://madvision.tech/demo/pawfect-couture-adelaide",
+      "status": "found",
+      "tz": "Australia/Adelaide",
+      "sendFrom": 9,
+      "sendTo": 17,
+      "pitchEmailSubject": "Grooming, daycare & boarding — but no site to book",
+      "pitchEmailBody": "Hi Pawfect Couture team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. Cage-free grooming, daycare AND boarding in Hallett Cove is a lot to offer — but you don't have a website, only Facebook. Pet owners googling 'dog grooming Hallett Cove' or 'dog daycare Adelaide' can't find you, and word-of-mouth only goes so far.\n\nWe build a lovely one-page website — your services, cage-free promise, photos and a Book/Request button — so owners find and book you online. Live in 48 hours, A$349 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/pawfect-couture-adelaide (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Cage-free grooming + daycare + boarding in Hallett Cove is great — but no website means owners googling can't find you. I built you a preview: https://madvision.tech/demo/pawfect-couture-adelaide — services + a booking button, live in 48h for A$349 one-time. Worth a look? No worries if not.",
+      "notes": "NO-WEBSITE lead, EMAIL + WhatsApp reachable. Dog/cat grooming + daycare + boarding, Hallett Cove Adelaide SA. FB only. Phone/WA 0468 948 379 · TZ Australia/Adelaide."
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "finder",
+      "summary": "Finder batch 2: 4 no-website leads, every one EMAIL-reachable (Manager channel rule worked) — La Familia Barbershop (Tucson), Princess Nails (Halifax), Nails For You (Plymouth), Pawfect Couture (Adelaide). Each got its first site. 28 leads now, all 4 auto-sendable."
+    },
     {
       "date": "2026-07-20",
       "agent": "reporter",
