@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T17:30:08+05:30",
+  "updatedAt": "2026-07-20T17:49:13+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T17:30:08+05:30",
-    "focus": "Shift lead-hunting to NO-WEBSITE businesses (reachable via email/WhatsApp/FB). Build their first site from public listings, pitch, and keep the 24/7 cycles running.",
+    "lastReflection": "2026-07-20T17:49:13+05:30",
+    "focus": "No-website leads are live (L-015..L-020) with first-ever sites + pitches. Boss to Approve & Send the 4 email ones and DM the 2 Facebook-only. Keep hunting no-website businesses every cycle.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -115,7 +115,7 @@
       "role": "Finds the daily zero-cost idea + researches real leads with public business contact info",
       "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Cycle 2: +6 channel-verified leads (CA/UK/AU×2/US×2), every email seen on the business's own page. 12 reachable leads live now."
+      "note": "NO-WEBSITE cycle: found 6 businesses with no website (Google/FB only) — 4 email-reachable + 2 FB-DM. New hottest segment."
     },
     {
       "id": "builder",
@@ -123,7 +123,7 @@
       "role": "Builds the demo/product for the day's idea so pitches link to something real",
       "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Afternoon block: upgraded L-002 (Next Level), L-003 (Boise Detail), L-008 (Noonies) from thin config to engine real-data sites. All 12 reachable leads now on engine/bespoke quality."
+      "note": "Built 6 first-ever websites for no-website businesses from their public listings (L-015..L-020)."
     },
     {
       "id": "pitcher",
@@ -131,7 +131,7 @@
       "role": "Drafts personalized email + WhatsApp pitches per lead; email sends via admin Approve, WhatsApp opens prefilled for one-click send",
       "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Personalized email pitches drafted for all reachable leads (WhatsApp too where available). Awaiting boss Approve & Send."
+      "note": "Drafted no-website-angle pitches: 4 email + 2 Facebook-DM. Awaiting boss approve/DM."
     }
   ],
   "leads": [
@@ -380,9 +380,118 @@
       "tz": "America/Chicago",
       "sendFrom": 9,
       "sendTo": 17
+    },
+    {
+      "id": "L-015",
+      "date": "2026-07-20",
+      "business": "Lakeside Pawfection",
+      "country": "US",
+      "email": "LakesidePawfection@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/lakesidepetsalon/",
+      "demoUrl": "https://madvision.tech/demo/lakeside-pawfection",
+      "status": "found",
+      "tz": "America/Chicago",
+      "sendFrom": 8,
+      "sendTo": 17,
+      "pitchEmailSubject": "Lakeside Pawfection deserves more than a Facebook page",
+      "pitchEmailBody": "Hi Jeff,\n\nI'm Vivek, founder of Vision Tech, a small web studio. I went looking for Lakeside Pawfection and found your Facebook page and a chamber listing — but no website. That's a real gap: when someone near Weiss Lake googles 'dog grooming Leesburg', a Facebook page rarely shows up, so those customers never find you.\n\nWe build a clean one-page website for local businesses — your services, hours, photos and a Book/Call button — so you show up on Google and people can book any time. Live in 48 hours, $299 one-time, no monthly fees.\n\nI already built it from your public info — take a look: https://madvision.tech/demo/lakeside-pawfection (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead (FB + chamber listing only). Pet grooming & boarding, Leesburg AL. Owner Jeff Smith. Phone (256) 526-8900 · TZ America/Chicago."
+    },
+    {
+      "id": "L-016",
+      "date": "2026-07-20",
+      "business": "The Village Barbers",
+      "country": "UK",
+      "email": "thevillagebarbersallesley@hotmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/thevillagebarbersallesley/",
+      "demoUrl": "https://madvision.tech/demo/the-village-barbers",
+      "status": "found",
+      "tz": "Europe/London",
+      "sendFrom": 9,
+      "sendTo": 17,
+      "pitchEmailSubject": "Allesley searches for a barber — but can't find you on Google",
+      "pitchEmailBody": "Hi Village Barbers team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. You've clearly built a strong local reputation in Allesley — but you don't have a website, only a Facebook and Fresha page. When someone googles 'barber Allesley' or 'barber Coventry', a shop with a real site wins that customer, and right now that's not you.\n\nWe build a sharp one-page website — your services, hours, and one-tap Fresha booking — so you rank on Google and turn searchers into walk-ins. Live in 48 hours, £199 one-time, no monthly fees.\n\nI already built it from your public info — take a look: https://madvision.tech/demo/the-village-barbers (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead (FB + Fresha only). Barbershop, Allesley Coventry UK. Phone 024 7704 0318 · TZ Europe/London."
+    },
+    {
+      "id": "L-017",
+      "date": "2026-07-20",
+      "business": "Mom's Cafe",
+      "country": "CA",
+      "email": "momscafe1963@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/momscafesooke/",
+      "demoUrl": "https://madvision.tech/demo/moms-cafe",
+      "status": "found",
+      "tz": "America/Vancouver",
+      "sendFrom": 9,
+      "sendTo": 16,
+      "pitchEmailSubject": "50 years of pies, and no website to show for it?",
+      "pitchEmailBody": "Hi Mom's Cafe team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. Fifty-plus years serving Sooke and famous for your homemade pies — but there's no website, just a Facebook page. Island visitors and locals googling 'breakfast Sooke' or 'diner near me' land on chains instead of you, and that's lost tables every week.\n\nWe build a warm one-page website — your menu, pie photos, hours and directions — so you own those searches. Live in 48 hours, CA$349 one-time, no monthly fees.\n\nI already built it from your public info — take a look: https://madvision.tech/demo/moms-cafe (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead (FB only). Diner/cafe, Sooke BC, 50+ yrs. Phone 778-352-2204 · TZ America/Vancouver."
+    },
+    {
+      "id": "L-018",
+      "date": "2026-07-20",
+      "business": "The Grooming Lounge Barbershop",
+      "country": "AU",
+      "email": "htainlin.bacchus@gmail.com",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/thegroominglounge.barbershop/",
+      "demoUrl": "https://madvision.tech/demo/grooming-lounge-penrith",
+      "status": "found",
+      "tz": "Australia/Sydney",
+      "sendFrom": 10,
+      "sendTo": 17,
+      "pitchEmailSubject": "A fresh Penrith barbershop deserves a real website",
+      "pitchEmailBody": "Hi Grooming Lounge team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. You've just opened on Henry Street — congrats. But a new shop with only a Facebook page is invisible when Penrith googles 'barber near me'; the established shops with websites take those customers. A real site is how a new business gets found fast.\n\nWe build a sharp one-page website — services, hours, and one-tap Fresha booking — so you rank on Google from day one. Live in 48 hours, A$349 one-time, no monthly fees.\n\nI already built it from your public info — take a look: https://madvision.tech/demo/grooming-lounge-penrith (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "",
+      "notes": "NO-WEBSITE lead (FB/IG + Fresha only). New barbershop, Penrith NSW. Phone 02 4742 4395 · TZ Australia/Sydney."
+    },
+    {
+      "id": "L-019",
+      "date": "2026-07-20",
+      "business": "Olde Tyme Tattoo & Barber Shop",
+      "country": "US",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/oldetymetattooandbarber/",
+      "demoUrl": "https://madvision.tech/demo/olde-tyme-tattoo",
+      "status": "found",
+      "tz": "America/New_York",
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love that Olde Tyme does cuts AND ink under one roof — but you've got no website, just Facebook, so 'barber/tattoo Evans GA' searches on Google pass you by. I built you a preview site: https://madvision.tech/demo/olde-tyme-tattoo — services, hours, gallery, one shop online. Live in 48h, $299 one-time. Worth a look? No worries if not.",
+      "notes": "NO-WEBSITE lead, FB-DM ONLY (no public email). Barber+tattoo, Evans GA. Phone (706) 955-8646 · FB https://www.facebook.com/oldetymetattooandbarber/ · Boss to DM manually."
+    },
+    {
+      "id": "L-020",
+      "date": "2026-07-20",
+      "business": "Michelle's Mobile Grooming",
+      "country": "US",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/MichellesMobileGrooming/",
+      "demoUrl": "https://madvision.tech/demo/michelles-mobile-grooming",
+      "status": "found",
+      "tz": "America/New_York",
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "Hi Michelle! Vivek from Vision Tech here. 14 years mobile grooming and only a Facebook page — busy Lakeland/Bartow pet owners googling 'mobile dog grooming near me' can't find you. I built you a preview site: https://madvision.tech/demo/michelles-mobile-grooming — services + a 'request the van' button so people book online. Live in 48h, $299 one-time. Worth a look? All good if not.",
+      "notes": "NO-WEBSITE lead, FB-DM ONLY (no public email). Mobile pet grooming, Lakeland/Bartow FL. Owner Michelle Tyre, est 2019. Phone (863) 677-5725 · FB https://www.facebook.com/MichellesMobileGrooming/ · Boss to DM manually."
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "cycle",
+      "summary": "NO-WEBSITE cycle (boss's smart pivot): found 6 businesses that have NO website at all (Google/FB listings only) — the hottest segment. Built each their first-ever site from public data and drafted a 'you have no website — here's one' pitch (4 email, 2 Facebook-DM). Now 16 reachable leads. These need us most and buy fastest."
+    },
     {
       "date": "2026-07-20",
       "agent": "builder",
