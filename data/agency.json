@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T19:06:04+05:30",
+  "updatedAt": "2026-07-20T19:10:56+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -156,7 +156,7 @@
       "role": "Turns fresh lead data into a full real-data website continuously",
       "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Builds an engine SiteProfile for every lead missing a demo, per-country priced."
+      "note": "Ran — no harvest leads queued to build (Finder has not produced any this cycle). All 20 leads already have live sites."
     },
     {
       "id": "manager",
