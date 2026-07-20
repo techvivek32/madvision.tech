@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T22:55:48+05:30",
+  "updatedAt": "2026-07-20T23:05:52+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -758,13 +758,13 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T22:35:56+05:30",
-    "headline": "Batch 2 landed — 4 new email-reachable no-website sites live. Pipeline 28 leads / 28 sites, health green.",
+    "updatedAt": "2026-07-20T23:05:52+05:30",
+    "headline": "Manager flagged OVER-BUILDING — 26 sites built but only 2 sent. Recommends pausing the Finder until sends catch up. Health green.",
     "items": [
-      "New sites: La Familia Barbershop (Tucson), Princess Nails (Halifax), Nails For You (Plymouth), Pawfect Couture (Adelaide).",
-      "All 4 are EMAIL-reachable (Pawfect also WhatsApp) — 0 Facebook-only, exactly per the Manager channel rule.",
-      "Segment expanded: nail salons added alongside barbers & groomers.",
-      "Still 2 sent, 0 replies — 24 reachable leads waiting on Approve & Send in their windows."
+      "Build-to-send ratio 26:2 and widening — more sites now have negative value; the only money lever is SENDS (boss-manual Approve & Send).",
+      "Manager added a backlog-cap rule and recommends the Finder pause/slow.",
+      "Decision open for boss: pause Finder + focus on approvals, OR keep max-leads.",
+      "28 leads / 28 sites live, 24 reachable, 0 replies; Monitor green."
     ]
   },
   "health": {
