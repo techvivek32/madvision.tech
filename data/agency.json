@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T18:56:13+05:30",
+  "updatedAt": "2026-07-20T19:06:04+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -587,14 +587,14 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T18:36:32+05:30",
-    "headline": "Pipeline steady — org is live and the admin now has filters, search & status badges. Agents produce their first fresh leads shortly.",
+    "updatedAt": "2026-07-20T19:06:04+05:30",
+    "headline": "Manager found the real bottleneck — SENDS, not leads — and proposed a Closer agent. Pipeline steady, health green.",
     "items": [
-      "20 leads (16 reachable) · 20 real-data sites live · health green.",
-      "2 pitches sent — Blades of Norwich & Drive Automatic — awaiting replies.",
-      "Admin upgraded: outreach filters (Ready now / Not sent / Sent / Replied) + business search + colored badges.",
-      "5-agent org running; no new leads or replies since the last check.",
-      "NO-WEBSITE-FIRST targeting active — Finder hunts fresh no-website businesses each cycle."
+      "Manager insight: 18 reachable leads but only 2 sent, 0 replies — the org builds faster than pitches get approved. More leads won’t help until sends go out.",
+      "Manager proposed 2 new agents: Closer (on reply → follow-up + domain-attach close) and Follow-up (day-2/3 nudge). Boss to green-light.",
+      "Finder now weighted to barbershops & pet groomers — they over-index in the no-website segment.",
+      "Monitor: health green — all demo links 200, API/SMTP/blob OK.",
+      "No new leads or replies since last check."
     ]
   },
   "health": {
