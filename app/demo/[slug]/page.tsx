@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { DEMOS, demoBySlug } from "@/data/demos"
-import { profileBySlug } from "@/data/site-profiles"
+import { PROFILES, profileBySlug } from "@/data/site-profiles"
 import { SiteTemplate } from "@/components/demo/site-template"
 
 /* Slugs that have their own bespoke, hand-built route (app/demo/<slug>/page.tsx).
@@ -10,7 +10,8 @@ import { SiteTemplate } from "@/components/demo/site-template"
 const BESPOKE_SLUGS = new Set(["blades-of-norwich", "drive-automatic"])
 
 export function generateStaticParams() {
-  return DEMOS.filter((d) => !BESPOKE_SLUGS.has(d.slug)).map((d) => ({ slug: d.slug }))
+  const slugs = new Set([...DEMOS.map((d) => d.slug), ...PROFILES.map((p) => p.slug)])
+  return [...slugs].filter((slug) => !BESPOKE_SLUGS.has(slug)).map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
