@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { DEMOS, demoBySlug } from "@/data/demos"
+import { profileBySlug } from "@/data/site-profiles"
+import { SiteTemplate } from "@/components/demo/site-template"
 
 /* Slugs that have their own bespoke, hand-built route (app/demo/<slug>/page.tsx).
    Those win at request time; exclude them here so the build doesn't see a path conflict. */
@@ -13,9 +15,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const demo = demoBySlug(slug)
+  const name = profileBySlug(slug)?.name ?? demoBySlug(slug)?.name
   return {
-    title: demo ? `${demo.name} — Preview by Vision Tech` : "Demo | Vision Tech",
+    title: name ? `${name} — Preview by Vision Tech` : "Demo | Vision Tech",
     robots: { index: false, follow: false },
   }
 }
@@ -26,6 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function LeadDemoPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+
+  /* Generator engine: if a rich SiteProfile exists, render the full data-driven
+     site. Otherwise fall back to the older lightweight config preview. */
+  const profile = profileBySlug(slug)
+  if (profile) return <SiteTemplate profile={profile} />
+
   const demo = demoBySlug(slug)
   if (!demo) notFound()
 
