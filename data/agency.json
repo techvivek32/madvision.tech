@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T00:05:54+05:30",
+  "updatedAt": "2026-07-21T00:17:01+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T22:55:48+05:30",
-    "focus": "OVER-BUILDING flagged: 24 sites built but unsent vs 2 sent. RECOMMENDATION to boss: pause/slow the Finder until sends catch up. The only money lever now = Approve in-window pitches + DM the FB leads + build the Closer for replies. More leads ≠ more revenue right now.",
+    "lastReflection": "2026-07-21T00:17:01+05:30",
+    "focus": "Finder SELF-PAUSED (backlog cap hit). Org is waiting on the one lever that matters: boss Approve & Send the 24 ready leads in-window + DM the 2 FB leads. No new leads until sends catch up.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -150,9 +150,9 @@
       "id": "finder",
       "name": "Finder",
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
-      "status": "done",
-      "lastRun": "2026-07-20",
-      "note": "Batch 2: 4 no-website leads, ALL email-reachable (0 FB-only — followed Manager channel rule). Tucson barber, Halifax + Plymouth nail salons, Adelaide groomer."
+      "status": "paused",
+      "lastRun": "2026-07-21",
+      "note": "HELD this cycle per its own backlog-cap rule — 24 built-but-unsent vs 2 sent. Resumes automatically once sends catch up. No new leads produced (saves effort until the queue clears)."
     },
     {
       "id": "monitor",
@@ -684,6 +684,11 @@
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-21",
+      "agent": "finder",
+      "summary": "Finder self-paused per the Manager backlog-cap rule (26 built : 2 sent). No new batch this cycle — producing more unsent sites is waste. Will resume when the boss Approves pitches and the send queue clears."
+    },
     {
       "date": "2026-07-20",
       "agent": "finder",
