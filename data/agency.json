@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:17:28+05:30",
+  "updatedAt": "2026-07-20T20:26:26+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,8 +46,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T18:56:13+05:30",
-    "focus": "SENDS are the bottleneck (18 reachable, only 2 sent, 0 replies). Priority: get pitches Approved in each local window + handle the 2 Facebook-DM leads (L-019/L-020) manually. Finder should ease volume until the send queue clears and we have real conversion data. Hold pricing (no conversion signal yet).",
+    "lastReflection": "2026-07-20T20:26:26+05:30",
+    "focus": "24 leads (20 reachable). New batch built. Boss: Approve the email/WhatsApp leads in-window + DM the FB-only ones. Sends still the bottleneck.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -138,9 +138,9 @@
       "id": "finder",
       "name": "Finder",
       "role": "Runs non-stop finding the best-converting NO-WEBSITE, channel-reachable leads",
-      "status": "running",
+      "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Researching a fresh no-website batch in new cities (barbers/groomers/cafes weighted). Leads land when research returns."
+      "note": "Found + built 4 fresh no-website leads (Ballarat barber, Kamloops groomer, Dubuque barber, Sunderland groomer). 1 email, 1 WhatsApp, 2 FB-DM."
     },
     {
       "id": "monitor",
@@ -156,7 +156,7 @@
       "role": "Turns fresh lead data into a full real-data website continuously",
       "status": "running",
       "lastRun": "2026-07-20",
-      "note": "Ran — no harvest leads queued to build (Finder has not produced any this cycle). All 20 leads already have live sites."
+      "note": "Built 4 new sites from the Finder batch (L-021..L-024). All live."
     },
     {
       "id": "manager",
@@ -525,9 +525,86 @@
       "pitchEmailBody": "",
       "pitchWhatsApp": "Hi Michelle! Vivek from Vision Tech here. 14 years mobile grooming and only a Facebook page — busy Lakeland/Bartow pet owners googling 'mobile dog grooming near me' can't find you. I built you a preview site: https://madvision.tech/demo/michelles-mobile-grooming — services + a 'request the van' button so people book online. Live in 48h, $299 one-time. Worth a look? All good if not.",
       "notes": "NO-WEBSITE lead, FB-DM ONLY (no public email). Mobile pet grooming, Lakeland/Bartow FL. Owner Michelle Tyre, est 2019. Phone (863) 677-5725 · FB https://www.facebook.com/MichellesMobileGrooming/ · Boss to DM manually."
+    },
+    {
+      "id": "L-021",
+      "date": "2026-07-20",
+      "business": "Colossal Barbers",
+      "country": "AU",
+      "email": "",
+      "whatsapp": "+61491174066",
+      "source": "https://www.facebook.com/ColossalBarbers/",
+      "demoUrl": "https://madvision.tech/demo/colossal-barbers-ballarat",
+      "status": "found",
+      "tz": "Australia/Melbourne",
+      "sendFrom": 10,
+      "sendTo": 17,
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love the fades at Colossal Barbers — but you've got no website, just Facebook, so guys googling 'barber Delacombe/Ballarat' can't find you. I built you a preview site: https://madvision.tech/demo/colossal-barbers-ballarat — services, hours, one-tap booking. Live in 48h, A$349 one-time. Worth a look? No worries if not.",
+      "notes": "NO-WEBSITE lead, WhatsApp-reachable. Barbershop inside D2E Gym, Delacombe/Ballarat VIC. FB https://www.facebook.com/ColossalBarbers/ · Phone/WA 0491 174 066 · TZ Australia/Melbourne."
+    },
+    {
+      "id": "L-022",
+      "date": "2026-07-20",
+      "business": "Fancy Fur Babies",
+      "country": "CA",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/Fancyfurbabiesgrooming",
+      "demoUrl": "https://madvision.tech/demo/fancy-fur-babies-kamloops",
+      "status": "found",
+      "tz": "America/Vancouver",
+      "sendFrom": 9,
+      "sendTo": 17,
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Fancy Fur Babies has a lovely reputation in Kamloops, but no website — owners googling 'dog grooming North Kamloops' can't find you. I built you a preview: https://madvision.tech/demo/fancy-fur-babies-kamloops — services + online booking. Live in 48h, CA$349 one-time. Worth a look? All good if not.",
+      "notes": "NO-WEBSITE lead, FB-DM ONLY (no public email). Dog grooming, North Kamloops BC. FB https://www.facebook.com/Fancyfurbabiesgrooming · Phone 250-299-5406 · TZ America/Vancouver · Boss to DM."
+    },
+    {
+      "id": "L-023",
+      "date": "2026-07-20",
+      "business": "Mr. Cadillac Cutz",
+      "country": "US",
+      "email": "",
+      "whatsapp": "",
+      "source": "https://www.facebook.com/p/Mr-Cadillac-Cutz-100063573583514/",
+      "demoUrl": "https://madvision.tech/demo/mr-cadillac-cutz-dubuque",
+      "status": "found",
+      "tz": "America/Chicago",
+      "sendFrom": 9,
+      "sendTo": 18,
+      "pitchEmailSubject": "",
+      "pitchEmailBody": "",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. 25 years cutting in Dubuque and only a Facebook page — folks googling 'barber Dubuque' never find you. I built you a preview site: https://madvision.tech/demo/mr-cadillac-cutz-dubuque — cuts, mobile visits, one-tap booking. Live in 48h, $299 one-time. Worth a look? No worries if not.",
+      "notes": "NO-WEBSITE lead, FB-DM ONLY (no public email). Barbershop (25 yrs) + mobile, Dubuque IA. FB https://www.facebook.com/p/Mr-Cadillac-Cutz-100063573583514/ · Phone 563-590-5685 · TZ America/Chicago · Boss to DM."
+    },
+    {
+      "id": "L-024",
+      "date": "2026-07-20",
+      "business": "Lady & The Tramp Groomers",
+      "country": "UK",
+      "email": "ladyandtrampgroomers@gmail.com",
+      "whatsapp": "+447736219714",
+      "source": "https://www.facebook.com/ladyandtrampgroomers/",
+      "demoUrl": "https://madvision.tech/demo/lady-and-the-tramp-groomers-sunderland",
+      "status": "found",
+      "tz": "Europe/London",
+      "sendFrom": 9,
+      "sendTo": 17,
+      "pitchEmailSubject": "100% recommended, but invisible on Google",
+      "pitchEmailBody": "Hi Lady & The Tramp team,\n\nI'm Vivek, founder of Vision Tech, a small web studio. You're 100% recommended by your clients in Cleadon — City & Guilds Level 3 grooming for dogs and cats — but you don't have a website, only Facebook. When someone in Sunderland googles 'dog groomer near me', a groomer with a real site wins that booking, and right now that's not you.\n\nWe build a lovely one-page website — your services, hours, photos and a Book button — so you own those searches. Live in 48 hours, £199 one-time, no monthly fees.\n\nI already built it from your public info: https://madvision.tech/demo/lady-and-the-tramp-groomers-sunderland (private preview, your name on it).\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nIf this isn't for you, just reply 'no thanks' and we won't write again.",
+      "pitchWhatsApp": "Hi! Vivek from Vision Tech here. You're 100% recommended in Cleadon but have no website — Sunderland pet owners googling 'dog groomer' can't find you. I built you a preview: https://madvision.tech/demo/lady-and-the-tramp-groomers-sunderland — services + booking, live in 48h for £199 one-time. Worth a look? No worries if not.",
+      "notes": "NO-WEBSITE lead, EMAIL + WhatsApp reachable. Dog & cat grooming, Cleadon/Sunderland UK. FB https://www.facebook.com/ladyandtrampgroomers/ · Phone/WA 07736 219714 · TZ Europe/London."
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "finder",
+      "summary": "Finder batch: 4 new no-website leads in fresh cities (Colossal Barbers Ballarat, Fancy Fur Babies Kamloops, Mr. Cadillac Cutz Dubuque, Lady & The Tramp Groomers Sunderland) — each got its first-ever site. 24 leads now; Lady & Tramp is email+WhatsApp, Colossal WhatsApp, other two FB-DM."
+    },
     {
       "date": "2026-07-20",
       "agent": "cycle",
