@@ -39,14 +39,37 @@ export async function readAgency(): Promise<AgencyData> {
       new Date(seedData.updatedAt) > new Date(blob.updatedAt))
 
   if (seedNewer) {
+    // The seed carries fresh CONTENT, but live per-lead progress (a sent pitch,
+    // a received reply) lives only in the blob — never let a stale seed status
+    // clobber it. Merge: seed content + blob's advanced lead state.
+    const merged = blob ? mergeLiveState(seedData, blob) : seedData
     try {
-      await writeAgency(seedData)
+      await writeAgency(merged)
     } catch {
-      /* keep serving the seed even if the sync write fails */
+      /* keep serving the merged data even if the sync write fails */
     }
-    return seedData
+    return merged
   }
   return blob as AgencyData
+}
+
+/* Lead statuses that represent real progress and must survive a seed sync. */
+const PROGRESS_STATUS = new Set(["pitched", "replied", "won", "lost"])
+
+type MaybeLead = { id?: string; status?: string; notes?: string }
+function mergeLiveState(seedData: AgencyData, blob: AgencyData): AgencyData {
+  const blobLeads = Array.isArray(blob.leads) ? (blob.leads as MaybeLead[]) : []
+  const byId = new Map(blobLeads.filter((l) => l.id).map((l) => [l.id as string, l]))
+  const seedLeads = Array.isArray(seedData.leads) ? (seedData.leads as MaybeLead[]) : []
+  const leads = seedLeads.map((sl) => {
+    const bl = sl.id ? byId.get(sl.id) : undefined
+    // if the live blob shows this lead further along, keep that status + its notes
+    if (bl && bl.status && PROGRESS_STATUS.has(bl.status)) {
+      return { ...sl, status: bl.status, notes: bl.notes ?? sl.notes }
+    }
+    return sl
+  })
+  return { ...seedData, leads } as AgencyData
 }
 
 export async function writeAgency(data: unknown): Promise<void> {

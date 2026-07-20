@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T16:41:00+05:30",
+  "updatedAt": "2026-07-20T17:14:02+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -45,7 +45,7 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T16:41:00+05:30",
+    "lastReflection": "2026-07-20T17:14:02+05:30",
     "focus": "All 12 reachable leads have engine sites + per-country priced pitches. Boss to Approve & Send per time-window. Building next: harvester (URL->site) + domain-attach close flow.",
     "playbook": [
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
@@ -206,11 +206,11 @@
       "whatsapp": "",
       "source": "https://www.bladesofnorwich.com/",
       "demoUrl": "https://madvision.tech/demo/blades-of-norwich",
-      "status": "found",
+      "status": "pitched",
       "pitchEmailSubject": "Your £19 Wet Cut deserves a Book Now button",
       "pitchEmailBody": "Hi Blades team,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was reading your site and liked how upfront your pricing is — £19 wet cuts, £13 buzz cuts, all clearly listed. But the only way to book is to 'call us on 01603 630736... or just drop in', and the page itself feels like it was built a good decade ago, which doesn't do a busy barbershop justice on a phone screen.\n\nWe build one-page booking micro-sites for local businesses: your full price list, your reviews, mobile-perfect, and a prominent Book Now button that opens whatever suits you — booking form, SMS, WhatsApp or the phone. Live in 48 hours, £199 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/blades-of-norwich — tap around, that's your name on it (your real £19 wet cut is on there).\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Love that your prices are upfront on bladesofnorwich.com (£19 wet cut), but booking is still phone-only — we build mobile-perfect one-page booking sites with a proper Book Now button, live in 48 hours for £199 one-time. If you're curious, just reply with what you'd change and we'll handle everything — no worries if not.",
-      "notes": "Barbershop, Norwich UK. Prices listed but booking phone-only, dated design. Phone 01603 630736 · TZ Europe/London · Best send: 1:30pm-6:30pm IST",
+      "notes": "Barbershop, Norwich UK. Prices listed but booking phone-only, dated design. Phone 01603 630736 · TZ Europe/London · Best send: 1:30pm-6:30pm IST · Email sent 2026-07-20",
       "tz": "Europe/London",
       "sendFrom": 9,
       "sendTo": 18
@@ -224,11 +224,11 @@
       "whatsapp": "",
       "source": "https://drive-automatic.uk/",
       "demoUrl": "https://madvision.tech/demo/drive-automatic",
-      "status": "found",
+      "status": "pitched",
       "pitchEmailSubject": "Your £220 intro offer deserves an easier way to book",
       "pitchEmailBody": "Hi there,\n\nI'm Vivek, founder of Vision Tech, a small IT studio (madvision.tech). I was looking at drive-automatic.uk and your pricing is refreshingly clear — £88 for two hours, and the 6-hours-for-the-price-of-5 intro at £220 is a genuinely good deal. What surprised me is that a learner who's ready to start still has to phone, email or fill in an enquiry form — and there isn't a single student review on the page to reassure nervous first-timers.\n\nWe build one-page booking micro-sites for local businesses: your lesson prices, your pass stories and reviews, mobile-perfect, and one clear Book Now button that opens whatever you prefer — form, SMS, WhatsApp or phone. Live in 48 hours, £199 one-time, no monthly fees.\n\nIf this sounds interesting, just reply and tell me what you'd change — we'll shape it exactly how you want and handle everything end to end.\n\nWarm regards,\nVivek Vora\nFounder & CEO, Vision Tech\nmadvision.tech | info@madvision.tech\n\nP.S. We went ahead and sketched yours already: https://madvision.tech/demo/drive-automatic — tap around, your £220 intro offer is already on it.\n\nIf this isn't for you, reply 'no thanks' and we won't write again.",
       "pitchWhatsApp": "Hi! Vivek from Vision Tech here. Your lesson pricing on drive-automatic.uk is brilliantly clear (£220 intro deal), but learners can't book online and no reviews are shown — we build one-page booking sites with prices, reviews and a one-tap Book Now, live in 48 hours for £199 one-time. If that sounds interesting, just reply with what you'd change — no worries if not.",
-      "notes": "Driving instructor, Brighton UK. Clear prices, no online booking, zero reviews shown. Phone 07721 760868 · TZ Europe/London · Best send: 1:30pm-6:30pm IST",
+      "notes": "Driving instructor, Brighton UK. Clear prices, no online booking, zero reviews shown. Phone 07721 760868 · TZ Europe/London · Best send: 1:30pm-6:30pm IST · Email sent 2026-07-20",
       "tz": "Europe/London",
       "sendFrom": 9,
       "sendTo": 18

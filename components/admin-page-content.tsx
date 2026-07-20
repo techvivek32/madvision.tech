@@ -401,6 +401,7 @@ export default function AdminPageContent() {
             <div className="space-y-4">
               {data.leads.map((lead) => {
                 const win = sendWindow(lead)
+                const alreadySent = sent[lead.id] || ["pitched", "replied", "won"].includes(lead.status)
                 return (
                 <div key={lead.id} className="p-5 rounded-2xl bg-card border border-border">
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
@@ -437,10 +438,10 @@ export default function AdminPageContent() {
                       {lead.email && lead.pitchEmailBody && (
                         <button
                           onClick={() => approveSend(lead.id)}
-                          disabled={sending === lead.id || sent[lead.id] || (win.hasWindow && !win.open)}
+                          disabled={sending === lead.id || alreadySent || (win.hasWindow && !win.open)}
                           title={win.hasWindow && !win.open ? `Opens at ${fmtHour(win.from!)} the lead's local time` : undefined}
                           className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
-                            sent[lead.id]
+                            alreadySent
                               ? "bg-secondary text-muted-foreground"
                               : win.hasWindow && !win.open
                                 ? "border border-border text-muted-foreground cursor-not-allowed"
@@ -448,7 +449,7 @@ export default function AdminPageContent() {
                           }`}
                         >
                           <Mail className="w-4 h-4" />
-                          {sent[lead.id]
+                          {alreadySent
                             ? "Email sent"
                             : sending === lead.id
                               ? "Sending…"
