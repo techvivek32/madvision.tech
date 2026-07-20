@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T00:52:27+05:30",
+  "updatedAt": "2026-07-21T00:55:28+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -46,7 +46,7 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-21T00:17:01+05:30",
+    "lastReflection": "2026-07-21T00:55:28+05:30",
     "focus": "Finder SELF-PAUSED (backlog cap hit). Org is waiting on the one lever that matters: boss Approve & Send the 24 ready leads in-window + DM the 2 FB leads. No new leads until sends catch up.",
     "playbook": [
       "NO-WEBSITE FIRST: prioritize businesses with no website at all (Google/FB/IG listing only) — they need us most and buy fastest. Weak existing sites are second.",
@@ -175,8 +175,8 @@
       "name": "Manager",
       "role": "The brain — takes all data, learns, changes the playbook, spins up new agents when needed",
       "status": "idle",
-      "lastRun": "2026-07-20",
-      "note": "Day closed: send-first discipline holds — 20 drafted pitches await boss approvals in tomorrow's windows."
+      "lastRun": "2026-07-21",
+      "note": "Reviewed — no new conversion data (0 sends/replies since last review). No strategy change warranted; Finder correctly paused per backlog cap. Nothing to learn until sends happen."
     },
     {
       "id": "reporter",
