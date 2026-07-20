@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T18:17:15+05:30",
+  "updatedAt": "2026-07-20T18:36:32+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -562,12 +562,14 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T17:55:00+05:30",
-    "headline": "Autonomous agency org is live — Finder, Monitor, Builder, Manager, Reporter all running.",
+    "updatedAt": "2026-07-20T18:36:32+05:30",
+    "headline": "Pipeline steady — org is live and the admin now has filters, search & status badges. Agents produce their first fresh leads shortly.",
     "items": [
-      "20 leads in pipeline (16 reachable), 18 real-data sites live.",
-      "NO-WEBSITE-FIRST targeting active; 6 no-website leads added this cycle.",
-      "Reply auto-detect + desktop alerts on; sends await your Approve & Send."
+      "20 leads (16 reachable) · 20 real-data sites live · health green.",
+      "2 pitches sent — Blades of Norwich & Drive Automatic — awaiting replies.",
+      "Admin upgraded: outreach filters (Ready now / Not sent / Sent / Replied) + business search + colored badges.",
+      "5-agent org running; no new leads or replies since the last check.",
+      "NO-WEBSITE-FIRST targeting active — Finder hunts fresh no-website businesses each cycle."
     ]
   },
   "health": {
