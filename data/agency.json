@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T23:52:21+05:30",
+  "updatedAt": "2026-07-21T00:05:54+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -758,12 +758,12 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T23:36:05+05:30",
-    "headline": "No change — 28 leads / 28 sites, health green, 2 sent / 0 replies. Waiting on boss decision (pause Finder vs max) + approvals.",
+    "updatedAt": "2026-07-21T00:05:54+05:30",
+    "headline": "Overnight quiet — 28 leads / 28 sites, health green, 2 sent / 0 replies. New day; awaiting boss decision + approvals.",
     "items": [
-      "Builder ran: nothing to build (latest batch done).",
-      "No new leads, sends or replies.",
-      "Manager over-building flag still stands: 26 built / 2 sent."
+      "Monitor green (8 rotated demos 200).",
+      "No new leads, sends or replies overnight.",
+      "Manager over-building flag stands: pause Finder vs keep max — boss to decide."
     ]
   },
   "health": {
