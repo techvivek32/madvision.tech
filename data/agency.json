@@ -1,5 +1,18 @@
 {
-  "updatedAt": "2026-07-20T05:05:00+05:30",
+  "updatedAt": "2026-07-20T12:20:00+05:30",
+  "payments": {
+    "international": {
+      "provider": "Wise",
+      "payLink": "https://wise.com/pay/business/voravivekhemantbhai1",
+      "account": "Vora Vivek Hemantbhai",
+      "use": "USD/CAD/GBP/EUR — Western clients; include in invoices/pitch follow-ups"
+    },
+    "indiaUPI": {
+      "vpa": "9601176051@kotakbank",
+      "account": "VORA VIVEK HEMANTBHAI (Kotak811)",
+      "use": "India network / referral clients only"
+    }
+  },
   "strategy": {
     "primaryMarkets": ["USA", "Canada", "UK", "Australia", "Western Europe"],
     "secondaryMarkets": ["India — existing network / referrals only"],
