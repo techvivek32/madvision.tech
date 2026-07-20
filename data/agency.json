@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T20:26:26+05:30",
+  "updatedAt": "2026-07-20T20:36:03+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -664,12 +664,13 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-20T20:05:53+05:30",
-    "headline": "No change since last check — 20 leads / 20 sites, health green, 2 sent / 0 replies. Finder still awaiting an idle window for its first batch.",
+    "updatedAt": "2026-07-20T20:36:03+05:30",
+    "headline": "Fresh batch landed — 4 new no-website sites live. Pipeline now 24 leads / 24 sites, health green.",
     "items": [
-      "Monitor re-confirmed green (10 rotated demos 200, API/SMTP/blob OK).",
-      "No new leads, sites, sends or replies this half-hour.",
-      "Awaiting: Finder first batch + boss Approve/green-light Closer."
+      "Finder+Builder produced 4 sites end-to-end: Colossal Barbers (Ballarat AU), Lady & The Tramp Groomers (Sunderland UK), Fancy Fur Babies (Kamloops CA), Mr. Cadillac Cutz (Dubuque US).",
+      "Channels: Lady & Tramp = email + WhatsApp, Colossal = WhatsApp, Fancy Fur & Cadillac = Facebook-DM.",
+      "Barber/groomer weighting worked — all fresh cities, no duplicates.",
+      "Still 2 sent, 0 replies — sends remain the bottleneck; Approve the in-window ones + DM the FB leads."
     ]
   },
   "health": {
