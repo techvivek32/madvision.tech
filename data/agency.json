@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-20T16:22:20+05:30",
+  "updatedAt": "2026-07-20T16:41:00+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -45,8 +45,8 @@
   },
   "brain": {
     "identity": "I am the Vision Tech Agency OS. I find reachable leads, build each a full real-data website, draft personalized pitches, and learn what converts. Boss (Vivek) approves the sends; I do the rest around the clock.",
-    "lastReflection": "2026-07-20T16:22:20+05:30",
-    "focus": "Send drafted pitches (per-country priced) in each lead's local window; learn from replies. Building: smarter Friday + domain-attach close flow.",
+    "lastReflection": "2026-07-20T16:41:00+05:30",
+    "focus": "All 12 reachable leads have engine sites + per-country priced pitches. Boss to Approve & Send per time-window. Building next: harvester (URL->site) + domain-attach close flow.",
     "playbook": [
       "CHANNEL FIRST: only a business with a verified reachable email or WhatsApp/textable mobile counts as a lead. Never build for phone-only businesses.",
       "DEMO = a full, finished, real-data website (SiteTemplate engine or bespoke route) — never a thin placeholder skeleton, never invented prices or reviews.",
@@ -56,6 +56,11 @@
       "Time-zone aware: pitch each lead inside their local business hours."
     ],
     "learnings": [
+      {
+        "date": "2026-07-20",
+        "insight": "Every reachable lead should be on the engine template, not the old thin config — consistency of quality matters as much as the pitch.",
+        "evidence": "Upgraded the final 3 (L-002/003/008) so all 12 match the new standard."
+      },
       {
         "date": "2026-07-20",
         "insight": "Price is now localized per market (US $299, CA CA$349, UK £199, AU A$349) instead of a flat $299 — local currency + a sharper UK number should lift conversion.",
@@ -111,7 +116,7 @@
       "role": "Builds the demo/product for the day's idea so pitches link to something real",
       "status": "done",
       "lastRun": "2026-07-20",
-      "note": "Generator engine live: 6 new real-data sites built from data (SiteProfile+SiteTemplate) + 2 bespoke flagships. Total 11 real-data sites."
+      "note": "Afternoon block: upgraded L-002 (Next Level), L-003 (Boise Detail), L-008 (Noonies) from thin config to engine real-data sites. All 12 reachable leads now on engine/bespoke quality."
     },
     {
       "id": "pitcher",
@@ -371,6 +376,11 @@
     }
   ],
   "reports": [
+    {
+      "date": "2026-07-20",
+      "agent": "builder",
+      "summary": "Afternoon builder block: upgraded the last 3 thin-config demos (Next Level Detailing, Boise Detail, Noonies Pet Care) to full real-data engine sites from their public listings. All 12 reachable leads now have engine-quality demos with per-country pricing. Outreach flow stays classifier-blocked, so pitches await admin Approve & Send in each lead time-window (UK open now; NA opens 20:30 IST)."
+    },
     {
       "date": "2026-07-20",
       "agent": "cycle",

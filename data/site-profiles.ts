@@ -515,6 +515,173 @@ export const PROFILES: SiteProfile[] = [
     },
     footerCtaPrice: "$299 one-time",
   },
+
+  {
+    slug: "next-level-detailing",
+    leadId: "L-002",
+    country: "CA",
+    name: "Next Level Detailing",
+    accent: "#1d4ed8",
+    accent2: "#1e40af",
+    established: "7 years",
+    locality: "Vernon, BC",
+    hero: {
+      overline: "Auto detailing · Vernon BC",
+      headline: "Vernon's ceramic &",
+      headlineAccent: "detail specialists.",
+      sub: "Over seven years making Vernon's vehicles look brand new — ceramic coating, undercoating, and full interior & exterior detailing. New customers get 10% off their first detail.",
+      bullets: ["7+ years experience", "Ceramic coating specialists", "10% off your first detail"],
+    },
+    contact: {
+      phone: "250-306-3077",
+      tel: "tel:+12503063077",
+      email: "nextleveldetailvernon@gmail.com",
+      address: ["4609c 23rd Street", "Vernon, BC"],
+      mapQuery: "4609c 23rd Street, Vernon, BC",
+    },
+    book: { label: "Book on Urable", href: "https://app.urable.com/virtual-shop/gYhpHE9qzpcc7Ur4ig55" },
+    services: {
+      title: "Services",
+      subtitle: "What we do",
+      note: "Pricing depends on your vehicle — get a fast quote. New customers get 10% off the first detail; ask about our VIP subscription and gift cards.",
+      items: [
+        { name: "Ceramic Coating", note: "Long-lasting paint protection" },
+        { name: "Undercoating", note: "Protection built for our winters" },
+        { name: "Interior & Exterior Detail", note: "Inside-and-out, showroom fresh" },
+      ],
+    },
+    features: {
+      title: "Why Next Level",
+      items: [
+        { h: "7+ years", p: "Seven years of serious detailing experience." },
+        { h: "Ceramic specialists", p: "Proper coatings, done right." },
+        { h: "VIP subscription", p: "Keep it showroom-fresh year round." },
+        { h: "10% off first detail", p: "A warm welcome for new customers." },
+      ],
+    },
+    hours: [{ day: "Monday – Friday", time: "8:00am – 5:00pm" }],
+  },
+
+  {
+    slug: "boise-detail",
+    leadId: "L-003",
+    country: "US",
+    name: "Boise Detail",
+    accent: "#0f766e",
+    accent2: "#115e59",
+    established: "1991",
+    locality: "Boise, Idaho",
+    hero: {
+      overline: "Auto detailing since 1991 · Boise",
+      headline: "Boise's detail shop",
+      headlineAccent: "since 1991.",
+      sub: "Over three decades making Boise's cars look, feel and smell brand new — full interior and exterior restoration for cars, trucks, RVs, motorcycles and marine. Licensed, bonded and insured, with a free shuttle.",
+      bullets: ["Since 1991", "Licensed, bonded & insured", "Free shuttle · same-day"],
+    },
+    contact: {
+      phone: "208-343-3025",
+      tel: "tel:+12083433025",
+      email: "service@boisedetailinc.com",
+      address: ["2715 W Idaho St.", "Boise, ID 83702"],
+      mapQuery: "2715 W Idaho St., Boise, ID 83702",
+      socials: [{ label: "Facebook", href: "https://www.facebook.com/boisedetail" }],
+    },
+    book: { label: "Book a detail" },
+    services: {
+      title: "Services",
+      subtitle: "What we restore",
+      note: "We detail cars, trucks, RVs, motorcycles and marine. Ask for a quote — same-day turnaround in most cases, all work guaranteed.",
+      items: [
+        { name: "Exterior restoration", note: "Paint, trim & wheels" },
+        { name: "Interior restoration", note: "Deep clean & refresh" },
+        { name: "Upholstery & carpet", note: "Shampoo & extract" },
+        { name: "Vinyl & leather care", note: "Clean & condition" },
+        { name: "Engine & undercarriage", note: "Detailed underneath" },
+        { name: "Fleet service", note: "Business & dealer rates" },
+      ],
+    },
+    features: {
+      title: "Why Boise Detail",
+      items: [
+        { h: "Since 1991", p: "Three decades detailing Boise's vehicles." },
+        { h: "Guaranteed", p: "All work is fully guaranteed." },
+        { h: "Free shuttle", p: "We'll get you where you need to be." },
+        { h: "Licensed & insured", p: "Licensed, bonded and insured." },
+      ],
+    },
+    reviews: {
+      headline: "Trusted in Boise since 1991",
+      body: "See the work and reviews on Facebook.",
+      links: [{ label: "Facebook →", href: "https://www.facebook.com/boisedetail" }],
+    },
+  },
+
+  {
+    slug: "noonies-pet-care",
+    leadId: "L-008",
+    country: "AU",
+    name: "Noonies Pet Care",
+    accent: "#0891b2",
+    accent2: "#0e7490",
+    established: "2008",
+    locality: "Port Stephens, NSW",
+    hero: {
+      overline: "Pet care · Salt Ash & Port Stephens",
+      headline: "Loving pet care,",
+      headlineAccent: "close to home.",
+      sub: "Darrin & Carol have cared for Port Stephens pets since 2008 — dog walking, pet sitting, grooming and more, with over 15 years of experience and a genuine soft spot for your animals.",
+      bullets: ["Since 2008", "Owner-run by Darrin & Carol", "25km around Salt Ash"],
+    },
+    contact: {
+      phone: "0411 398 395",
+      tel: "tel:+61411398395",
+      email: "darrin@noonies.org",
+      address: ["Salt Ash, NSW 2318"],
+      mapQuery: "Salt Ash NSW 2318",
+      socials: [{ label: "Facebook", href: "https://www.facebook.com/Noonies123" }],
+    },
+    book: { label: "Book a visit" },
+    services: {
+      title: "Services & rates",
+      subtitle: "Care for every pet",
+      note: "Grooming (quote), dog training, small-animal care and a pet taxi are available too — just ask. Extra pets from the same household are a small add-on.",
+      items: [
+        { name: "Dog Walking", price: "A$30", unit: "up to 30 min", real: true },
+        { name: "Pet Sitting — Dogs", price: "A$35–40", unit: "per visit", real: true, featured: true },
+        { name: "Pet Sitting — Cats", price: "A$30", unit: "per visit", real: true },
+        { name: "Dog Grooming", note: "Basic wash to full groom — quote at our Salt Ash premises" },
+      ],
+    },
+    team: {
+      title: "Meet the owners",
+      members: [
+        { name: "Darrin", role: "Owner" },
+        { name: "Carol", role: "Owner" },
+      ],
+    },
+    areas: {
+      title: "Where we care for pets",
+      items: ["Newcastle", "Medowie", "Tanilba Bay", "Williamtown", "Port Stephens", "Fern Bay", "Fullerton Cove", "Raymond Terrace"],
+    },
+    features: {
+      title: "Why Noonies",
+      items: [
+        { h: "Since 2008", p: "15+ years caring for local pets." },
+        { h: "Owner-run", p: "Darrin & Carol, personally." },
+        { h: "25km radius", p: "Salt Ash and all around Port Stephens." },
+        { h: "Full pet care", p: "Walking, sitting, grooming and more." },
+      ],
+    },
+    hours: [
+      { day: "Monday – Friday", time: "9:00am – 6:00pm" },
+      { day: "Saturday – Sunday", time: "9:00am – 5:00pm" },
+    ],
+    reviews: {
+      headline: "Loved by local pet owners",
+      body: "See happy clients on Facebook.",
+      links: [{ label: "Facebook →", href: "https://www.facebook.com/Noonies123" }],
+    },
+  },
 ]
 
 export function profileBySlug(slug: string) {
