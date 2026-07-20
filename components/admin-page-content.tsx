@@ -114,6 +114,8 @@ export default function AdminPageContent() {
   const [sending, setSending] = useState<string | null>(null)
   const [sent, setSent] = useState<Record<string, boolean>>({})
   const [, setTick] = useState(0) // ticks so per-lead send windows re-evaluate live
+  const [filter, setFilter] = useState<"all" | "ready" | "unsent" | "sent" | "replied">("all")
+  const [query, setQuery] = useState("")
 
   const load = useCallback(async (p: string) => {
     const res = await fetch("/api/agency", { headers: { "x-admin-pass": p } })
@@ -275,6 +277,52 @@ export default function AdminPageContent() {
   const pipelineToday = data.leads.filter((l) => l.status !== "lost").length
   const won = data.leads.filter((l) => l.status === "won").length
   const repliedLeads = data.leads.filter((l) => l.status === "replied")
+
+  // classify a lead so the outreach queue can filter + sort by where it is
+  type LeadT = Agency["leads"][number]
+  const kindOf = (lead: LeadT) => {
+    const isReplied = lead.status === "replied"
+    const isWon = lead.status === "won"
+    const isSent = ["pitched", "replied", "won"].includes(lead.status) || !!sent[lead.id]
+    const isDeprioritized = lead.status === "deprioritized"
+    const isReady = !!(lead.email && lead.pitchEmailBody) && !isSent && sendWindow(lead).open
+    return { isReplied, isWon, isSent, isDeprioritized, isReady }
+  }
+  const counts = { all: data.leads.length, ready: 0, unsent: 0, sent: 0, replied: 0 }
+  for (const l of data.leads) {
+    const k = kindOf(l)
+    if (k.isReady) counts.ready++
+    if (k.isSent) counts.sent++
+    else if (!k.isDeprioritized) counts.unsent++
+    if (k.isReplied) counts.replied++
+  }
+  const rank = (l: LeadT) => {
+    const k = kindOf(l)
+    if (k.isReplied) return 0
+    if (k.isReady) return 1
+    if (k.isDeprioritized) return 5
+    if (k.isSent) return 4
+    return 2
+  }
+  const visibleLeads = data.leads
+    .filter((l) => {
+      const k = kindOf(l)
+      if (query && !l.business.toLowerCase().includes(query.toLowerCase())) return false
+      if (filter === "ready") return k.isReady
+      if (filter === "unsent") return !k.isSent && !k.isDeprioritized
+      if (filter === "sent") return k.isSent
+      if (filter === "replied") return k.isReplied
+      return true
+    })
+    .slice()
+    .sort((a, b) => rank(a) - rank(b))
+  const FILTERS: { key: typeof filter; label: string }[] = [
+    { key: "all", label: "All" },
+    { key: "ready", label: "Ready now" },
+    { key: "unsent", label: "Not sent" },
+    { key: "sent", label: "Sent" },
+    { key: "replied", label: "Replied" },
+  ]
 
   const stats = [
     { icon: Target, label: "Pipeline target / day", value: `$${data.targets.dailyPipelineUSD}` },
@@ -449,18 +497,71 @@ export default function AdminPageContent() {
               </p>
             </div>
           ) : (
-            <div className="space-y-4">
-              {data.leads.map((lead) => {
+            <>
+              {/* filter tabs + search — find things fast */}
+              <div className="flex flex-wrap items-center gap-2 mb-5">
+                {FILTERS.map((f) => (
+                  <button
+                    key={f.key}
+                    onClick={() => setFilter(f.key)}
+                    className={`px-3.5 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-[0.12em] border transition-colors ${
+                      filter === f.key ? "text-black border-transparent" : "text-muted-foreground border-border hover:text-foreground"
+                    }`}
+                    style={filter === f.key ? { backgroundColor: ACCENT } : undefined}
+                  >
+                    {f.label} <span className="opacity-70">{counts[f.key]}</span>
+                  </button>
+                ))}
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search business…"
+                  className="ml-auto px-4 py-1.5 rounded-full bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-foreground min-w-[160px]"
+                />
+              </div>
+              {visibleLeads.length === 0 ? (
+                <div className="p-6 rounded-2xl border border-dashed border-border text-center text-sm text-muted-foreground">
+                  Aa filter ma koi lead nathi.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {visibleLeads.map((lead) => {
                 const win = sendWindow(lead)
+                const k = kindOf(lead)
                 const alreadySent = sent[lead.id] || ["pitched", "replied", "won"].includes(lead.status)
+                const badge: { label: string; tone: "accent" | "muted" | "outline" } = k.isReplied
+                  ? { label: "Replied", tone: "accent" }
+                  : k.isWon
+                    ? { label: "Won", tone: "accent" }
+                    : k.isDeprioritized
+                      ? { label: "Deprioritized", tone: "muted" }
+                      : alreadySent
+                        ? { label: "Sent", tone: "muted" }
+                        : k.isReady
+                          ? { label: "Ready now", tone: "accent" }
+                          : { label: "Not sent", tone: "outline" }
                 return (
                 <div key={lead.id} className="p-5 rounded-2xl bg-card border border-border">
                   <div className="flex flex-wrap items-center justify-between gap-3 mb-2">
                     <div>
                       <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                        {lead.id} · {lead.country ?? ""} · {lead.status}
+                        {lead.id} · {lead.country ?? ""}
                       </span>
-                      <p className="font-serif text-xl text-foreground">{lead.business}</p>
+                      <div className="flex items-center gap-2.5 flex-wrap">
+                        <p className="font-serif text-xl text-foreground">{lead.business}</p>
+                        <span
+                          className={`font-mono text-[9px] uppercase tracking-[0.15em] px-2 py-0.5 rounded-full ${
+                            badge.tone === "accent"
+                              ? "text-black"
+                              : badge.tone === "muted"
+                                ? "border border-border text-muted-foreground"
+                                : "border border-border text-foreground"
+                          }`}
+                          style={badge.tone === "accent" ? { backgroundColor: ACCENT } : undefined}
+                        >
+                          {badge.label}
+                        </span>
+                      </div>
                       {win.hasWindow && lead.email && lead.pitchEmailBody && (
                         <p className="font-mono text-[10px] mt-1" style={{ color: win.open ? ACCENT : undefined }}>
                           <span className={win.open ? "" : "text-muted-foreground"}>
@@ -550,8 +651,10 @@ export default function AdminPageContent() {
                   {lead.notes && <p className="font-mono text-[11px] text-muted-foreground mt-2">{lead.notes}</p>}
                 </div>
                 )
-              })}
-            </div>
+                  })}
+                </div>
+              )}
+            </>
           )}
         </section>
 
