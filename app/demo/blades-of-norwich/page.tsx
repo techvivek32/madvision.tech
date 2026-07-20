@@ -356,7 +356,7 @@ export default function BladesOfNorwichDemo() {
               className="px-5 py-2.5 rounded-full font-bold text-white transition-transform hover:scale-105"
               style={{ backgroundColor: RED }}
             >
-              Make this yours — live in 48h, £220 one-time
+              Make this yours — live in 48h, £199 one-time
             </Link>
           </div>
         </div>

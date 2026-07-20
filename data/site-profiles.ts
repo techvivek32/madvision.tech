@@ -22,9 +22,23 @@ export type ProfileService = {
 
 export type ProfileLink = { label: string; href: string }
 
+/* Per-country pricing, localized for a better conversion ratio.
+   One-time, no monthly fees, live in 48h. Boss can override per deal. */
+export const PRICING: Record<string, string> = {
+  US: "$299",
+  CA: "CA$349",
+  UK: "£199",
+  AU: "A$349",
+  EU: "€249",
+}
+export function priceFor(country?: string) {
+  return (country && PRICING[country]) || PRICING.US
+}
+
 export type SiteProfile = {
   slug: string
   leadId: string
+  country?: string
   name: string
   /** clean light theme suits most local services; "dark" reserved for bespoke pages */
   accent: string
@@ -82,6 +96,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "best-little-hair-house",
     leadId: "L-001",
+    country: "CA",
     name: "Best Little Hair House",
     accent: "#b45309", // warm copper
     accent2: "#a16207",
@@ -157,6 +172,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "nice-one-nail",
     leadId: "L-009",
+    country: "CA",
     name: "Nice One Nail",
     accent: "#db2777",
     accent2: "#be185d",
@@ -207,6 +223,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "studio-51-ink",
     leadId: "L-010",
+    country: "UK",
     name: "Studio 51 Ink",
     accent: "#e11d48",
     accent2: "#be123c",
@@ -277,6 +294,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "cp-mobile-detailing",
     leadId: "L-011",
+    country: "AU",
     name: "C&P Mobile Detailing",
     accent: "#2563eb",
     accent2: "#1d4ed8",
@@ -325,6 +343,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "looks-like-new-detailing",
     leadId: "L-012",
+    country: "AU",
     name: "Looks Like New Mobile Car Detailing",
     accent: "#0d9488",
     accent2: "#0f766e",
@@ -387,6 +406,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "savannahs-barbershop",
     leadId: "L-013",
+    country: "US",
     name: "Savannah's Traditional Barbershop",
     accent: "#b91c1c",
     accent2: "#991b1b",
@@ -447,6 +467,7 @@ export const PROFILES: SiteProfile[] = [
   {
     slug: "wag-a-long-grooming",
     leadId: "L-014",
+    country: "US",
     name: "Wag-A-Long Mobile Pet Salon & Spa",
     accent: "#0891b2",
     accent2: "#0e7490",

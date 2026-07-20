@@ -1,5 +1,5 @@
 import Link from "next/link"
-import type { SiteProfile } from "@/data/site-profiles"
+import { type SiteProfile, priceFor } from "@/data/site-profiles"
 
 /* ------------------------------------------------------------------ *
  *  GENERATOR ENGINE — render layer.                                   *
@@ -392,7 +392,7 @@ export function SiteTemplate({ profile: p }: { profile: SiteProfile }) {
               className="px-5 py-2.5 rounded-full font-bold text-white transition-transform hover:scale-105"
               style={{ backgroundColor: accent }}
             >
-              Make this yours{p.footerCtaPrice ? ` — live in 48h, ${p.footerCtaPrice}` : ""}
+              Make this yours — live in 48h, {priceFor(p.country)} one-time
             </Link>
           </div>
         </div>

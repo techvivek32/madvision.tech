@@ -62,11 +62,13 @@ type Agency = {
   resourcesNeeded?: { item: string; status: string }[]
   brain?: {
     identity: string
+    boss?: { name: string; role?: string }
     lastReflection?: string
     focus?: string
     playbook?: string[]
     learnings?: { date: string; insight: string; evidence?: string }[]
   }
+  strategy?: { pricingByCountry?: Record<string, string> }
 }
 
 const AGENT_ICONS: Record<string, typeof Radar> = { scout: Radar, builder: Wrench, pitcher: Send }
@@ -632,7 +634,10 @@ function Friday({ data }: { data: Agency }) {
       const strategy = (data as unknown as Record<string, { primaryMarkets?: string[]; pricingUSD?: string; positioning?: string }>).strategy
 
       if (/^(hi|hello|hey|namaste|kem cho|good (morning|evening|afternoon)|wake up)/.test(t)) {
-        speak("At your service, Boss. Ask me for updates, leads, today's idea, money status, strategy, or say help.")
+        const boss = data.brain?.boss
+        speak(
+          `At your service${boss ? ", " + boss.name.split(" ")[0] : ", Boss"}. Ask me for updates, leads, pricing, money status, what I've learned, strategy, or say help.`,
+        )
       } else if (/help|su puchu|shu puchi|what can/.test(t)) {
         speak(
           "You can ask me: updates or full briefing. Today's idea. Leads — or leads by country, like leads in Canada. Money, targets and earnings. What I've learned and my current focus. Agents and their status. Strategy and target markets. Contact details. Resources you still owe me. Or report history.",
@@ -640,6 +645,20 @@ function Friday({ data }: { data: Agency }) {
       } else if (/who are you|tu kon|tame kon|kaun ho/.test(t)) {
         speak(
           "I am Friday — Vision Tech's operations AI. I watch the agency pipeline, the agents, and the money, and I report only the truth to you, Boss.",
+        )
+      } else if (/my name|what.*name|maru naam|mara naam|naam su|naam khabar|naam khbar|who am i|hu kon|hu kaun/.test(t)) {
+        const boss = data.brain?.boss
+        speak(
+          boss
+            ? `You're ${boss.name}, Boss${boss.role ? " — " + boss.role + " of Vision Tech" : ""}. Of course I know who I work for.`
+            : "You're the boss — the founder of Vision Tech.",
+        )
+      } else if (/pric|rate|charge|how much|cost|kimat|bhav|kitla|ketla/.test(t)) {
+        const pc = data.strategy?.pricingByCountry
+        speak(
+          pc
+            ? `Pricing is localized per market, Boss — United States ${pc.US}, Canada ${pc.CA}, U K ${pc.UK}, Australia ${pc.AU}. All one-time, no monthly fees, and the site is live in 48 hours.`
+            : "Our offer is a full site, live in 48 hours, one-time, priced per market.",
         )
       } else if (/idea|आइडिया|વિચાર/.test(t)) {
         speak(
@@ -709,7 +728,9 @@ function Friday({ data }: { data: Agency }) {
       } else if (/thank|dhanyavad|aabhar/.test(t)) {
         speak("Always, Boss. Back to work.")
       } else {
-        briefing()
+        speak(
+          "I didn't quite catch that, Boss. Try — updates, leads, pricing, money, what you've learned, strategy, or say help.",
+        )
       }
     },
     [data, speak, briefing],
