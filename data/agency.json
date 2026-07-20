@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T02:05:49+05:30",
+  "updatedAt": "2026-07-21T02:35:52+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,11 +763,11 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T02:05:49+05:30",
-    "headline": "Still no change (overnight) — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
+    "updatedAt": "2026-07-21T02:35:52+05:30",
+    "headline": "No change (overnight) — Finder paused on backlog cap, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
     "items": [
       "No new leads, sends or replies.",
-      "Org watching; resumes on your approvals."
+      "Finder resumes automatically once a send is approved."
     ]
   },
   "health": {
