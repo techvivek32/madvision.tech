@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T00:55:28+05:30",
+  "updatedAt": "2026-07-21T01:05:51+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,13 +763,12 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T00:35:51+05:30",
-    "headline": "Finder SELF-PAUSED per its own backlog-cap rule (26 built : 2 sent) — the org course-corrected on its own. Health green.",
+    "updatedAt": "2026-07-21T01:05:51+05:30",
+    "headline": "No change — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies. Waiting on boss approvals.",
     "items": [
-      "No new leads produced — Finder holds until sends catch up (avoids waste).",
-      "Everything now waits on ONE lever: boss Approve & Send the 24 ready leads + DM the 2 FB leads.",
-      "28 leads / 28 sites live, 0 replies; Monitor green.",
-      "Self-correction working as designed — the system paused itself rather than over-produce."
+      "Manager reviewed: no new conversion data, no strategy change.",
+      "No new leads, sends or replies.",
+      "Monitor + Reporter watching; Finder resumes once sends catch up."
     ]
   },
   "health": {
