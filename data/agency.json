@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T06:35:46+05:30",
+  "updatedAt": "2026-07-21T09:54:48+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,15 +763,16 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T06:35:46+05:30",
-    "headline": "No change (early morning) — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
+    "updatedAt": "2026-07-21T09:54:48+05:30",
+    "headline": "No change (morning) — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
     "items": [
       "No new leads, sends or replies.",
-      "Awaiting boss approvals."
+      "Finder/Builder/Manager: nothing to do until sends catch up.",
+      "Awaiting boss approvals to resume the pipeline."
     ]
   },
   "health": {
-    "updatedAt": "2026-07-21T05:52:20+05:30",
+    "updatedAt": "2026-07-21T09:54:48+05:30",
     "status": "green",
     "notes": "Hourly check: 8 rotated demos all 200, /api/agency/health OK, 28 leads all have live sites. No gaps."
   }
