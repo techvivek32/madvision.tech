@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T05:52:20+05:30",
+  "updatedAt": "2026-07-21T06:05:48+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,8 +763,8 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T05:35:47+05:30",
-    "headline": "No change (overnight) — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
+    "updatedAt": "2026-07-21T06:05:48+05:30",
+    "headline": "No change (early morning) — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies.",
     "items": [
       "No new leads, sends or replies.",
       "Awaiting boss approvals."
