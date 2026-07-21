@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T11:05:51+05:30",
+  "updatedAt": "2026-07-21T11:35:52+05:30",
   "payments": {
     "international": {
       "provider": "Wise",
@@ -763,11 +763,11 @@
     }
   ],
   "digest": {
-    "updatedAt": "2026-07-21T11:05:51+05:30",
+    "updatedAt": "2026-07-21T11:35:52+05:30",
     "headline": "No change — Finder paused, 28 leads / 28 sites, health green, 2 sent / 0 replies. Awaiting boss approvals.",
     "items": [
       "No new leads, sends or replies.",
-      "Finder resumes automatically once a send is approved."
+      "Finder resumes once a send is approved."
     ]
   },
   "health": {
