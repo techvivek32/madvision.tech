@@ -131,8 +131,8 @@ export default function Footer() {
                 >
                   <Phone className="w-5 h-5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
                   <span className="flex flex-wrap items-center gap-x-2">
-                    <a href="tel:+919601176051" className="hover:text-white transition-colors whitespace-nowrap">
-                      +91 96011 76051
+                    <a href="tel:+918320693440" className="hover:text-white transition-colors whitespace-nowrap">
+                      +91 83206 93440
                     </a>
                     <span className="text-white/25">&middot;</span>
                     <a

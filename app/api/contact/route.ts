@@ -99,7 +99,7 @@ function confirmationHtml(f: Fields) {
 
         <p style="margin:26px 0 0;font-size:14.5px;line-height:1.75;color:#444444;">
           Need us sooner? Reply straight to this email, or reach us on
-          <a href="https://wa.me/919601176051" style="color:#4d6b00;font-weight:bold;text-decoration:none;">WhatsApp</a>.
+          <a href="https://wa.me/918320693440" style="color:#4d6b00;font-weight:bold;text-decoration:none;">WhatsApp</a>.
         </p>
 
         <p style="margin:26px 0 0;font-size:14.5px;line-height:1.75;color:#444444;">
@@ -115,7 +115,7 @@ function confirmationHtml(f: Fields) {
       <td style="background:#fafaf8;border:1px solid #e4e4e0;border-top:0;padding:20px 32px;font-size:12px;color:#666666;line-height:1.8;">
         <a href="mailto:${CONTACT_EMAIL}" style="color:#111111;text-decoration:none;">${CONTACT_EMAIL}</a>
         &nbsp;&middot;&nbsp;
-        <a href="tel:+919601176051" style="color:#111111;text-decoration:none;">+91&nbsp;96011&nbsp;76051</a>
+        <a href="tel:+918320693440" style="color:#111111;text-decoration:none;">+91&nbsp;83206&nbsp;93440</a>
         &nbsp;&middot;&nbsp;
         <a href="${SITE_URL}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">madvision.tech</a>
         <br>
@@ -159,11 +159,11 @@ function confirmationText(f: Fields) {
     f.service ? `Service: ${f.service}` : '',
     `Message: ${f.message}`,
     '',
-    'Need us sooner? Reply straight to this email, or WhatsApp +91 96011 76051.',
+    'Need us sooner? Reply straight to this email, or WhatsApp +91 83206 93440.',
     '',
     'Warm regards,',
     'Vivek Vora — Founder & CEO, Vision Tech',
-    `${CONTACT_EMAIL} · +91 96011 76051 · madvision.tech`,
+    `${CONTACT_EMAIL} · +91 83206 93440 · madvision.tech`,
     '',
     "You're receiving this because you submitted the contact form on madvision.tech.",
   ]

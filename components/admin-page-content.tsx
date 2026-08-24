@@ -1085,7 +1085,7 @@ function Friday({ data }: { data: Agency }) {
         )
       } else if (/contact|email|phone|whatsapp|number/.test(t)) {
         speak(
-          "Company email madevisionstudios@gmail.com. India WhatsApp nine six zero one one seven six zero five one — that lives in Brave. Canada WhatsApp plus one eight two five, nine zero seven, zero zero three six — that lives in Chrome, along with Titan mail.",
+          "Company email madevisionstudios@gmail.com. India WhatsApp eight three two zero six nine three four four zero — that lives in Brave. Canada WhatsApp plus one eight two five, nine zero seven, zero zero three six — that lives in Chrome, along with Titan mail.",
         )
       } else if (/resource|needed|joie|aapvanu/.test(t)) {
         const pending = (data.resourcesNeeded || []).filter((r) => r.status.includes("pending") || r.status.includes("promised"))

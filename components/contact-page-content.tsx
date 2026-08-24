@@ -42,8 +42,8 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+91 96011 76051",
-    href: "tel:+919601176051",
+    value: "+91 83206 93440",
+    href: "tel:+918320693440",
   },
 ]
 
@@ -61,8 +61,8 @@ const offices: Office[] = [
     label: "Head Office",
     lines: ["R.K. World Tower", "Rajkot, Gujarat, India"],
     phoneLabel: "Call / WhatsApp",
-    phoneDisplay: "+91 96011 76051",
-    phoneHref: "https://wa.me/919601176051",
+    phoneDisplay: "+91 83206 93440",
+    phoneHref: "https://wa.me/918320693440",
     mapQuery: "R.K. World Tower, Rajkot, Gujarat",
   },
   {
