@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <title>Mad Vision Tech</title>
+  <!-- The System mark. The faint 5x5 field is dropped here on purpose: at
+       16-32px it turns to noise. Ink stems + the lime V of Vision only. -->
+  <g fill="#0a0a0f">
+    <rect x="4" y="4" width="16" height="16"/><rect x="76" y="4" width="16" height="16"/>
+    <rect x="4" y="22" width="16" height="16"/><rect x="76" y="22" width="16" height="16"/>
+    <rect x="4" y="40" width="16" height="16"/><rect x="76" y="40" width="16" height="16"/>
+    <rect x="4" y="58" width="16" height="16"/><rect x="76" y="58" width="16" height="16"/>
+    <rect x="4" y="76" width="16" height="16"/><rect x="76" y="76" width="16" height="16"/>
+  </g>
+  <g fill="#c8ff00">
+    <rect x="22" y="22" width="16" height="16"/>
+    <rect x="58" y="22" width="16" height="16"/>
+    <rect x="40" y="40" width="16" height="16"/>
+  </g>
+</svg>

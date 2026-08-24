@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { Logo } from "@/components/logo"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -57,7 +58,7 @@ export default function Navigation() {
               {/* Logo - top left */}
               <Link href="/" className="relative z-10">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex items-center gap-2">
-                  <span className="text-xl font-bold tracking-tight text-black">Mad Vision Tech</span>
+                  <Logo size={56} animate />
                 </motion.div>
               </Link>
 
