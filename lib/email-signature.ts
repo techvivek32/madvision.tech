@@ -141,9 +141,9 @@ export function signatureHtml(signer: Signer = FOUNDER) {
           ? `<a href="${INSTAGRAM}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">Instagram</a>`
           : `<a href="${SITE}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">madvision.tech</a>`}
         &nbsp;&middot;&nbsp;
-        <a href="${LINKEDIN}" style="color:#555555;text-decoration:none;">LinkedIn</a>
+        <a href="${LINKEDIN}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">LinkedIn</a>
         &nbsp;&middot;&nbsp;
-        <a href="${GITHUB}" style="color:#555555;text-decoration:none;">GitHub</a>
+        <a href="${GITHUB}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">GitHub</a>
       </div>
       <div style="font-size:10.5px;color:#8a8a8a;padding-top:10px;line-height:1.7;">
         ${offices}

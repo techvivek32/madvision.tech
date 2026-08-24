@@ -3,7 +3,6 @@ import * as nodemailer from 'nodemailer'
 import { signatureAttachments, signatureHtml, signatureText } from '@/lib/email-signature'
 
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'madevisionstudios@gmail.com'
-const SITE_URL = 'https://madvision.tech'
 
 /* The <select> posts a short code — map it back to the human label so both
    the notification and the visitor's confirmation read properly. */
@@ -104,49 +103,27 @@ function confirmationHtml(f: Fields) {
         </p>
 
         <p style="margin:26px 0 0;font-size:14.5px;line-height:1.75;color:#444444;">
-          Warm regards,<br>
-          <strong style="color:#111111;">Vivek Vora</strong><br>
-          <span style="font-size:12px;color:#8a8a8a;">Founder &amp; CEO, Mad Vision Tech</span>
+          Warm regards,
         </p>
       </td>
     </tr>
 
-    <!-- contact strip -->
+    <!-- house signature. Sits INSIDE the document body — Gmail discards markup
+         placed after the closing html tag, which silently swallowed both the
+         signature and its inline logo when it was concatenated onto the end.
+         This is the ONLY place the contact details appear: the old contact
+         strip and lime tagline row were removed because the signature already
+         carries every one of those facts, and printing them twice made the
+         email read like it had two endings. -->
     <tr>
-      <td style="background:#fafaf8;border:1px solid #e4e4e0;border-top:0;padding:20px 32px;font-size:12px;color:#666666;line-height:1.8;">
-        <a href="mailto:${CONTACT_EMAIL}" style="color:#111111;text-decoration:none;">${CONTACT_EMAIL}</a>
-        &nbsp;&middot;&nbsp;
-        <a href="tel:+918320693440" style="color:#111111;text-decoration:none;">+91&nbsp;83206&nbsp;93440</a>
-        &nbsp;&middot;&nbsp;
-        <a href="${SITE_URL}" style="color:#4d6b00;font-weight:bold;text-decoration:none;">madvision.tech</a>
-        <br>
-        <span style="font-size:10.5px;color:#8a8a8a;">
-          Head Office: R.K. World Tower, Rajkot, Gujarat, India &nbsp;&middot;&nbsp;
-          Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad 380015
-        </span>
-      </td>
-    </tr>
-
-    <!-- lime signature strip -->
-    <tr>
-      <td style="background:#c8ff00;border-radius:0 0 14px 14px;padding:10px 32px;font-size:9px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;color:#0a0a0f;">
-        Turning Vision Into Innovation &nbsp;&#9733;&nbsp; AI &middot; SaaS &middot; ERP &middot; Cloud
-      </td>
-    </tr>
-
-    <tr>
-      <td style="padding:16px 32px;font-size:11px;color:#9a9a9a;line-height:1.6;text-align:center;">
-        You&rsquo;re receiving this because you submitted the contact form on madvision.tech.
-      </td>
-    </tr>
-
-    <!-- house signature — MUST sit inside the document body. Gmail discards
-         markup placed after the closing html tag, which silently swallowed
-         both the signature and its inline logo when it was concatenated on
-         to the end of this string instead of injected here. -->
-    <tr>
-      <td style="padding:4px 32px 0;">
+      <td style="background:#ffffff;border-left:1px solid #e4e4e0;border-right:1px solid #e4e4e0;border-bottom:1px solid #e4e4e0;border-radius:0 0 14px 14px;padding:8px 32px 30px;">
         ${signatureHtml()}
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding:18px 32px;font-size:11px;color:#9a9a9a;line-height:1.6;text-align:center;">
+        You&rsquo;re receiving this because you submitted the contact form on madvision.tech.
       </td>
     </tr>
 
@@ -173,8 +150,6 @@ function confirmationText(f: Fields) {
     'Need us sooner? Reply straight to this email, or WhatsApp +91 83206 93440.',
     '',
     'Warm regards,',
-    'Vivek Vora — Founder & CEO, Mad Vision Tech',
-    `${CONTACT_EMAIL} · +91 83206 93440 · madvision.tech`,
     '',
     "You're receiving this because you submitted the contact form on madvision.tech.",
   ]
