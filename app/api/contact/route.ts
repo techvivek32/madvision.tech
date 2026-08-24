@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as nodemailer from 'nodemailer'
+import { signatureAttachments, signatureHtml, signatureText } from '@/lib/email-signature'
 
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'madevisionstudios@gmail.com'
 const SITE_URL = 'https://madvision.tech'
@@ -139,6 +140,16 @@ function confirmationHtml(f: Fields) {
       </td>
     </tr>
 
+    <!-- house signature — MUST sit inside the document body. Gmail discards
+         markup placed after the closing html tag, which silently swallowed
+         both the signature and its inline logo when it was concatenated on
+         to the end of this string instead of injected here. -->
+    <tr>
+      <td style="padding:4px 32px 0;">
+        ${signatureHtml()}
+      </td>
+    </tr>
+
   </table>
 </body>
 </html>`
@@ -215,7 +226,8 @@ export async function POST(request: NextRequest) {
       to: CONTACT_EMAIL,
       replyTo: fields.email,
       subject: `Contact Form: ${fields.service || 'General Inquiry'} — ${fields.name}`,
-      html: notificationHtml(fields),
+      html: notificationHtml(fields) + signatureHtml(),
+      attachments: signatureAttachments(),
     })
 
     /* 2. The thank-you back to the visitor. Best-effort: if this bounces we
@@ -227,8 +239,9 @@ export async function POST(request: NextRequest) {
         to: fields.email,
         replyTo: CONTACT_EMAIL,
         subject: `Thanks for reaching out, ${fields.name.split(' ')[0] || fields.name} — we've got your message`,
-        text: confirmationText(fields),
+        text: `${confirmationText(fields)}\n\n${signatureText()}`,
         html: confirmationHtml(fields),
+        attachments: signatureAttachments(),
       })
       confirmationSent = true
     } catch (error) {

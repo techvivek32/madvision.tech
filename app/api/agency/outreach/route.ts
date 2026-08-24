@@ -3,6 +3,7 @@ import * as nodemailer from "nodemailer"
 import MailComposer from "nodemailer/lib/mail-composer"
 import { ImapFlow } from "imapflow"
 import { readAgency, writeAgency } from "@/lib/agency-store"
+import { signatureAttachments, signatureHtml, signatureText } from "@/lib/email-signature"
 
 export const runtime = "nodejs"
 export const maxDuration = 20
@@ -17,7 +18,14 @@ type Lead = {
   pitchEmailBody?: string
 }
 
-type MailOptions = { from: string; to: string; subject: string; text: string }
+type MailOptions = {
+  from: string
+  to: string
+  subject: string
+  text: string
+  html?: string
+  attachments?: ReturnType<typeof signatureAttachments>
+}
 
 function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
   return Promise.race([p, new Promise<T>((_, r) => setTimeout(() => r(new Error("timeout")), ms))])
@@ -74,11 +82,20 @@ export async function POST(request: NextRequest) {
   }
 
   const smtpUser = process.env.SMTP_USER || "madevisionstudios@gmail.com"
+  // the drafted pitch stays exactly as written; the house signature is appended
+  const bodyHtml = lead.pitchEmailBody
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\n/g, "<br/>")
+
   const mail: MailOptions = {
     from: `"Vivek Vora — Mad Vision Tech" <${smtpUser}>`,
     to: lead.email,
     subject: lead.pitchEmailSubject,
-    text: lead.pitchEmailBody,
+    text: `${lead.pitchEmailBody}\n\n${signatureText()}`,
+    html: `<div style="font-family:Arial,Helvetica,sans-serif;font-size:14.5px;line-height:1.7;color:#222;">${bodyHtml}</div>${signatureHtml()}`,
+    attachments: signatureAttachments(),
   }
 
   // copy-only: file a Sent copy without sending again (used to backfill history)
