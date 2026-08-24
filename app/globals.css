@@ -41,6 +41,48 @@
   --dark-section: #0a0a0f;
 }
 
+/* ------------------------------------------------------------------ *
+ *  Dark palette. Only the tokens are redefined — every component that   *
+ *  uses bg-background / text-foreground / border-border etc. flips for  *
+ *  free. Neutrals carry a faint warm bias so the dark is not a dead     *
+ *  grey, and --dark-section stays put: those sections are meant to be   *
+ *  dark in BOTH themes.                                                 *
+ * ------------------------------------------------------------------ */
+.dark {
+  --background: oklch(0.15 0.004 90);
+  --foreground: oklch(0.96 0.002 90);
+  --card: oklch(0.19 0.004 90);
+  --card-foreground: oklch(0.96 0.002 90);
+  --popover: oklch(0.19 0.004 90);
+  --popover-foreground: oklch(0.96 0.002 90);
+  --primary: oklch(0.96 0.002 90);
+  --primary-foreground: oklch(0.15 0.004 90);
+  --secondary: oklch(0.24 0.004 90);
+  --secondary-foreground: oklch(0.96 0.002 90);
+  --muted: oklch(0.26 0.004 90);
+  --muted-foreground: oklch(0.7 0.004 90);
+  --accent: oklch(0.75 0.15 85);
+  --accent-foreground: oklch(0.15 0.004 90);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.96 0.002 90);
+  --border: oklch(0.29 0.004 90);
+  --input: oklch(0.24 0.004 90);
+  --ring: oklch(0.85 0.002 90);
+  --chart-1: oklch(0.96 0.002 90);
+  --chart-2: oklch(0.82 0.002 90);
+  --chart-3: oklch(0.66 0.002 90);
+  --chart-4: oklch(0.5 0.002 90);
+  --chart-5: oklch(0.36 0.002 90);
+  --sidebar: oklch(0.15 0.004 90);
+  --sidebar-foreground: oklch(0.96 0.002 90);
+  --sidebar-primary: oklch(0.96 0.002 90);
+  --sidebar-primary-foreground: oklch(0.15 0.004 90);
+  --sidebar-accent: oklch(0.24 0.004 90);
+  --sidebar-accent-foreground: oklch(0.96 0.002 90);
+  --sidebar-border: oklch(0.29 0.004 90);
+  --sidebar-ring: oklch(0.85 0.002 90);
+}
+
 @theme inline {
   --font-sans: "Inter", "Geist", "Geist Fallback";
   --font-serif: "Playfair Display", "Georgia", serif;
@@ -383,5 +425,45 @@ html {
   .splash-cell--out {
     animation: none;
     opacity: 0;
+  }
+}
+
+/* ================================================================== */
+/*  Theme switch — View Transitions                                   */
+/*  The new theme is revealed by a circle expanding from the toggle    */
+/*  button itself, so the change appears to come FROM the control the  */
+/*  user just pressed rather than flashing the whole document.         */
+/*  Browsers without the API simply get an instant swap.               */
+/* ================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* the outgoing theme stays put while the new one is clipped in over it */
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+html.theme-sweep::view-transition-new(root) {
+  animation: theme-reveal 1.25s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-sweep::view-transition-new(root) {
+    animation: none;
   }
 }

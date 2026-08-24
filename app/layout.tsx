@@ -4,6 +4,7 @@ import { Inter, Playfair_Display, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import CustomCursor from "@/components/custom-cursor"
 import SplashScreen from "@/components/splash-screen"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -32,17 +33,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} ${geistMono.variable} font-sans antialiased`}>
         {/* The splash is server-rendered too, so without JS it would cover the
             site forever with no timer to dismiss it. Hide it in that case. */}
         <noscript>
           <style>{`[data-splash]{display:none!important}`}</style>
         </noscript>
-        <SplashScreen />
-        <CustomCursor />
-        {children}
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SplashScreen />
+          <CustomCursor />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )

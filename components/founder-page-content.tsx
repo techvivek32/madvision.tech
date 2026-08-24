@@ -175,7 +175,7 @@ export default function FounderPageContent() {
                   as={Link}
                   href="mailto:madevisionstudios@gmail.com"
                   accent={ACCENT}
-                  className="group relative overflow-hidden gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium"
+                  className="group relative overflow-hidden gap-2 px-6 py-3 rounded-full bg-foreground dark:bg-card text-background dark:text-foreground font-medium"
                 >
                   <ShineOverlay trigger="hover" tone="dark" className="rounded-full" />
                   <Mail className="relative z-10 w-4 h-4" />
@@ -200,9 +200,9 @@ export default function FounderPageContent() {
                 <motion.div
                   whileHover={reduce ? undefined : { rotate: 360 }}
                   transition={{ duration: 0.5, ease: EASE_OUT }}
-                  className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center"
+                  className="w-12 h-12 rounded-xl bg-foreground dark:bg-card flex items-center justify-center"
                 >
-                  <GraduationCap className="w-6 h-6 text-background" />
+                  <GraduationCap className="w-6 h-6 text-background dark:text-foreground" />
                 </motion.div>
                 <h2 className="text-2xl font-serif text-foreground">About Me</h2>
               </div>
@@ -253,9 +253,9 @@ export default function FounderPageContent() {
                     <motion.div
                       whileHover={reduce ? undefined : { rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.5, ease: EASE_OUT }}
-                      className="w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center"
+                      className="w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center"
                     >
-                      <area.icon className="w-7 h-7 text-background" />
+                      <area.icon className="w-7 h-7 text-background dark:text-foreground" />
                     </motion.div>
                     <h3 className="text-xl font-medium text-foreground">{area.title}</h3>
                   </div>
@@ -329,9 +329,9 @@ export default function FounderPageContent() {
               <motion.div
                 whileHover={reduce ? undefined : { rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.5, ease: EASE_OUT }}
-                className="relative z-10 w-16 h-16 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-6"
+                className="relative z-10 w-16 h-16 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-6"
               >
-                <Award className="w-8 h-8 text-background" />
+                <Award className="w-8 h-8 text-background dark:text-foreground" />
               </motion.div>
               <h2 className="relative z-10 text-3xl font-serif mb-6 text-foreground">Key Achievement</h2>
               <p className="relative z-10 text-lg text-muted-foreground leading-relaxed">
@@ -348,7 +348,7 @@ export default function FounderPageContent() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <Reveal>
-            <div className="text-center p-16 rounded-3xl bg-foreground relative overflow-hidden">
+            <div className="text-center p-16 rounded-3xl bg-foreground dark:bg-card relative overflow-hidden">
               {/* slow orbital rings — transform-only, reduced-motion gated */}
               {!reduce && (
                 <>
@@ -371,14 +371,14 @@ export default function FounderPageContent() {
               <div aria-hidden className="grid-texture pointer-events-none absolute inset-0 opacity-[0.04]" />
 
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background">
+                <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background dark:text-foreground">
                   {"Let's Build Something "}
                   <GradientText tone="dark" animate as="span">
                     Great
                   </GradientText>
                   {" Together"}
                 </h2>
-                <p className="text-background/70 mb-6 max-w-xl mx-auto text-lg">
+                <p className="text-background/70 dark:text-muted-foreground mb-6 max-w-xl mx-auto text-lg">
                   Have a project in mind? I would love to hear about it and explore how we can work together.
                 </p>
 
@@ -399,7 +399,7 @@ export default function FounderPageContent() {
                     as={Link}
                     href="mailto:madevisionstudios@gmail.com"
                     glow={false}
-                    className="group relative overflow-hidden gap-2 px-10 py-5 rounded-full border border-white/20 text-background text-lg hover:bg-white/10 transition-colors"
+                    className="group relative overflow-hidden gap-2 px-10 py-5 rounded-full border border-white/20 text-background dark:text-foreground text-lg hover:bg-white/10 transition-colors"
                   >
                     <ShineOverlay trigger="hover" tone="dark" className="rounded-full" />
                     <Mail className="relative z-10 w-5 h-5" />

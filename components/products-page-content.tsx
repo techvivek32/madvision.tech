@@ -120,7 +120,7 @@ function ProductCard({ product, index }: { product: (typeof products)[0]; index:
             as={Link}
             href={product.name === "Retailians POS" ? "https://retailians.com/" : "https://911wraperp.space/"}
             accent={accent}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium overflow-hidden"
+            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground dark:bg-card text-background dark:text-foreground font-medium overflow-hidden"
           >
             <ShineOverlay trigger="hover" tone="dark" className="rounded-full" />
             <span className="relative z-10">Request Demo</span>
@@ -272,7 +272,7 @@ export default function ProductsPageContent() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: DUR.slow, ease: EASE_OUT }}
-              className="text-center p-16 rounded-3xl bg-foreground text-background relative overflow-hidden"
+              className="text-center p-16 rounded-3xl bg-foreground dark:bg-card text-background dark:text-foreground relative overflow-hidden"
             >
               {/* Animated background rings */}
               <RotatingRing className="top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2" duration={50} dir={1} />
@@ -290,7 +290,7 @@ export default function ProductsPageContent() {
                 <h2 className="text-3xl md:text-5xl font-serif mb-6">
                   Ready to <GradientText tone="dark" as="span">Transform Your Business</GradientText>?
                 </h2>
-                <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
+                <p className="text-background/70 dark:text-muted-foreground mb-10 max-w-xl mx-auto text-lg">
                   Get a personalized demo and see how our products can streamline your operations.
                 </p>
                 <MagneticButton

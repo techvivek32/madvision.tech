@@ -37,7 +37,7 @@ export default function Footer() {
   const orbY = useParallax(bannerRef as RefObject<HTMLElement>, { to: -80 })
 
   return (
-    <footer className="bg-foreground text-background overflow-hidden">
+    <footer className="bg-foreground dark:bg-card text-background dark:text-foreground overflow-hidden">
       {/* Large animated text banner */}
       <div ref={bannerRef} className="relative py-16 border-b border-white/10 overflow-hidden">
         {/* Decorative depth layers — behind content, never interactive */}
@@ -72,7 +72,10 @@ export default function Footer() {
                 as={Link}
                 href="/contact"
                 accent="#ffffff"
-                className="group relative overflow-hidden gap-3 px-8 py-4 rounded-full bg-white text-foreground font-medium"
+                /* text-foreground flips to near-white in dark mode, which would
+                   be white-on-white here — the button ground is fixed white, so
+                   pin the label dark too. */
+                className="group relative overflow-hidden gap-3 px-8 py-4 rounded-full bg-white text-foreground dark:text-[#0a0a0f] font-medium"
               >
                 <ShineOverlay trigger="hover" tone="light" />
                 <span className="relative z-10">Get in Touch</span>

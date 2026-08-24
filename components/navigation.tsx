@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
+import ThemeToggle from "@/components/theme-toggle"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -77,14 +78,14 @@ export default function Navigation() {
                       <span
                         className={cn(
                           "transition-colors duration-200",
-                          isActive ? "text-black" : "text-gray-700 hover:text-black",
+                          isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                         )}
                       >
                         {link.label}
                       </span>
                       {/* Underline animation */}
                       <motion.span
-                        className="absolute bottom-0 left-0 h-px bg-black"
+                        className="absolute bottom-0 left-0 h-px bg-foreground"
                         initial={{ width: isActive ? "100%" : "0%" }}
                         animate={{
                           width: isActive || hoveredLink === link.href ? "100%" : "0%",
@@ -96,14 +97,18 @@ export default function Navigation() {
                 })}
               </nav>
 
-              {/* Mobile menu button for default state */}
-              <button onClick={() => setIsSidePanelOpen(true)} className="md:hidden p-2" aria-label="Open menu">
-                <div className="flex flex-col gap-1.5">
-                  <span className={`w-6 h-0.5 bg-black`} />
-                  <span className={`w-6 h-0.5 bg-black`} />
-                  <span className={`w-4 h-0.5 bg-black`} />
-                </div>
-              </button>
+              <div className="flex items-center gap-1">
+                <ThemeToggle />
+
+                {/* Mobile menu button for default state */}
+                <button onClick={() => setIsSidePanelOpen(true)} className="md:hidden p-2" aria-label="Open menu">
+                  <div className="flex flex-col gap-1.5">
+                    <span className="w-6 h-0.5 bg-foreground" />
+                    <span className="w-6 h-0.5 bg-foreground" />
+                    <span className="w-4 h-0.5 bg-foreground" />
+                  </div>
+                </button>
+              </div>
             </div>
           </motion.header>
         )}
@@ -122,7 +127,7 @@ export default function Navigation() {
               damping: 20,
             }}
             onClick={() => setIsSidePanelOpen(true)}
-            className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-foreground/90 backdrop-blur-xl shadow-2xl flex items-center justify-center group hover:bg-foreground transition-all duration-300"
+            className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-foreground/90 dark:bg-card/90 backdrop-blur-xl shadow-2xl flex items-center justify-center group hover:bg-foreground dark:hover:bg-card transition-all duration-300"
             style={{
               boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset",
             }}
@@ -131,17 +136,17 @@ export default function Navigation() {
             {/* Animated hamburger icon */}
             <div className="flex flex-col items-center justify-center gap-1.5 transition-transform duration-300 group-hover:scale-110">
               <motion.span
-                className="w-5 h-0.5 bg-background rounded-full origin-center"
+                className="w-5 h-0.5 bg-background dark:bg-foreground rounded-full origin-center"
                 animate={{ width: 20 }}
                 transition={{ duration: 0.3 }}
               />
               <motion.span
-                className="w-3.5 h-0.5 bg-background rounded-full origin-center"
+                className="w-3.5 h-0.5 bg-background dark:bg-foreground rounded-full origin-center"
                 animate={{ width: 14 }}
                 transition={{ duration: 0.3, delay: 0.05 }}
               />
               <motion.span
-                className="w-5 h-0.5 bg-background rounded-full origin-center"
+                className="w-5 h-0.5 bg-background dark:bg-foreground rounded-full origin-center"
                 animate={{ width: 20 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
               />
@@ -153,6 +158,23 @@ export default function Navigation() {
               transition={{ duration: 0.4 }}
             />
           </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Floating theme toggle — pairs with the circular menu button above so
+          both controls stay reachable after the header slides away. */}
+      <AnimatePresence>
+        {isScrolled && !isSidePanelOpen && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.05 }}
+            className="fixed top-6 right-24 z-50 rounded-full bg-card/90 shadow-2xl backdrop-blur-xl"
+            style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(128,128,128,0.15) inset" }}
+          >
+            <ThemeToggle className="h-14 w-14" />
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -180,7 +202,7 @@ export default function Navigation() {
                 damping: 30,
                 stiffness: 300,
               }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-foreground/95 backdrop-blur-xl"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-foreground/95 dark:bg-card/95 backdrop-blur-xl"
               style={{
                 boxShadow: "-20px 0 60px rgba(0, 0, 0, 0.3)",
               }}
@@ -195,18 +217,18 @@ export default function Navigation() {
                     exit={{ rotate: 90, opacity: 0 }}
                     transition={{ delay: 0.2, duration: 0.3 }}
                     onClick={() => setIsSidePanelOpen(false)}
-                    className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center group hover:bg-background/20 transition-colors"
+                    className="w-12 h-12 rounded-full bg-background/10 dark:bg-white/5 flex items-center justify-center group hover:bg-background/20 dark:hover:bg-white/10 transition-colors"
                     aria-label="Close menu"
                   >
                     <div className="relative w-6 h-6">
                       <motion.span
-                        className="absolute top-1/2 left-0 w-6 h-0.5 bg-background rounded-full"
+                        className="absolute top-1/2 left-0 w-6 h-0.5 bg-background dark:bg-foreground rounded-full"
                         initial={{ rotate: 0 }}
                         animate={{ rotate: 45, y: "-50%" }}
                         transition={{ duration: 0.3 }}
                       />
                       <motion.span
-                        className="absolute top-1/2 left-0 w-6 h-0.5 bg-background rounded-full"
+                        className="absolute top-1/2 left-0 w-6 h-0.5 bg-background dark:bg-foreground rounded-full"
                         initial={{ rotate: 0 }}
                         animate={{ rotate: -45, y: "-50%" }}
                         transition={{ duration: 0.3 }}
@@ -238,7 +260,7 @@ export default function Navigation() {
                         >
                           {/* Background slide */}
                           <motion.div
-                            className="absolute inset-0 bg-background/5"
+                            className="absolute inset-0 bg-background/5 dark:bg-white/5"
                             initial={{ x: "-100%" }}
                             whileHover={{ x: 0 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -248,7 +270,7 @@ export default function Navigation() {
                             <motion.span
                               className={cn(
                                 "text-4xl md:text-5xl font-bold tracking-tight transition-colors duration-300",
-                                isActive ? "text-background" : "text-background/60 group-hover:text-background",
+                                isActive ? "text-background dark:text-foreground" : "text-background/60 dark:text-muted-foreground group-hover:text-background",
                               )}
                               whileHover={{ x: 15 }}
                               transition={{ duration: 0.3 }}
@@ -267,7 +289,7 @@ export default function Navigation() {
                           </div>
                           
                           <motion.div
-                            className="absolute bottom-0 left-0 h-px bg-background/30"
+                            className="absolute bottom-0 left-0 h-px bg-background/30 dark:bg-white/30"
                             initial={{ width: isActive ? "100%" : "0%" }}
                             whileHover={{ width: "100%" }}
                             transition={{ duration: 0.4 }}
@@ -284,12 +306,12 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ delay: 0.5, duration: 0.4 }}
-                  className="pt-8 border-t border-background/10"
+                  className="pt-8 border-t border-background/10 dark:border-border"
                 >
                   <p className="text-sm text-background/40 mb-2">Get in touch</p>
                   <a
                     href="mailto:madevisionstudios@gmail.com"
-                    className="text-background/80 hover:text-background transition-colors text-lg"
+                    className="text-background/80 dark:text-foreground/80 hover:text-background transition-colors text-lg"
                   >
                     madevisionstudios@gmail.com
                   </a>

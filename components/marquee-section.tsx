@@ -62,7 +62,7 @@ export function RunningStrip({
 
   return (
     <div
-      className={`relative overflow-hidden py-4 ${dark ? "bg-foreground" : "bg-background"} border-y ${dark ? "border-white/10" : "border-border"} ${tilted ? "-rotate-1 scale-105" : ""}`}
+      className={`relative overflow-hidden py-4 ${dark ? "bg-foreground dark:bg-card" : "bg-background"} border-y ${dark ? "border-white/10" : "border-border"} ${tilted ? "-rotate-1 scale-105" : ""}`}
     >
       {/* shine sweep — only on dark strips, only when motion is allowed */}
       {dark && <ShineOverlay tone="dark" duration={1.4} repeatDelay={5} />}
@@ -107,7 +107,7 @@ export function LargeTextMarquee({
   const items = Array(10).fill(text)
 
   return (
-    <div className="relative overflow-hidden bg-foreground py-8">
+    <div className="relative overflow-hidden bg-foreground dark:bg-card py-8">
       {/* faint white grid + a slow shine pass for depth on the dark band */}
       <div className="grid-texture pointer-events-none absolute inset-0" aria-hidden />
       <ShineOverlay tone="dark" duration={1.6} repeatDelay={6} />

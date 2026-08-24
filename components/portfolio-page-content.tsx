@@ -314,7 +314,7 @@ function LedgerEntry({ entry, index }: { entry: Entry; index: number }) {
               as={Link}
               href={entry.href}
               accent={ACCENT}
-              className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium overflow-hidden"
+              className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground dark:bg-card text-background dark:text-foreground font-medium overflow-hidden"
             >
               <ShineOverlay trigger="hover" tone="dark" className="rounded-full" />
               <span className="relative z-10">{entry.cta}</span>

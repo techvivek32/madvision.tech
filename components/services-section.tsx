@@ -109,11 +109,11 @@ export default function ServicesSection() {
                 className="h-full p-6 rounded-2xl bg-secondary/50"
               >
                 <motion.div
-                  className="relative z-10 w-12 h-12 rounded-full bg-foreground flex items-center justify-center mb-4"
+                  className="relative z-10 w-12 h-12 rounded-full bg-foreground dark:bg-card flex items-center justify-center mb-4"
                   whileHover={reduce ? undefined : { scale: 1.15, rotate: 5 }}
                   transition={SPRING_POP}
                 >
-                  <service.icon className="w-5 h-5 text-background" />
+                  <service.icon className="w-5 h-5 text-background dark:text-foreground" />
                 </motion.div>
                 <h3 className="relative z-10 text-lg font-medium mb-2 text-foreground">{service.title}</h3>
                 <p className="relative z-10 text-sm text-muted-foreground">{service.description}</p>

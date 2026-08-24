@@ -179,9 +179,9 @@ export default function ServicesPageContent() {
                   <motion.div
                     whileHover={reduce ? undefined : { rotate: 360, scale: 1.1 }}
                     transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mb-6"
+                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mb-6"
                   >
-                    <service.icon className="w-7 h-7 text-background" />
+                    <service.icon className="w-7 h-7 text-background dark:text-foreground" />
                   </motion.div>
                   <h3 className="relative z-10 text-xl font-medium mb-3 text-foreground">{service.title}</h3>
                   <p className="relative z-10 text-muted-foreground mb-6 text-sm">{service.description}</p>
@@ -258,7 +258,7 @@ export default function ServicesPageContent() {
             whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: DUR.base, ease: EASE_OUT }}
-            className="dark-section text-center p-16 rounded-3xl bg-foreground relative overflow-hidden"
+            className="dark-section text-center p-16 rounded-3xl bg-foreground dark:bg-card relative overflow-hidden"
           >
             {/* decorative — pointer-events-none, behind content */}
             <div aria-hidden className="grid-texture absolute inset-0 opacity-50" />
@@ -279,10 +279,10 @@ export default function ServicesPageContent() {
             />
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background">
+              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background dark:text-foreground">
                 Ready to <GradientText tone="dark" animate as="span">Get Started?</GradientText>
               </h2>
-              <Reveal as="p" y={16} delay={0.1} className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
+              <Reveal as="p" y={16} delay={0.1} className="text-background/70 dark:text-muted-foreground mb-10 max-w-xl mx-auto text-lg">
                 {"Let's discuss how our services can help transform your business."}
               </Reveal>
               <MagneticButton

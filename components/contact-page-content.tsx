@@ -219,9 +219,9 @@ export default function ContactPageContent() {
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5, ease: EASE_OUT }}
-                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-4"
+                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-4"
                   >
-                    <info.icon className="w-7 h-7 text-background" />
+                    <info.icon className="w-7 h-7 text-background dark:text-foreground" />
                   </motion.div>
                   <h3 className="relative z-10 font-medium mb-2 text-foreground text-lg">{info.title}</h3>
                   <p className="relative z-10 text-muted-foreground">{info.value}</p>
@@ -241,9 +241,9 @@ export default function ContactPageContent() {
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5, ease: EASE_OUT }}
-                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-4"
+                    className="relative z-10 w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-4"
                   >
-                    <MapPin className="w-7 h-7 text-background" />
+                    <MapPin className="w-7 h-7 text-background dark:text-foreground" />
                   </motion.div>
                   <span className="relative z-10 mb-2 block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground/70">
                     {office.label}
@@ -299,7 +299,7 @@ export default function ContactPageContent() {
                         initial={{ scale: 0 }}
                         animate={{ scale: [0, 1.12, 1] }}
                         transition={{ duration: 0.6, ease: EASE_OUT }}
-                        className="w-20 h-20 rounded-full bg-foreground flex items-center justify-center mb-6"
+                        className="w-20 h-20 rounded-full bg-foreground dark:bg-card flex items-center justify-center mb-6"
                       >
                         <motion.svg
                           viewBox="0 0 24 24"
@@ -308,7 +308,7 @@ export default function ContactPageContent() {
                           strokeWidth={2.4}
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="w-10 h-10 text-background"
+                          className="w-10 h-10 text-background dark:text-foreground"
                           aria-hidden
                         >
                           <motion.path
@@ -417,7 +417,7 @@ export default function ContactPageContent() {
                         type="submit"
                         disabled={isSubmitting}
                         accent={ACCENT}
-                        className="w-full gap-2 px-8 py-4 rounded-xl bg-foreground text-background font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full gap-2 px-8 py-4 rounded-xl bg-foreground dark:bg-card text-background dark:text-foreground font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>
@@ -464,9 +464,9 @@ export default function ContactPageContent() {
                       <motion.div
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.5, ease: EASE_OUT }}
-                        className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center shrink-0"
+                        className="w-12 h-12 rounded-xl bg-foreground dark:bg-card flex items-center justify-center shrink-0"
                       >
-                        <reason.icon className="w-6 h-6 text-background" />
+                        <reason.icon className="w-6 h-6 text-background dark:text-foreground" />
                       </motion.div>
                       <div>
                         <h3 className="font-medium mb-1 text-foreground text-lg">{reason.title}</h3>

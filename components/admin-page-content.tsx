@@ -245,8 +245,8 @@ export default function AdminPageContent() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-6">
         <div className="w-full max-w-sm p-8 rounded-2xl bg-card border border-border text-center">
-          <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-5 h-5 text-background" />
+          <div className="w-12 h-12 rounded-full bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-4">
+            <Lock className="w-5 h-5 text-background dark:text-foreground" />
           </div>
           <h1 className="font-serif text-2xl text-foreground mb-1">Mission Control</h1>
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-6">
@@ -459,8 +459,8 @@ export default function AdminPageContent() {
               return (
                 <div key={a.id} className="p-5 rounded-2xl bg-card border border-border">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-foreground flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-background" />
+                    <div className="w-10 h-10 rounded-xl bg-foreground dark:bg-card flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-background dark:text-foreground" />
                     </div>
                     <span
                       className={`font-mono text-[10px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-full ${
@@ -1196,10 +1196,10 @@ function Friday({ data }: { data: Agency }) {
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
-            className="w-80 max-h-96 overflow-y-auto rounded-2xl bg-foreground text-background shadow-2xl p-4"
+            className="w-80 max-h-96 overflow-y-auto rounded-2xl bg-foreground dark:bg-card text-background dark:text-foreground shadow-2xl p-4"
           >
             <div className="flex items-center justify-between mb-3">
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60 dark:text-muted-foreground">
                 Friday · voice ops
               </p>
               <div className="flex gap-1">
@@ -1208,7 +1208,7 @@ function Friday({ data }: { data: Agency }) {
                     key={l.code}
                     onClick={() => setLang(l.code)}
                     className={`px-2 py-0.5 rounded-full font-mono text-[10px] ${
-                      lang === l.code ? "text-black" : "text-background/50 hover:text-background"
+                      lang === l.code ? "text-black" : "text-background/50 dark:text-muted-foreground hover:text-background"
                     }`}
                     style={lang === l.code ? { backgroundColor: ACCENT } : undefined}
                   >
@@ -1218,7 +1218,7 @@ function Friday({ data }: { data: Agency }) {
               </div>
             </div>
             {log.length === 0 && (
-              <p className="text-sm text-background/70 leading-relaxed">
+              <p className="text-sm text-background/70 dark:text-muted-foreground leading-relaxed">
                 Boli ne athva type kari ne pucho — &quot;tell me updates&quot;, &quot;leads in Canada?&quot;,
                 &quot;paisa ketla thaya?&quot;, &quot;what have you learned?&quot;, &quot;strategy su che?&quot;, &quot;help&quot;.
                 {!supported && " (Aa browser voice input support nathi kartu — type karo, javab hu boli ne aapis.)"}
@@ -1228,7 +1228,7 @@ function Friday({ data }: { data: Agency }) {
               {log.map((m, i) => (
                 <p
                   key={i}
-                  className={`text-sm leading-relaxed ${m.who === "you" ? "text-background/60" : "text-background"}`}
+                  className={`text-sm leading-relaxed ${m.who === "you" ? "text-background/60 dark:text-muted-foreground" : "text-background dark:text-foreground"}`}
                 >
                   <span className="font-mono text-[9px] uppercase tracking-[0.2em] mr-2" style={m.who === "friday" ? { color: ACCENT } : undefined}>
                     {m.who === "you" ? "You" : "Friday"}
@@ -1250,7 +1250,7 @@ function Friday({ data }: { data: Agency }) {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type to Friday…"
-                className="flex-1 rounded-full bg-background/10 border border-background/20 px-4 py-2 text-sm text-background placeholder:text-background/40 outline-none focus:border-background/50"
+                className="flex-1 rounded-full bg-background/10 dark:bg-white/5 border border-background/20 dark:border-border px-4 py-2 text-sm text-background dark:text-foreground placeholder:text-background/40 outline-none focus:border-background/50"
               />
               <button
                 type="submit"
@@ -1278,7 +1278,7 @@ function Friday({ data }: { data: Agency }) {
         )}
         <button
           onClick={() => setOpen((o) => !o)}
-          className="h-14 px-5 rounded-full bg-foreground text-background font-mono text-xs uppercase tracking-[0.25em] shadow-2xl flex items-center gap-2"
+          className="h-14 px-5 rounded-full bg-foreground dark:bg-card text-background dark:text-foreground font-mono text-xs uppercase tracking-[0.25em] shadow-2xl flex items-center gap-2"
           aria-label="Toggle Friday"
         >
           <span className="w-2 h-2 rounded-full animate-pulse-glow" style={{ backgroundColor: ACCENT }} />

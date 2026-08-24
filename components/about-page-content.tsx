@@ -130,9 +130,9 @@ export default function AboutPageContent() {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { rotate: 360 }}
                   transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                  className="w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mb-6"
+                  className="w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mb-6"
                 >
-                  <Rocket className="w-7 h-7 text-background" />
+                  <Rocket className="w-7 h-7 text-background dark:text-foreground" />
                 </motion.div>
                 <h2 className="text-3xl font-serif mb-4 text-foreground">Our Mission</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -151,9 +151,9 @@ export default function AboutPageContent() {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { rotate: 360 }}
                   transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                  className="w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mb-6"
+                  className="w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mb-6"
                 >
-                  <Eye className="w-7 h-7 text-background" />
+                  <Eye className="w-7 h-7 text-background dark:text-foreground" />
                 </motion.div>
                 <h2 className="text-3xl font-serif mb-4 text-foreground">Our Vision</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
@@ -191,9 +191,9 @@ export default function AboutPageContent() {
                   <motion.div
                     whileHover={reduceMotion ? undefined : { rotate: 360, scale: 1.1 }}
                     transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                    className="w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center mb-6"
+                    className="w-14 h-14 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mb-6"
                   >
-                    <value.icon className="w-7 h-7 text-background" />
+                    <value.icon className="w-7 h-7 text-background dark:text-foreground" />
                   </motion.div>
                   <h3 className="text-xl font-medium mb-3 text-foreground">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
@@ -258,7 +258,7 @@ export default function AboutPageContent() {
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.1 }}
                     whileHover={reduceMotion ? undefined : { scale: 1.5 }}
-                    className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-foreground md:-translate-x-1/2 border-4 border-background"
+                    className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-foreground dark:bg-card md:-translate-x-1/2 border-4 border-background"
                   >
                     {!reduceMotion && (
                       <motion.span
@@ -287,9 +287,9 @@ export default function AboutPageContent() {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { rotate: 360 }}
                   transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                  className="w-16 h-16 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-6"
+                  className="w-16 h-16 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-6"
                 >
-                  <Users className="w-8 h-8 text-background" />
+                  <Users className="w-8 h-8 text-background dark:text-foreground" />
                 </motion.div>
                 <CountUp value={14} suffix="+" className="block text-5xl font-serif text-foreground mb-2" />
                 <p className="text-muted-foreground text-lg">Team Members</p>
@@ -301,9 +301,9 @@ export default function AboutPageContent() {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { rotate: 360 }}
                   transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                  className="w-16 h-16 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-6"
+                  className="w-16 h-16 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-6"
                 >
-                  <Award className="w-8 h-8 text-background" />
+                  <Award className="w-8 h-8 text-background dark:text-foreground" />
                 </motion.div>
                 <CountUp value={5} suffix="+" className="block text-5xl font-serif text-foreground mb-2" />
                 <p className="text-muted-foreground text-lg">Years Experience</p>
@@ -315,9 +315,9 @@ export default function AboutPageContent() {
                 <motion.div
                   whileHover={reduceMotion ? undefined : { rotate: 360 }}
                   transition={{ duration: DUR.slow, ease: EASE_OUT }}
-                  className="w-16 h-16 rounded-2xl bg-foreground flex items-center justify-center mx-auto mb-6"
+                  className="w-16 h-16 rounded-2xl bg-foreground dark:bg-card flex items-center justify-center mx-auto mb-6"
                 >
-                  <MapPin className="w-8 h-8 text-background" />
+                  <MapPin className="w-8 h-8 text-background dark:text-foreground" />
                 </motion.div>
                 <div className="text-2xl font-medium text-foreground mb-2">Rajkot &middot; Ahmedabad</div>
                 <p className="text-muted-foreground text-lg">Head Office &amp; Branch</p>
@@ -335,7 +335,7 @@ export default function AboutPageContent() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: DUR.base, ease: EASE_OUT }}
-            className="dark-section text-center p-16 rounded-3xl bg-foreground relative overflow-hidden"
+            className="dark-section text-center p-16 rounded-3xl bg-foreground dark:bg-card relative overflow-hidden"
           >
             {/* Decorative layers (pointer-events-none, behind z-10 content) */}
             <div className="grid-texture absolute inset-0 pointer-events-none" aria-hidden />
@@ -350,10 +350,10 @@ export default function AboutPageContent() {
             )}
             <ShineOverlay tone="dark" repeatDelay={5} />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background">
+              <h2 className="text-3xl md:text-5xl font-serif mb-6 text-background dark:text-foreground">
                 Meet Our <GradientText tone="dark">Founder</GradientText>
               </h2>
-              <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
+              <p className="text-background/70 dark:text-muted-foreground mb-10 max-w-xl mx-auto text-lg">
                 Learn more about the visionary behind Mad Vision Tech and his journey in technology.
               </p>
               <MagneticButton
