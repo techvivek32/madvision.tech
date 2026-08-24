@@ -92,7 +92,7 @@ const entries: Entry[] = [
     status: "prep",
     statusLine: "In preparation",
     description:
-      "A smart SAT preparation platform in the Vision Tech product family — currently being readied for its own line in the ledger.",
+      "A smart SAT preparation platform in the Mad Vision Tech product family — currently being readied for its own line in the ledger.",
     features: ["Adaptive practice", "Performance analytics", "Structured study plans"],
     image: "/custom-software-development-code-editor-interface.jpg",
     href: "/contact",
@@ -335,7 +335,7 @@ export default function PortfolioPageContent() {
   const heroOrbY = useParallax(heroRef as RefObject<HTMLElement>, { to: -120 })
 
   const manifestRows = [
-    { label: "Kept by", value: "Vision Tech" },
+    { label: "Kept by", value: "Mad Vision Tech" },
     { label: "Offices", value: "Rajkot · Ahmedabad · Kelowna" },
     { label: "Entries to date", value: pad3(entries.length) },
   ]
@@ -365,7 +365,7 @@ export default function PortfolioPageContent() {
             <Reveal y={14} className="flex items-center gap-2.5 mb-4">
               <span className="w-1.5 h-1.5 rounded-full animate-pulse-glow" style={{ backgroundColor: ACCENT }} />
               <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Shipping manifest — Vision Tech archive
+                Shipping manifest — Mad Vision Tech archive
               </span>
             </Reveal>
 
@@ -521,7 +521,7 @@ export default function PortfolioPageContent() {
         </div>
       </section>
 
-      <RunningStrip text="VISION TECH • PROOF OF WORK" reverse speed={20} dark />
+      <RunningStrip text="MAD VISION TECH • PROOF OF WORK" reverse speed={20} dark />
 
       {/* ---------- the reserved line ---------- */}
       <section id="next-entry" className="py-24 bg-background scroll-mt-24">

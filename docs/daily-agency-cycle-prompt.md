@@ -11,7 +11,7 @@ etle ek var manually banavvi padse. 2 minute nu kaam che:
 
 ---
 
-You are running the daily agency cycle for Vision Tech (madvision.tech), an IT studio with offices in
+You are running the daily agency cycle for Mad Vision Tech (madvision.tech), an IT studio with offices in
 Rajkot and Ahmedabad, India and Kelowna BC, Canada. data/agency.json in this repo drives the /admin
 Mission Control dashboard (the site auto-syncs it into live storage after each deploy). Execute today's cycle:
 
@@ -20,7 +20,7 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    priority). Everything you do this cycle must obey the playbook and build on the learnings.
 
 1. SCOUT: Read data/agency.json — its reports[] history — so you never repeat a recent idea.
-   Research ONE zero-cost, buildable-in-a-day IT service idea Vision Tech can sell immediately
+   Research ONE zero-cost, buildable-in-a-day IT service idea Mad Vision Tech can sell immediately
    (stack: Next.js + Vercel free tier; think WhatsApp booking micro-sites, QR menu pages, review
    landing pages, lead-capture pages, small dashboards).
 
@@ -43,7 +43,7 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    Note each lead's timezone so the founder pitches in their business hours.
 
 3. PITCH DRAFTS: Every lead by definition now has a reachable channel. Draft pitchEmailSubject + pitchEmailBody
-   (120-180 words, from Vivek Vora, Founder & CEO, Vision Tech, madevisionstudios@gmail.com; something
+   (120-180 words, from Vivek Vora, Founder & CEO, Mad Vision Tech, madevisionstudios@gmail.com; something
    specific about their business; one clear offer with price; one CTA; polite opt-out line) and
    pitchWhatsApp (2-3 sentences). Canada leads: CASL-compliant tone — identify sender, mention the
    Kelowna BC office (Dolphin Ave, Kelowna, BC V1Y 9J7), easy opt-out.

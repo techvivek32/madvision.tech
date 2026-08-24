@@ -15,7 +15,7 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeSection />
       <ServicesSection />
-      <RunningStrip text="VISION TECH • INNOVATION • EXCELLENCE" reverse speed={25} />
+      <RunningStrip text="MAD VISION TECH • INNOVATION • EXCELLENCE" reverse speed={25} />
       <ProductsSection />
       <StatsSection />
       <RunningStrip text="SAAS • ERP • AI • CLOUD • MOBILE" speed={30} />

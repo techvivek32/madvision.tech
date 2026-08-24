@@ -248,7 +248,7 @@ export default function ServicesPageContent() {
       </section>
 
       {/* Running Strip - Dark */}
-      <RunningStrip text="VISION TECH • EXCELLENCE • INNOVATION" reverse speed={20} dark />
+      <RunningStrip text="MAD VISION TECH • EXCELLENCE • INNOVATION" reverse speed={20} dark />
 
       {/* CTA Section */}
       <section className="py-24 bg-background">

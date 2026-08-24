@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
 
   const smtpUser = process.env.SMTP_USER || "madevisionstudios@gmail.com"
   const mail: MailOptions = {
-    from: `"Vivek Vora — Vision Tech" <${smtpUser}>`,
+    from: `"Vivek Vora — Mad Vision Tech" <${smtpUser}>`,
     to: lead.email,
     subject: lead.pitchEmailSubject,
     text: lead.pitchEmailBody,

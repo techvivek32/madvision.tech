@@ -13,7 +13,7 @@ import Link from "next/link"
  * ------------------------------------------------------------------ */
 
 export const metadata: Metadata = {
-  title: "Blades of Norwich — Barbershop on Pottergate | Preview by Vision Tech",
+  title: "Blades of Norwich — Barbershop on Pottergate | Preview by Mad Vision Tech",
   robots: { index: false, follow: false },
 }
 
@@ -63,7 +63,7 @@ export default function BladesOfNorwichDemo() {
           PREVIEW
         </span>{" "}
         <span className="text-white/70">
-          — built by Vision Tech for Blades of Norwich. Every price, name &amp; detail here is real, pulled from your
+          — built by Mad Vision Tech for Blades of Norwich. Every price, name &amp; detail here is real, pulled from your
           own listings. Like it? It&apos;s yours, live in 48h.
         </span>{" "}
         <Link href="/contact" className="underline underline-offset-2 font-medium text-white/90 hover:text-white">
@@ -347,7 +347,7 @@ export default function BladesOfNorwichDemo() {
             <span>
               This preview was built by{" "}
               <a href="https://madvision.tech" className="text-white/70 hover:text-white underline underline-offset-2">
-                Vision Tech
+                Mad Vision Tech
               </a>{" "}
               from Blades of Norwich&apos;s own public info — no data invented.
             </span>

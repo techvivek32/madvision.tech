@@ -27,7 +27,7 @@ export function SiteTemplate({ profile: p }: { profile: SiteProfile }) {
           PREVIEW
         </span>{" "}
         <span className="text-white/75">
-          — built by Vision Tech for {p.name}. Every detail here is real, from your own listings. Like it? It&apos;s
+          — built by Mad Vision Tech for {p.name}. Every detail here is real, from your own listings. Like it? It&apos;s
           yours, live in 48h.
         </span>{" "}
         <Link href="/contact" className="underline underline-offset-2 font-medium text-white hover:opacity-80">
@@ -383,7 +383,7 @@ export function SiteTemplate({ profile: p }: { profile: SiteProfile }) {
             <span>
               This preview was built by{" "}
               <a href="https://madvision.tech" className="text-slate-600 hover:text-slate-900 underline underline-offset-2">
-                Vision Tech
+                Mad Vision Tech
               </a>{" "}
               from {p.name}&apos;s own public info — no data invented.
             </span>

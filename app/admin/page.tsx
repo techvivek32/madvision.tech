@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import AdminPageContent from "@/components/admin-page-content"
 
 export const metadata: Metadata = {
-  title: "Mission Control | Vision Tech",
+  title: "Mission Control | Mad Vision Tech",
   robots: { index: false, follow: false },
 }
 

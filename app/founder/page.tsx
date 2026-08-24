@@ -4,9 +4,9 @@ import Footer from "@/components/footer"
 import FounderPageContent from "@/components/founder-page-content"
 
 export const metadata: Metadata = {
-  title: "Vivek Vora - Founder | Vision Tech",
+  title: "Vivek Vora - Founder | Mad Vision Tech",
   description:
-    "Meet Vivek Vora, the Founder & CEO of Vision Tech. A Full-Stack Developer specializing in building smart, scalable digital solutions.",
+    "Meet Vivek Vora, the Founder & CEO of Mad Vision Tech. A Full-Stack Developer specializing in building smart, scalable digital solutions.",
 }
 
 export default function FounderPage() {

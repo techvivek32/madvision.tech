@@ -261,7 +261,7 @@ export default function ProductsPageContent() {
       </section>
 
       {/* Running Strip - Reverse */}
-      <RunningStrip text="VISION TECH • YOUR TECHNOLOGY PARTNER" reverse speed={20} dark />
+      <RunningStrip text="MAD VISION TECH • YOUR TECHNOLOGY PARTNER" reverse speed={20} dark />
 
       {/* CTA Section */}
       <section className="py-24 bg-background">

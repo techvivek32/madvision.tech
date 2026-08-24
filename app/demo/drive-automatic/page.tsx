@@ -12,7 +12,7 @@ import Link from "next/link"
  * ------------------------------------------------------------------ */
 
 export const metadata: Metadata = {
-  title: "Drive Automatic — Automatic Driving Lessons in Brighton | Preview by Vision Tech",
+  title: "Drive Automatic — Automatic Driving Lessons in Brighton | Preview by Mad Vision Tech",
   robots: { index: false, follow: false },
 }
 
@@ -40,7 +40,7 @@ export default function DriveAutomaticDemo() {
           PREVIEW
         </span>{" "}
         <span className="text-white/75">
-          — built by Vision Tech for Drive Automatic. Every detail here is real, from your own listings. Like it?
+          — built by Mad Vision Tech for Drive Automatic. Every detail here is real, from your own listings. Like it?
           It&apos;s yours, live in 48h.
         </span>{" "}
         <Link href="/contact" className="underline underline-offset-2 font-medium text-white hover:opacity-80">
@@ -279,7 +279,7 @@ export default function DriveAutomaticDemo() {
             <span>
               This preview was built by{" "}
               <a href="https://madvision.tech" className="text-slate-600 hover:text-slate-900 underline underline-offset-2">
-                Vision Tech
+                Mad Vision Tech
               </a>{" "}
               from Drive Automatic&apos;s own public info — no data invented.
             </span>

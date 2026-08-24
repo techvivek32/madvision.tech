@@ -256,7 +256,7 @@ export default function HangingContact() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#3a3226]">
-                      Vision Tech
+                      Mad Vision Tech
                     </span>
                   </div>
                   <span className="flex items-center gap-1">

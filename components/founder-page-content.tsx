@@ -154,7 +154,7 @@ export default function FounderPageContent() {
                   >
                     <ShineOverlay trigger="hover" tone="light" className="rounded-full" />
                     <Briefcase className="relative z-10 w-4 h-4 text-foreground" />
-                    <span className="relative z-10 text-sm text-foreground">Founder, Vision Tech</span>
+                    <span className="relative z-10 text-sm text-foreground">Founder, Mad Vision Tech</span>
                   </motion.div>
                 </StaggerItem>
                 <StaggerItem y={16}>
@@ -207,7 +207,7 @@ export default function FounderPageContent() {
                 <h2 className="text-2xl font-serif text-foreground">About Me</h2>
               </div>
               <p className="relative z-10 text-lg text-muted-foreground leading-relaxed">
-                {`I'm Vivek Vora, a Full-Stack Developer and Founder of Vision Tech, specializing in building smart,
+                {`I'm Vivek Vora, a Full-Stack Developer and Founder of Mad Vision Tech, specializing in building smart,
                 scalable digital solutions. I help businesses transform their operations by creating custom apps,
                 high-performance systems, and modern technology workflows. With a deep focus on quality, automation, and
                 user-centric design, I turn ideas into powerful products that drive real growth.`}
@@ -278,7 +278,7 @@ export default function FounderPageContent() {
       </section>
 
       {/* Running Strip - Dark */}
-      <RunningStrip text="VISION TECH • VIVEK VORA" reverse speed={20} dark />
+      <RunningStrip text="MAD VISION TECH • VIVEK VORA" reverse speed={20} dark />
 
       {/* Skills Cloud */}
       <section className="py-24 relative bg-background">
@@ -335,7 +335,7 @@ export default function FounderPageContent() {
               </motion.div>
               <h2 className="relative z-10 text-3xl font-serif mb-6 text-foreground">Key Achievement</h2>
               <p className="relative z-10 text-lg text-muted-foreground leading-relaxed">
-                Founded Vision Tech and delivered scalable digital solutions across multiple industries including retail,
+                Founded Mad Vision Tech and delivered scalable digital solutions across multiple industries including retail,
                 services, and SMBs. Leading a team of 14+ professionals to build enterprise-grade products that serve
                 thousands of users daily.
               </p>

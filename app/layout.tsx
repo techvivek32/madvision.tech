@@ -10,12 +10,12 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "Vision Tech | Turning Vision Into Innovation",
+  title: "Mad Vision Tech | Turning Vision Into Innovation",
   description:
-    "Vision Tech delivers advanced AI-powered SaaS products and enterprise-grade ERP systems designed for modern businesses.",
+    "Mad Vision Tech delivers advanced AI-powered SaaS products and enterprise-grade ERP systems designed for modern businesses.",
   keywords: ["AI Solutions", "SaaS Development", "ERP Systems", "Web Development", "Mobile Apps", "Cloud DevOps"],
   authors: [{ name: "Vivek Vora", url: "https://visiontech.com" }],
-  creator: "Vision Tech",
+  creator: "Mad Vision Tech",
     generator: 'v0.app'
 }
 

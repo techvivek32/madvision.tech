@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const name = profileBySlug(slug)?.name ?? demoBySlug(slug)?.name
   return {
-    title: name ? `${name} — Preview by Vision Tech` : "Demo | Vision Tech",
+    title: name ? `${name} — Preview by Mad Vision Tech` : "Demo | Mad Vision Tech",
     robots: { index: false, follow: false },
   }
 }
@@ -46,7 +46,7 @@ export default async function LeadDemoPage({ params }: { params: Promise<{ slug:
         <span className="font-semibold" style={{ color: "#c8ff00" }}>
           PREVIEW
         </span>{" "}
-        — built by Vision Tech for {demo.name}. Your real prices &amp; reviews go here. Live in 48h, $299 one-time.{" "}
+        — built by Mad Vision Tech for {demo.name}. Your real prices &amp; reviews go here. Live in 48h, $299 one-time.{" "}
         <Link href="/contact" className="underline underline-offset-2 font-medium">
           Make it real →
         </Link>

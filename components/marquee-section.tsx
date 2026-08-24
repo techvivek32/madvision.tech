@@ -45,7 +45,7 @@ export default function MarqueeSection() {
 }
 
 export function RunningStrip({
-  text = "VISION TECH",
+  text = "MAD VISION TECH",
   reverse = false,
   dark = false,
   speed = 20,
@@ -95,7 +95,7 @@ export function RunningStrip({
 }
 
 export function LargeTextMarquee({
-  text = "VISION TECH",
+  text = "MAD VISION TECH",
   reverse = false,
   speed = 40,
 }: {

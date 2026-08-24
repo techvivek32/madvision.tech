@@ -31,7 +31,7 @@ function isEmail(value: string) {
 
 type Fields = { name: string; email: string; company: string; service: string; message: string }
 
-/* ---------------- 1. what lands in the Vision Tech inbox ---------------- */
+/* ---------------- 1. what lands in the Mad Vision Tech inbox ---------------- */
 function notificationHtml(f: Fields) {
   return `
     <h3>New Contact Form Submission</h3>
@@ -63,7 +63,7 @@ function confirmationHtml(f: Fields) {
     <tr>
       <td style="background:#0a0a0f;border-radius:14px 14px 0 0;padding:32px 32px 28px;">
         <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.2;color:#ffffff;">
-          Vision <span style="font-style:italic;">Tech</span>
+          Mad Vision <span style="font-style:italic;">Tech</span>
         </div>
         <div style="width:28px;height:3px;background:#c8ff00;margin:12px 0 0;font-size:0;line-height:0;">&nbsp;</div>
       </td>
@@ -105,7 +105,7 @@ function confirmationHtml(f: Fields) {
         <p style="margin:26px 0 0;font-size:14.5px;line-height:1.75;color:#444444;">
           Warm regards,<br>
           <strong style="color:#111111;">Vivek Vora</strong><br>
-          <span style="font-size:12px;color:#8a8a8a;">Founder &amp; CEO, Vision Tech</span>
+          <span style="font-size:12px;color:#8a8a8a;">Founder &amp; CEO, Mad Vision Tech</span>
         </p>
       </td>
     </tr>
@@ -162,7 +162,7 @@ function confirmationText(f: Fields) {
     'Need us sooner? Reply straight to this email, or WhatsApp +91 83206 93440.',
     '',
     'Warm regards,',
-    'Vivek Vora — Founder & CEO, Vision Tech',
+    'Vivek Vora — Founder & CEO, Mad Vision Tech',
     `${CONTACT_EMAIL} · +91 83206 93440 · madvision.tech`,
     '',
     "You're receiving this because you submitted the contact form on madvision.tech.",
@@ -211,7 +211,7 @@ export async function POST(request: NextRequest) {
 
     /* 1. The lead notification — this is the one that must succeed. */
     const result = await transporter.sendMail({
-      from: `"Vision Tech Website" <${smtpUser}>`,
+      from: `"Mad Vision Tech Website" <${smtpUser}>`,
       to: CONTACT_EMAIL,
       replyTo: fields.email,
       subject: `Contact Form: ${fields.service || 'General Inquiry'} — ${fields.name}`,
@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
     let confirmationSent = false
     try {
       await transporter.sendMail({
-        from: `"Vision Tech" <${smtpUser}>`,
+        from: `"Mad Vision Tech" <${smtpUser}>`,
         to: fields.email,
         replyTo: CONTACT_EMAIL,
         subject: `Thanks for reaching out, ${fields.name.split(' ')[0] || fields.name} — we've got your message`,

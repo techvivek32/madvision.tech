@@ -4,9 +4,9 @@ import Footer from "@/components/footer"
 import PortfolioPageContent from "@/components/portfolio-page-content"
 
 export const metadata: Metadata = {
-  title: "Portfolio | Vision Tech",
+  title: "Portfolio | Mad Vision Tech",
   description:
-    "The Vision Tech shipping ledger — a numbered archive of successful, live products including Retailians POS and 911 Wrap ERP.",
+    "The Mad Vision Tech shipping ledger — a numbered archive of successful, live products including Retailians POS and 911 Wrap ERP.",
 }
 
 export default function PortfolioPage() {

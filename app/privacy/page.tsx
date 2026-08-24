@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
           <p className="text-muted-foreground mb-6">This Privacy Policy is governed by Indian laws. Any disputes shall be subject to the exclusive jurisdiction of courts in Rajkot, Gujarat, India.</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">10. Contact Information</h2>
-          <p className="text-muted-foreground">Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 83206 93440<br/>Head Office: R.K. World Tower, Rajkot, Gujarat, India<br/>Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad, Gujarat 380015</p>
+          <p className="text-muted-foreground">Mad Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 83206 93440<br/>Head Office: R.K. World Tower, Rajkot, Gujarat, India<br/>Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad, Gujarat 380015</p>
         </div>
       </div>
     </div>

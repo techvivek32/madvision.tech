@@ -7,10 +7,10 @@ export default function TermsOfService() {
           <p className="text-muted-foreground mb-6">Last updated: {new Date().toLocaleDateString()}</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">1. Acceptance of Terms</h2>
-          <p className="text-muted-foreground mb-6">By accessing Vision Tech services, you agree to be bound by these terms, Indian laws including Information Technology Act 2000, Consumer Protection Act 2019, and Gujarat state regulations.</p>
+          <p className="text-muted-foreground mb-6">By accessing Mad Vision Tech services, you agree to be bound by these terms, Indian laws including Information Technology Act 2000, Consumer Protection Act 2019, and Gujarat state regulations.</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">2. Company Information</h2>
-          <p className="text-muted-foreground mb-6">Vision Tech is a technology company registered in Gujarat, India, providing SaaS solutions (Retailians POS, 911 Wrap ERP, DSAT Guru) in compliance with Indian business regulations.</p>
+          <p className="text-muted-foreground mb-6">Mad Vision Tech is a technology company registered in Gujarat, India, providing SaaS solutions (Retailians POS, 911 Wrap ERP, DSAT Guru) in compliance with Indian business regulations.</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">3. Service Availability</h2>
           <p className="text-muted-foreground mb-6">Services are provided "as is" with 99.9% uptime SLA. Planned maintenance will be notified 24 hours in advance. Force majeure events are excluded from SLA calculations.</p>
@@ -60,7 +60,7 @@ export default function TermsOfService() {
           <p className="text-muted-foreground mb-6">Name: Grievance Officer<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 83206 93440<br/>Response time: 72 hours</p>
           
           <h2 className="text-2xl font-semibold mb-4 text-foreground">14. Contact Information</h2>
-          <p className="text-muted-foreground">Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 83206 93440<br/>Head Office: R.K. World Tower, Rajkot, Gujarat, India<br/>Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad, Gujarat 380015<br/>Business Hours: 9 AM - 6 PM IST</p>
+          <p className="text-muted-foreground">Mad Vision Tech<br/>Email: madevisionstudios@gmail.com<br/>Phone: +91 83206 93440<br/>Head Office: R.K. World Tower, Rajkot, Gujarat, India<br/>Ahmedabad Branch: Titanium City Center Business Park, Ahmedabad, Gujarat 380015<br/>Business Hours: 9 AM - 6 PM IST</p>
         </div>
       </div>
     </div>

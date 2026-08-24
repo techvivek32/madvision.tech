@@ -49,7 +49,7 @@ const values = [
 ]
 
 const milestones = [
-  { year: "2019", title: "Founded", description: "Vision Tech was born with a mission to democratize technology" },
+  { year: "2019", title: "Founded", description: "Mad Vision Tech was born with a mission to democratize technology" },
   { year: "2020", title: "First Product", description: "Launched Retailians POS, our flagship product" },
   { year: "2021", title: "Team Growth", description: "Expanded to a team of 10+ talented professionals" },
   { year: "2022", title: "Enterprise", description: "Released 911 Wrap ERP for enterprise clients" },
@@ -110,7 +110,7 @@ export default function AboutPageContent() {
               <RevealText as="span" by="word" delay={0.18} text="of Technology" className="inline" />
             </h1>
             <Reveal as="p" y={16} delay={0.3} className="text-lg text-muted-foreground max-w-xl">
-              Vision Tech delivers advanced AI-powered SaaS products and enterprise-grade ERP systems designed for
+              Mad Vision Tech delivers advanced AI-powered SaaS products and enterprise-grade ERP systems designed for
               modern businesses.
             </Reveal>
           </div>
@@ -167,7 +167,7 @@ export default function AboutPageContent() {
       </section>
 
       {/* Large Text Marquee */}
-      <LargeTextMarquee text="VISION TECH • SINCE 2019" speed={30} />
+      <LargeTextMarquee text="MAD VISION TECH • SINCE 2019" speed={30} />
 
       {/* Values Section */}
       <section className="py-24 bg-background">
@@ -354,7 +354,7 @@ export default function AboutPageContent() {
                 Meet Our <GradientText tone="dark">Founder</GradientText>
               </h2>
               <p className="text-background/70 mb-10 max-w-xl mx-auto text-lg">
-                Learn more about the visionary behind Vision Tech and his journey in technology.
+                Learn more about the visionary behind Mad Vision Tech and his journey in technology.
               </p>
               <MagneticButton
                 as={Link}

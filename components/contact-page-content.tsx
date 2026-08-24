@@ -495,7 +495,7 @@ export default function ContactPageContent() {
       </section>
 
       {/* Running Strip - Dark */}
-      <RunningStrip text="VISION TECH • LET'S BUILD TOGETHER" reverse speed={20} dark />
+      <RunningStrip text="MAD VISION TECH • LET'S BUILD TOGETHER" reverse speed={20} dark />
 
       {/* Map/Location Section */}
       <section ref={mapRef} className="py-20 relative overflow-hidden bg-background">
@@ -521,7 +521,7 @@ export default function ContactPageContent() {
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title={`Vision Tech — ${office.label}`}
+                      title={`Mad Vision Tech — ${office.label}`}
                       className="absolute inset-0 w-full h-full"
                     />
                   </div>

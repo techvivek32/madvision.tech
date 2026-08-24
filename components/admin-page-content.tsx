@@ -250,7 +250,7 @@ export default function AdminPageContent() {
           </div>
           <h1 className="font-serif text-2xl text-foreground mb-1">Mission Control</h1>
           <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-6">
-            Vision Tech · Restricted
+            Mad Vision Tech · Restricted
           </p>
           <input
             type="password"
@@ -338,7 +338,7 @@ export default function AdminPageContent() {
         <div className="container mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Vision Tech · Agency OS
+              Mad Vision Tech · Agency OS
             </p>
             <h1 className="font-serif text-3xl text-foreground">Mission Control</h1>
           </div>
@@ -1028,14 +1028,14 @@ function Friday({ data }: { data: Agency }) {
         )
       } else if (/who are you|tu kon|tame kon|kaun ho/.test(t)) {
         speak(
-          "I am Friday — Vision Tech's operations AI. I watch the agency pipeline, the agents, and the money, and I report only the truth to you, Boss.",
+          "I am Friday — Mad Vision Tech's operations AI. I watch the agency pipeline, the agents, and the money, and I report only the truth to you, Boss.",
         )
       } else if (/my name|what.*name|maru naam|mara naam|naam su|naam khabar|naam khbar|who am i|hu kon|hu kaun/.test(t)) {
         const boss = data.brain?.boss
         speak(
           boss
-            ? `You're ${boss.name}, Boss${boss.role ? " — " + boss.role + " of Vision Tech" : ""}. Of course I know who I work for.`
-            : "You're the boss — the founder of Vision Tech.",
+            ? `You're ${boss.name}, Boss${boss.role ? " — " + boss.role + " of Mad Vision Tech" : ""}. Of course I know who I work for.`
+            : "You're the boss — the founder of Mad Vision Tech.",
         )
       } else if (/pric|rate|charge|how much|cost|kimat|bhav|kitla|ketla/.test(t)) {
         const pc = data.strategy?.pricingByCountry

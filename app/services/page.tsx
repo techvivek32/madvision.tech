@@ -4,7 +4,7 @@ import Footer from "@/components/footer"
 import ServicesPageContent from "@/components/services-page-content"
 
 export const metadata: Metadata = {
-  title: "Services | Vision Tech",
+  title: "Services | Mad Vision Tech",
   description:
     "Explore our comprehensive IT services including AI Solutions, SaaS Development, ERP Systems, Mobile Apps, Cloud DevOps, and more.",
 }

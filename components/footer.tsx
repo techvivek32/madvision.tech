@@ -87,7 +87,7 @@ export default function Footer() {
       <div className="py-4 overflow-hidden border-b border-white/10 mask-fade-x">
         <motion.div className="flex whitespace-nowrap animate-marquee" style={{ animationDuration: "30s" }}>
           {Array(20)
-            .fill("VISION TECH")
+            .fill("MAD VISION TECH")
             .map((item, i) => (
               <span key={i} className="text-sm font-bold uppercase tracking-[0.3em] mx-8 text-white/30">
                 {item} <span className="text-[#c8ff00]/50">★</span>
@@ -103,7 +103,7 @@ export default function Footer() {
           <Reveal className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6 group">
               <span className="relative text-3xl font-bold text-white">
-                Vision Tech
+                Mad Vision Tech
                 <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-[#c8ff00] transition-transform duration-300 group-hover:scale-x-100" />
               </span>
             </Link>
@@ -250,7 +250,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <Reveal as="p" y={8} className="text-white/30 text-sm">
-            © {new Date().getFullYear()} Vision Tech. All rights reserved.
+            © {new Date().getFullYear()} Mad Vision Tech. All rights reserved.
           </Reveal>
           <Reveal delay={0.08} y={8} className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-white/30 hover:text-white transition-colors">

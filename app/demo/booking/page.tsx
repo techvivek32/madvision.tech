@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Northside Auto Spa — Demo Booking Site | Vision Tech",
+  title: "Northside Auto Spa — Demo Booking Site | Mad Vision Tech",
   description:
-    "Live demo of a Vision Tech one-page booking micro-site: services, prices, reviews and one-tap booking — live in 48 hours for $299.",
+    "Live demo of a Mad Vision Tech one-page booking micro-site: services, prices, reviews and one-tap booking — live in 48 hours for $299.",
   robots: { index: false, follow: false },
 }
 
@@ -61,7 +61,7 @@ export default function DemoBookingPage() {
         <span className="font-semibold" style={{ color: "#c8ff00" }}>
           LIVE DEMO
         </span>{" "}
-        — a Vision Tech one-page booking site. Yours: live in 48 hours, $299 one-time.{" "}
+        — a Mad Vision Tech one-page booking site. Yours: live in 48 hours, $299 one-time.{" "}
         <Link href="/contact" className="underline underline-offset-2 font-medium">
           Get yours →
         </Link>
@@ -155,7 +155,7 @@ export default function DemoBookingPage() {
         <div className="rounded-2xl border-2 border-dashed border-slate-300 p-6">
           <p className="text-sm text-slate-600 mb-3">
             This entire page is a <strong>demo</strong> — imagine it with <em>your</em> services, prices and reviews.
-            Built by <strong>Vision Tech</strong> (Kelowna BC · Rajkot IN) — live in 48 hours, <strong>$299 one-time</strong>, no monthly fees.
+            Built by <strong>Mad Vision Tech</strong> (Kelowna BC · Rajkot IN) — live in 48 hours, <strong>$299 one-time</strong>, no monthly fees.
           </p>
           <Link
             href="/contact"

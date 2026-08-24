@@ -129,7 +129,7 @@ export default function HeroSection() {
           <AnimatedDivider className="text-foreground mx-auto max-w-[8rem] mb-8" />
 
           <Reveal as="p" y={16} delay={0.45} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            Vision Tech crafts intelligent SaaS platforms, AI-driven products, and
+            Mad Vision Tech crafts intelligent SaaS platforms, AI-driven products, and
             enterprise solutions using cutting-edge technologies.
           </Reveal>
 
