@@ -59,11 +59,11 @@ type Office = {
 const offices: Office[] = [
   {
     label: "Head Office",
-    lines: ["R.K. Empire", "Rajkot, Gujarat, India"],
+    lines: ["R.K. World Tower", "Rajkot, Gujarat, India"],
     phoneLabel: "Call / WhatsApp",
     phoneDisplay: "+91 96011 76051",
     phoneHref: "https://wa.me/919601176051",
-    mapQuery: "R.K. Empire, Rajkot, Gujarat",
+    mapQuery: "R.K. World Tower, Rajkot, Gujarat",
   },
   {
     label: "Ahmedabad Branch",

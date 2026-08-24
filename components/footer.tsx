@@ -164,7 +164,7 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 mt-0.5 shrink-0 transition-colors group-hover:text-[#c8ff00]" />
                   <span>
                     <span className="block text-xs uppercase tracking-wider text-white/35">Head Office</span>
-                    R.K. Empire, Rajkot, Gujarat, India
+                    R.K. World Tower, Rajkot, Gujarat, India
                   </span>
                 </motion.div>
               </StaggerItem>
