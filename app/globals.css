@@ -353,3 +353,35 @@ html {
     animation: none !important;
   }
 }
+
+/* ================================================================== */
+/*  Splash dissolve                                                   */
+/*  One keyframe shared by every cell; the per-cell delay is set       */
+/*  inline. This is CSS rather than JS because the grid runs to a      */
+/*  couple of thousand cells at small pixel sizes — animating each     */
+/*  one from JavaScript would drop frames on the reveal.               */
+/* ================================================================== */
+.splash-cell {
+  background: var(--dark-section);
+  transform: scale(1.06); /* hair of overscale so no seams show between cells */
+  will-change: opacity, transform;
+}
+
+.splash-cell--out {
+  animation: splash-cell-out var(--splash-cell-fade, 0.45s)
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes splash-cell-out {
+  to {
+    opacity: 0;
+    transform: scale(0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-cell--out {
+    animation: none;
+    opacity: 0;
+  }
+}
