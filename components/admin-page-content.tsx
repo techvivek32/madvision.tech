@@ -359,7 +359,7 @@ export default function AdminPageContent() {
                 {repliedLeads.length} lead{repliedLeads.length > 1 ? "s" : ""} replied — go win {repliedLeads.length > 1 ? "them" : "it"}, Boss.
               </p>
               <p className="text-sm text-muted-foreground mt-1">
-                {repliedLeads.map((l) => l.business).join(", ")} — open your info@madvision.tech inbox and reply personally.
+                {repliedLeads.map((l) => l.business).join(", ")} — open your madevisionstudios@gmail.com inbox and reply personally.
               </p>
             </div>
           </div>
@@ -1085,7 +1085,7 @@ function Friday({ data }: { data: Agency }) {
         )
       } else if (/contact|email|phone|whatsapp|number/.test(t)) {
         speak(
-          "Company email info@madvision.tech. India WhatsApp nine six zero one one seven six zero five one — that lives in Brave. Canada WhatsApp plus one eight two five, nine zero seven, zero zero three six — that lives in Chrome, along with Titan mail.",
+          "Company email madevisionstudios@gmail.com. India WhatsApp nine six zero one one seven six zero five one — that lives in Brave. Canada WhatsApp plus one eight two five, nine zero seven, zero zero three six — that lives in Chrome, along with Titan mail.",
         )
       } else if (/resource|needed|joie|aapvanu/.test(t)) {
         const pending = (data.resourcesNeeded || []).filter((r) => r.status.includes("pending") || r.status.includes("promised"))

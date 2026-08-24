@@ -43,7 +43,7 @@ Mission Control dashboard (the site auto-syncs it into live storage after each d
    Note each lead's timezone so the founder pitches in their business hours.
 
 3. PITCH DRAFTS: Every lead by definition now has a reachable channel. Draft pitchEmailSubject + pitchEmailBody
-   (120-180 words, from Vivek Vora, Founder & CEO, Vision Tech, info@madvision.tech; something
+   (120-180 words, from Vivek Vora, Founder & CEO, Vision Tech, madevisionstudios@gmail.com; something
    specific about their business; one clear offer with price; one CTA; polite opt-out line) and
    pitchWhatsApp (2-3 sentences). Canada leads: CASL-compliant tone — identify sender, mention the
    Kelowna BC office (Dolphin Ave, Kelowna, BC V1Y 9J7), easy opt-out.

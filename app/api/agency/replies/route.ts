@@ -27,7 +27,7 @@ async function scanInbox(leadEmails: Set<string>) {
     host: process.env.IMAP_HOST || "imap.titan.email",
     port: Number(process.env.IMAP_PORT || 993),
     secure: true,
-    auth: { user: process.env.SMTP_USER || "info@madvision.tech", pass: process.env.SMTP_PASS as string },
+    auth: { user: process.env.SMTP_USER || "madevisionstudios@gmail.com", pass: process.env.SMTP_PASS as string },
     logger: false,
   })
   const hits: { from: string; subject: string; date: string | null }[] = []

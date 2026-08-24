@@ -36,8 +36,8 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: "Email Us",
-    value: "info@madvision.tech",
-    href: "mailto:info@madvision.tech",
+    value: "madevisionstudios@gmail.com",
+    href: "mailto:madevisionstudios@gmail.com",
   },
   {
     icon: Phone,
@@ -143,7 +143,7 @@ export default function ContactPageContent() {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Failed to send message. Please try again.')
+      alert((error as Error).message || 'Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -482,10 +482,10 @@ export default function ContactPageContent() {
               <SpotlightCard tone="light" className="mt-2 p-6 rounded-2xl bg-card border border-border">
                 <p className="relative z-10 text-sm text-muted-foreground mb-2">Prefer to email directly?</p>
                 <a
-                  href="mailto:info@madvision.tech"
+                  href="mailto:madevisionstudios@gmail.com"
                   className="relative z-10 text-foreground font-medium flex items-center gap-2 hover:gap-3 transition-all"
                 >
-                  info@madvision.tech
+                  madevisionstudios@gmail.com
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </SpotlightCard>

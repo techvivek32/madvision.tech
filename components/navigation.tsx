@@ -287,10 +287,10 @@ export default function Navigation() {
                 >
                   <p className="text-sm text-background/40 mb-2">Get in touch</p>
                   <a
-                    href="mailto:info@madvision.tech"
+                    href="mailto:madevisionstudios@gmail.com"
                     className="text-background/80 hover:text-background transition-colors text-lg"
                   >
-                    info@madvision.tech
+                    madevisionstudios@gmail.com
                   </a>
                 </motion.div>
               </div>
