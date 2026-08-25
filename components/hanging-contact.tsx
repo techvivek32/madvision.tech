@@ -91,8 +91,26 @@ export default function HangingContact() {
   const rotate = useTransform(x, [-150, 150], [18, -18])
 
   return (
+    /* HORIZONTAL anchoring only — the vertical position is unchanged.
+       This used to be left-[5%] of the viewport while the header logo is
+       measured from the centred column's edge. Two different origins, so the
+       gap between them drifted with screen width: 28px apart at 1920, but a
+       191px overlap at 1433. calc(50% - n) tracks the column instead, which
+       keeps that gap identical at every size. */
     <div
-      className="pointer-events-none absolute left-[5%] top-0 z-30 hidden xl:block"
+      className={[
+        "pointer-events-none absolute top-0 z-30 hidden",
+        // The content column is centred, so calc(50% - 864px) tracks its left
+        // edge exactly and the tag keeps a constant 4px gap from the logo at
+        // EVERY width above the breakpoint — 1920, 2560, anything.
+        "left-[calc(50%_-_864px)]",
+        // 1744px is where the gutter beside the logo finally becomes wider
+        // than the tag. Below it there is physically no room: at 1600 the
+        // gutter is 160px for a 220px tag, and scaling the tag down to fit
+        // would leave the card ~92px wide, far too small to read. So it is
+        // hidden rather than shown overlapping the logo.
+        "min-[1744px]:block",
+      ].join(" ")}
       style={{ width: W, height: H }}
     >
       {/* gentle idle sway, pivoting at the peg so cord + card move together */}
